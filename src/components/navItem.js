@@ -9,7 +9,7 @@ const NavItem = ({ children, open }) => {
       switch (action) {
         case "colorChange":
           animation.opacity = 1;
-          animation.transform = " translateY(100px)";
+          animation.transform = " translateX(50px)";
           break;
         default:
       }
@@ -21,7 +21,7 @@ const NavItem = ({ children, open }) => {
       transition: "all 0.3s ease-out",
       transitionDelay: "0.1s",
       transitionProperty: "opacity, transform",
-      transform: " translateY(-20px)",
+      transform: " translateX(-20px)",
       opacity: 0,
       ...animation,
     };

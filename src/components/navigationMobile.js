@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import Hamburger from "./hamburger";
-import PropTypes from "prop-types";
 import { useState } from "react";
 import DropDownMobile from "./dropdownMobile";
 import NavItem from "./navItem";
@@ -53,7 +52,3 @@ const NavigationMobile = ({ logo }) => {
 };
 
 export default NavigationMobile;
-
-NavigationMobile.propTypes = {
-  navitems: PropTypes.object.isRequired,
-};
