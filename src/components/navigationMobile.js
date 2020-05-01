@@ -36,10 +36,12 @@ const NavigationMobile = ({ logo }) => {
             li: { margin: "28px" },
           }}
         >
-          <NavItem>
-            <AnchorLink setOpen={setOpen} href={`#`}>
-              link
-            </AnchorLink>
+          <NavItem open={open}>
+            <span onClick={() => setOpen(!open)}>
+              <AnchorLink setOpen={setOpen} href={`#`}>
+                link
+              </AnchorLink>
+            </span>
           </NavItem>
         </ul>
       </DropDownMobile>
