@@ -3,12 +3,11 @@ import PropTypes from "prop-types";
 import { jsx } from "theme-ui";
 import { Link } from "gatsby";
 
-const AnchorLink = ({ children, href, setOpen }) => {
+const AnchorLink = ({ children, href }) => {
   return (
     <Link
       to={href}
       aria-label={`Link to ${href}`}
-      onClick={() => setOpen(false)}
       activeClassName="active"
       sx={{
         color: "black",

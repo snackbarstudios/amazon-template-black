@@ -37,9 +37,11 @@ const NavigationMobile = ({ logo }) => {
           }}
         >
           <NavItem open={open}>
-            <AnchorLink setOpen={setOpen} href={`#`}>
-              link
-            </AnchorLink>
+            <span onClick={() => setOpen(!open)}>
+              <AnchorLink setOpen={setOpen} href={`#`}>
+                link
+              </AnchorLink>
+            </span>
           </NavItem>
         </ul>
       </DropDownMobile>
