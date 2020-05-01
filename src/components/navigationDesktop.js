@@ -18,8 +18,14 @@ const NavigationDesktop = ({ logo }) => {
         </div>
         <div sx={{ width: "30%" }}>
           <ul sx={{ display: "flex", justifyContent: "flex-end" }}>
-            <li sx={{ listStyle: "none" }}>
-              <AnchorLink href={`#`}>link</AnchorLink>
+            <li sx={{ listStyle: "none", marginX: 2 }}>
+              <AnchorLink href={`/about/`}>About</AnchorLink>
+            </li>
+            <li sx={{ listStyle: "none", marginX: 2 }}>
+              <AnchorLink href={`/products/`}>Products</AnchorLink>
+            </li>
+            <li sx={{ listStyle: "none", marginX: 2 }}>
+              <AnchorLink href={`/contact/`}>Contact</AnchorLink>
             </li>
           </ul>
         </div>

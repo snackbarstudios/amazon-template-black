@@ -26,7 +26,7 @@ const NavItem = ({ children, open }) => {
       ...animation,
     };
   };
-  return <li sx={item("colorChange")}>{children}</li>;
+  return <li sx={(item("colorChange"), { marginX: 3 })}>{children}</li>;
 };
 
 export default NavItem;
