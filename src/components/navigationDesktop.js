@@ -17,7 +17,7 @@ const NavigationDesktop = ({ logo }) => {
           <img src={logo.fluid.src} alt={logo.alt} />
         </div>
         <div sx={{ width: "30%" }}>
-          <ul sx={{ display: "flex", width: "100%" }}>
+          <ul sx={{ display: "flex", justifyContent: "flex-end" }}>
             <li sx={{ listStyle: "none" }}>
               <AnchorLink href={`#`}>link</AnchorLink>
             </li>

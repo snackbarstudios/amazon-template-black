@@ -9,7 +9,13 @@ const AnchorLink = ({ children, href, setOpen }) => {
       to={href}
       aria-label={`Link to ${href}`}
       onClick={() => setOpen(false)}
-      sx={{ color: "black" }}
+      activeClassName="active"
+      sx={{
+        color: "black",
+        "&.active": {
+          color: "highlight",
+        },
+      }}
     >
       {children}
     </Link>
