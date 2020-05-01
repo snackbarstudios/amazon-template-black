@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import Hamburger from "./hamburger";
-import PropTypes from "prop-types";
 import { useState } from "react";
 import DropDownMobile from "./dropdownMobile";
 import NavItem from "./navItem";
@@ -37,11 +36,19 @@ const NavigationMobile = ({ logo }) => {
           }}
         >
           <NavItem open={open}>
-            <span onClick={() => setOpen(!open)}>
-              <AnchorLink setOpen={setOpen} href={`#`}>
-                link
-              </AnchorLink>
-            </span>
+            <AnchorLink setOpen={setOpen} href={`/about/`}>
+              <span onClick={() => setOpen(!open)}>About</span>
+            </AnchorLink>
+          </NavItem>
+          <NavItem open={open}>
+            <AnchorLink setOpen={setOpen} href={`/products/`}>
+              <span onClick={() => setOpen(!open)}>Products</span>
+            </AnchorLink>
+          </NavItem>
+          <NavItem open={open}>
+            <AnchorLink setOpen={setOpen} href={`/contact/`}>
+              <span onClick={() => setOpen(!open)}>Contact</span>
+            </AnchorLink>
           </NavItem>
         </ul>
       </DropDownMobile>
@@ -53,7 +60,3 @@ const NavigationMobile = ({ logo }) => {
 };
 
 export default NavigationMobile;
-
-NavigationMobile.propTypes = {
-  navitems: PropTypes.object.isRequired,
-};

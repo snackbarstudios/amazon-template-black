@@ -11,6 +11,7 @@ const AnchorLink = ({ children, href }) => {
       activeClassName="active"
       sx={{
         color: "black",
+        textDecoration: "none",
         "&.active": {
           color: "highlight",
         },

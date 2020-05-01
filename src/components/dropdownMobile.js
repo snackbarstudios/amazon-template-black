@@ -9,7 +9,7 @@ const DropDownMobile = ({ children, open }) => {
       switch (action) {
         case "dropdown":
           animation.visibility = "visible";
-          animation.height = "100vh";
+          animation.width = "100%";
           break;
         default:
       }
@@ -19,13 +19,14 @@ const DropDownMobile = ({ children, open }) => {
       color: "primary",
       display: "flex",
       flexDirection: "column",
-      height: "0",
+      height: "100vh",
       position: "absolute",
       left: 0,
       top: 0,
       zIndex: 10,
-      width: "100%",
+      width: "0",
       visibility: "hidden",
+      overflow: "hidden",
       justifyContent: "center",
       transition: "all 0.6s ease-out ",
 
