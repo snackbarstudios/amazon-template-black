@@ -1,0 +1,141 @@
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+import cloneDeep from 'lodash/cloneDeep';
+
+import errorHandler from './error-handler';
+
+/**
+ * @private
+ */
+export function createUpdateEntity(_ref) {
+  var http = _ref.http,
+      entityPath = _ref.entityPath,
+      wrapperMethod = _ref.wrapperMethod,
+      headers = _ref.headers;
+
+  return function () {
+    var raw = this.toPlainObject();
+    var data = cloneDeep(raw);
+    delete data.sys;
+    return http.put(entityPath + '/' + this.sys.id, data, {
+      headers: _extends({
+        'X-Contentful-Version': this.sys.version || 0 }, headers)
+    }).then(function (response) {
+      return wrapperMethod(http, response.data);
+    }, errorHandler);
+  };
+}
+
+/**
+ * @private
+ */
+export function createDeleteEntity(_ref2) {
+  var http = _ref2.http,
+      entityPath = _ref2.entityPath;
+
+  return function () {
+    return http.delete(entityPath + '/' + this.sys.id).then(function (response) {}, errorHandler);
+  };
+}
+
+/**
+ * @private
+ */
+export function createPublishEntity(_ref3) {
+  var http = _ref3.http,
+      entityPath = _ref3.entityPath,
+      wrapperMethod = _ref3.wrapperMethod;
+
+  return function () {
+    return http.put(entityPath + '/' + this.sys.id + '/published', null, {
+      headers: {
+        'X-Contentful-Version': this.sys.version
+      }
+    }).then(function (response) {
+      return wrapperMethod(http, response.data);
+    }, errorHandler);
+  };
+}
+
+/**
+ * @private
+ */
+export function createUnpublishEntity(_ref4) {
+  var http = _ref4.http,
+      entityPath = _ref4.entityPath,
+      wrapperMethod = _ref4.wrapperMethod;
+
+  return function () {
+    return http.delete(entityPath + '/' + this.sys.id + '/published').then(function (response) {
+      return wrapperMethod(http, response.data);
+    }, errorHandler);
+  };
+}
+
+/**
+ * @private
+ */
+export function createArchiveEntity(_ref5) {
+  var http = _ref5.http,
+      entityPath = _ref5.entityPath,
+      wrapperMethod = _ref5.wrapperMethod;
+
+  return function () {
+    return http.put(entityPath + '/' + this.sys.id + '/archived').then(function (response) {
+      return wrapperMethod(http, response.data);
+    }, errorHandler);
+  };
+}
+
+/**
+ * @private
+ */
+export function createUnarchiveEntity(_ref6) {
+  var http = _ref6.http,
+      entityPath = _ref6.entityPath,
+      wrapperMethod = _ref6.wrapperMethod;
+
+  return function () {
+    return http.delete(entityPath + '/' + this.sys.id + '/archived').then(function (response) {
+      return wrapperMethod(http, response.data);
+    }, errorHandler);
+  };
+}
+
+/**
+ * @private
+ */
+export function createPublishedChecker() {
+  return function () {
+    return !!this.sys.publishedVersion;
+  };
+}
+
+/**
+ * @private
+ */
+export function createUpdatedChecker() {
+  return function () {
+    // The act of publishing an entity increases its version by 1, so any entry which has
+    // 2 versions higher or more than the publishedVersion has unpublished changes.
+    return !!(this.sys.publishedVersion && this.sys.version > this.sys.publishedVersion + 1);
+  };
+}
+
+/**
+ * @private
+ */
+export function createDraftChecker() {
+  return function () {
+    return !this.sys.publishedVersion;
+  };
+}
+
+/**
+ * @private
+ */
+export function createArchivedChecker() {
+  return function () {
+    return !!this.sys.archivedVersion;
+  };
+}
