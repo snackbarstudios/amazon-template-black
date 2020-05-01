@@ -15,6 +15,7 @@
 /public
 
 .cache
+.vscode
 
 # misc
 .DS_Store
