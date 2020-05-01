@@ -36,7 +36,7 @@ const NavigationMobile = ({ logo }) => {
             li: { margin: "28px" },
           }}
         >
-          <NavItem>
+          <NavItem open={open}>
             <AnchorLink setOpen={setOpen} href={`#`}>
               link
             </AnchorLink>

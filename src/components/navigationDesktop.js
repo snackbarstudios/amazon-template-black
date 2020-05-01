@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import PropTypes from "prop-types";
-import NavItem from "./navItem";
 import AnchorLink from "./anchorLink";
 
 const NavigationDesktop = ({ logo }) => {
@@ -14,14 +13,14 @@ const NavigationDesktop = ({ logo }) => {
       <div
         sx={{ display: "flex", justifyContent: "space-between", padding: 3 }}
       >
-        <div>
+        <div sx={{ width: "30%" }}>
           <img src={logo.fluid.src} alt={logo.alt} />
         </div>
-        <div>
-          <ul sx={{ display: "flex" }}>
-            <NavItem>
+        <div sx={{ width: "30%" }}>
+          <ul sx={{ display: "flex", width: "100%" }}>
+            <li sx={{ listStyle: "none" }}>
               <AnchorLink href={`#`}>link</AnchorLink>
-            </NavItem>
+            </li>
           </ul>
         </div>
       </div>
