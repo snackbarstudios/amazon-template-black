@@ -59,8 +59,7 @@ const Footer = () => {
       </div>
       <div>
         <p>
-          © {new Date().getFullYear()} {copyright}. Powered by
-          Snackbar Studios
+          © {new Date().getFullYear()} {copyright}. Powered by Snackbar Studios
         </p>
       </div>
     </footer>
