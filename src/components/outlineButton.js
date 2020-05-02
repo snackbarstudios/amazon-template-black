@@ -10,7 +10,7 @@ const OutlineButton = ({ text, href, fullWidth }) => {
         width: fullWidth ? "100%" : "150px",
         borderColor: "highlight",
         backgroundColor: ["highlight", "highlight", "transparent"],
-        color: "highlight",
+        color: ["primary", "primary", "highlight"],
         paddingX: "10px",
         paddingY: "3",
         textAlign: "center",

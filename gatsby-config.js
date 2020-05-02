@@ -2,6 +2,8 @@ let env = process.env.NODE_ENV || "development";
 
 require("dotenv").config({ path: `./.env.${env}` });
 
+const path = require(`path`);
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -15,7 +17,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: path.join(__dirname, `src`, `images`),
       },
     },
     `gatsby-transformer-sharp`,
@@ -30,6 +32,15 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["Avenir Next"],
+          urls: ["/fonts/fonts.css"],
+        },
       },
     },
     {

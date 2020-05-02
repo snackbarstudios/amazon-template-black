@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui";
 import OutlineButton from "./outlineButton";
 import { useStaticQuery, graphql } from "gatsby";
+import ImageSlider from "./imageSlider";
 
 const HeroSection = () => {
   const { datoCmsHeroSection } = useStaticQuery(
@@ -23,7 +24,7 @@ const HeroSection = () => {
           }
           heroTitle
           heroDescription
-          heroImage {
+          heroImageSlider {
             fluid {
               ...GatsbyDatoCmsFluid
             }
@@ -36,10 +37,16 @@ const HeroSection = () => {
     heroLink,
     heroTitle,
     heroDescription,
-    heroImage,
+    heroImageSlider,
   } = datoCmsHeroSection;
   return (
-    <div sx={{ display: "flex", height: "60vh" }}>
+    <div
+      sx={{
+        display: "flex",
+        height: "70vh",
+        flexDirection: ["column-reverse", "row"],
+      }}
+    >
       <div sx={{ flex: "1", backgroundColor: "primary" }}>
         <div
           sx={{
@@ -55,17 +62,8 @@ const HeroSection = () => {
           <OutlineButton text={heroLink.slug} href={heroLink.slug} />
         </div>
       </div>
-      <div sx={{ flex: "1" }}>
-        <img
-          sx={{
-            objectFit: "cover",
-            objectPosition: "center",
-            height: "100%",
-            width: "100%",
-          }}
-          src={heroImage.fluid.src}
-          alt="hero"
-        />
+      <div sx={{ flex: "1", position: "relative" }}>
+        <ImageSlider slides={heroImageSlider} />
       </div>
     </div>
   );

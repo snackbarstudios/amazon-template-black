@@ -28,7 +28,7 @@ const PrimaryButton = ({ text, href }) => {
 };
 
 PrimaryButton.propTypes = {
-    href: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
 
