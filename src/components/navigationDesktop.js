@@ -8,6 +8,10 @@ const NavigationDesktop = ({ logo }) => {
     <div
       sx={{
         display: ["none", "block"],
+        position: "fixed",
+        top: "0",
+        width: "100%",
+        left: "0",
       }}
     >
       <div
