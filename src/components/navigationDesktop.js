@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import PropTypes from "prop-types";
 import AnchorLink from "./anchorLink";
 import Logo from "./logo";
 
@@ -12,6 +11,7 @@ const NavigationDesktop = () => {
         position: "fixed",
         top: "0",
         width: "100%",
+        backgroundColor: "white",
         left: "0",
       }}
     >
@@ -52,7 +52,3 @@ const NavigationDesktop = () => {
 };
 
 export default NavigationDesktop;
-
-NavigationDesktop.propTypes = {
-  logo: PropTypes.object.isRequired,
-};

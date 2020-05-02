@@ -53,10 +53,14 @@ const AnchorLink = ({ children, href, open }) => {
   );
 };
 
+AnchorLink.defaultProps = {
+  open: false,
+};
+
 AnchorLink.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
-  open: PropTypes.bool.isRequired,
+  open: PropTypes.bool,
 };
 
 export default AnchorLink;

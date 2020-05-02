@@ -7,7 +7,7 @@ const Header = () => (
   <header
     sx={{
       background: `white`,
-      marginBottom: `1.45rem`,
+      height: "75px",
     }}
   >
     <NavigationDesktop />
