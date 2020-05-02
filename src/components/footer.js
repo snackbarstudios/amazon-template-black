@@ -36,15 +36,15 @@ const Footer = () => {
 
   return (
     <footer>
-      <div sx={{ display: "flex" }}>
-        <div>
-          <p>{contactDetailsHeading}</p>
+      <div sx={{ display: "flex", justifyContent: "space-between" }}>
+        <div xs={{ flex: "1" }}>
+          <h2>{contactDetailsHeading}</h2>
           {contactDetails.map(({ adressLine }, index) => (
             <p key={index}>{adressLine}</p>
           ))}
         </div>
-        <div>
-          <p>{socialMediaHeading}</p>
+        <div xs={{ flex: "1" }}>
+          <h2>{socialMediaHeading}</h2>
           {socialMedia.map(({ title, urlLink }, index) => (
             <p key={index}>
               {title}
@@ -52,9 +52,9 @@ const Footer = () => {
             </p>
           ))}
         </div>
-        <div>
-          <p>{privacyHeading}</p>
-          <p>{privacyTitle}</p>
+        <div xs={{ flex: "1" }}>
+          <h2>{privacyHeading}</h2>
+          <h2>{privacyTitle}</h2>
         </div>
       </div>
       <div>

@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import Navigation from "./navigation";
+import NavigationDesktop from "./navigationDesktop";
+import NavigationMobile from "./navigationMobile";
 
 const Header = () => (
   <header
@@ -9,7 +10,8 @@ const Header = () => (
       marginBottom: `1.45rem`,
     }}
   >
-    <Navigation />
+    <NavigationDesktop />
+    <NavigationMobile />
   </header>
 );
 

@@ -3,19 +3,50 @@ import PropTypes from "prop-types";
 import { jsx } from "theme-ui";
 import { Link } from "gatsby";
 
-const AnchorLink = ({ children, href }) => {
+const AnchorLink = ({ children, href, open }) => {
+  const slide = (action) => {
+    let animation = {};
+    if (open) {
+      switch (action) {
+        case "hideText":
+          animation.opacity = "1";
+          animation.transitionDelay = "0.2s";
+          animation.transition = "opacity 0.5s";
+          break;
+        default:
+      }
+    }
+    return {
+      fontWeight: ["heading", "bold", "bold"],
+      textDecoration: "none",
+      textTransform: "uppercase",
+      color: ["primary", "background"],
+      opacity: "0",
+      transition: "opacity 0.1s",
+      ":hover": {
+        fontWeight: "heading",
+      },
+      ":focus": { fontWeight: "heading" },
+      ...animation,
+    };
+  };
   return (
     <Link
       to={href}
       aria-label={`Link to ${href}`}
       activeClassName="active"
-      sx={{
-        color: "black",
-        textDecoration: "none",
-        "&.active": {
-          color: "highlight",
-        },
-      }}
+      sx={
+        (slide("hideText"),
+        {
+          color: "black",
+          display: "inline-block",
+          textDecoration: "none",
+          overflow: "hidden",
+          "&.active": {
+            color: "highlight",
+          },
+        })
+      }
     >
       {children}
     </Link>
@@ -25,6 +56,7 @@ const AnchorLink = ({ children, href }) => {
 AnchorLink.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
+  open: PropTypes.bool.isRequired,
 };
 
 export default AnchorLink;

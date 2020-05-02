@@ -18,7 +18,7 @@ const NavItem = ({ children, open }) => {
       color: "primary",
       fontFamily: "heading",
       fontWeight: "body",
-      transition: "all 0.3s ease-out",
+      transition: "all 0.8s ease-out",
       transitionDelay: "0.1s",
       transitionProperty: "opacity, transform",
       transform: " translateX(-20px)",
