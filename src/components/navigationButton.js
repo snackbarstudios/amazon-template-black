@@ -8,6 +8,7 @@ const style = {
   buttonWrapper: {
     backgroundColor: "primary",
     border: "1px solid",
+    outline: "none",
     borderColor: "white",
     color: "white",
     height: ["33px", "45px", "64px"],
@@ -21,7 +22,7 @@ const style = {
     },
   },
   iconStyling: {
-    fontSize: [0, 2],
+    fontSize: [3, 4],
     fontWeight: "heading",
   },
 };

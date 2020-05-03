@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import OutlineButton from "./outlineButton";
 import { useStaticQuery, graphql } from "gatsby";
 import ImageSlider from "./imageSlider";
@@ -50,14 +50,14 @@ const HeroSection = () => {
       <div sx={{ flex: "1", backgroundColor: "primary" }}>
         <div
           sx={{
-            padding: 5,
+            padding: 4,
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             height: "100%",
           }}
         >
-          <h1 sx={{ color: "highlight" }}>{heroTitle}</h1>
+          <Styled.h1 sx={{ color: "highlight" }}>{heroTitle}</Styled.h1>
           <p>{heroDescription}</p>
           <OutlineButton text={heroLink.slug} href={heroLink.slug} />
         </div>

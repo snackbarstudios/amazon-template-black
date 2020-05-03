@@ -20,8 +20,8 @@ const Logo = () => {
   );
   return (
     <Link to="/">
-      <Img
-        fluid={datoCmsLogo.brandLogo.fluid}
+      <img
+        src={datoCmsLogo.brandLogo.fluid.src}
         alt={datoCmsLogo.brandLogo.alt}
       />
     </Link>

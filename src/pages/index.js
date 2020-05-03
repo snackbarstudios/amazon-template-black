@@ -1,11 +1,11 @@
-
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import HeroSection from "../components/heroSection";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import LandingpageSection from "../components/landingpageSection";
+import Quote from "../components/quote";
 
 const IndexPage = () => {
   const { datoCmsLandingPage, allDatoCmsLandingpageBlock } = useStaticQuery(
@@ -50,13 +50,19 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <HeroSection />
-      <div sx={{ maxWidth: "960px", margin: "0 auto" }}>
-        <h1>"</h1>
-        <h2 sx={{ textAlign: "center" }}>{datoCmsLandingPage.quote}</h2>
-        {allDatoCmsLandingpageBlock.edges.map((section) => (
-          <LandingpageSection key={section.node.id} section={section.node} />
-        ))}
-      </div>
+      <main sx={{ maxWidth: "1024px", margin: "32px auto" }}>
+        <section sx={{ paddingX: [2, null] }}>
+          <Quote />
+          <h2 sx={{ textAlign: "center", marginTop: "-24px" }}>
+            {datoCmsLandingPage.quote}
+          </h2>
+        </section>
+        <section sx={{ paddingY: 4 }}>
+          {allDatoCmsLandingpageBlock.edges.map((section) => (
+            <LandingpageSection key={section.node.id} section={section.node} />
+          ))}
+        </section>
+      </main>
     </Layout>
   );
 };

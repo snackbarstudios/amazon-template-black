@@ -14,8 +14,8 @@ export default {
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   fontWeights: {
     body: 400,
-    heading: 700,
-    bold: 500,
+    heading: 600,
+    bold: 700,
   },
   lineHeights: {
     body: 1.5,
@@ -32,6 +32,30 @@ export default {
       // uses the theme values provided above
       fontFamily: "body",
       fontWeight: "body",
+    },
+    h1: {
+      fontSize: [36, 48],
+      fontFamily: "heading",
+      fontWeight: "heading",
+      color: "text",
+      textTransform: "uppercase",
+      marginBottom: 4,
+    },
+    h2: {
+      fontSize: [24],
+      fontFamily: "heading",
+      fontWeight: "body",
+      color: "text",
+      marginBottom: 4,
+      display: "block",
+      "::after": {
+        content: '" "',
+        display: "block",
+        width: "20%",
+        paddingTop: 1,
+        borderBottom: "2px solid",
+        borderColor: "highlight",
+      },
     },
   },
 };

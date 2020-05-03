@@ -9,6 +9,7 @@ const NavigationDesktop = () => {
       sx={{
         display: ["none", "block"],
         position: "fixed",
+        zIndex: "99",
         top: "0",
         width: "100%",
         backgroundColor: "white",

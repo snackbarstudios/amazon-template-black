@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import OutlineButton from "./outlineButton";
 import Img from "gatsby-image";
 
 const LandingpageSection = ({ section }) => {
   return (
-    <div
+    <article
       sx={{
         display: "flex",
         flexDirection: ["column", "row"],
@@ -16,8 +16,16 @@ const LandingpageSection = ({ section }) => {
         <Img fluid={section.blockImage.fluid} alt={section.blockImage.alt} />
       </div>
       <div sx={{ flex: "1" }}>
-        <div sx={{ padding: 4 }}>
-          <h2>{section.blockTitle}</h2>
+        <div
+          sx={{
+            padding: 4,
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <Styled.h2>{section.blockTitle}</Styled.h2>
           <p>{section.blockDescription}</p>
           <OutlineButton
             text={section.buttonLink.slug}
@@ -25,7 +33,7 @@ const LandingpageSection = ({ section }) => {
           />
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
