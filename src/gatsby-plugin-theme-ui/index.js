@@ -1,9 +1,24 @@
 export default {
+  initialColorModeName: "light",
   colors: {
     text: "#000",
     background: "#fff",
     primary: "#EFE5DA",
     highlight: "#B77C16",
+    modes: {
+      raspberryPie: {
+        text: "#000",
+        background: "#fff",
+        primary: "#D9B7BD",
+        highlight: "#63323A",
+      },
+      oceanCalm: {
+        text: "#000",
+        background: "#fff",
+        primary: "#94CFEA",
+        highlight: "#1B5976",
+      },
+    },
   },
   breakpoints: ["40em", "56em", "64em"],
   space: [0, 4, 8, 16, 32, 64, 96, 128, 256, 512],
@@ -11,7 +26,7 @@ export default {
     body: "Avenir Next",
     heading: "Avenir Next",
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
+  fontSizes: [12, 14, 16, 20, 24, 36, 48, 64],
   fontWeights: {
     body: 400,
     heading: 600,
@@ -34,7 +49,7 @@ export default {
       fontWeight: "body",
     },
     h1: {
-      fontSize: [36, 48],
+      fontSize: [5, 6],
       fontFamily: "heading",
       fontWeight: "heading",
       color: "text",
@@ -42,7 +57,7 @@ export default {
       marginBottom: 4,
     },
     h2: {
-      fontSize: [4],
+      fontSize: 4,
       fontFamily: "heading",
       fontWeight: "body",
       color: "text",
@@ -52,7 +67,7 @@ export default {
         content: '" "',
         display: "block",
         width: "20%",
-        paddingTop: 1,
+        paddingTop: 3,
         borderBottom: "2px solid",
         borderColor: "highlight",
       },

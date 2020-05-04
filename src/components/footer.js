@@ -142,7 +142,7 @@ const Footer = () => {
             &nbsp;Powered by Snackbar Studios
           </a>
         </p>
-      </div>
+      </div> 
     </footer>
   );
 };
