@@ -4,10 +4,10 @@ import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
 
 const Products = () => {
-  const { datoCmsProductsSection } = useStaticQuery(
+  const { datoCmsProductsPage } = useStaticQuery(
     graphql`
       query {
-        datoCmsProductsSection {
+        datoCmsProductsPage {
           title
         }
       }
@@ -15,7 +15,7 @@ const Products = () => {
   );
   return (
     <Layout>
-      <h2>{datoCmsProductsSection.title}</h2>
+      <h2>{datoCmsProductsPage.title}</h2>
     </Layout>
   );
 };

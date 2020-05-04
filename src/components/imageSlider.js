@@ -63,8 +63,8 @@ const ImageSlider = ({ slides }) => {
         }}
       >
         {fadeImages.length > 0
-          ? fadeImages.map(({ fluid, id }) => (
-              <Img fluid={fluid} key={id} alt="slide" />
+          ? fadeImages.map(({ fluid }, index) => (
+              <Img fluid={fluid} key={index} alt="slide" />
             ))
           : null}
       </Fade>
@@ -78,7 +78,7 @@ const ImageSlider = ({ slides }) => {
 };
 
 ImageSlider.propTypes = {
-  slidesArray: PropTypes.array.isRequired,
+  slides: PropTypes.array.isRequired,
 };
 
 export default ImageSlider;

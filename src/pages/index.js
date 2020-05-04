@@ -8,37 +8,40 @@ import LandingpageSection from "../components/landingpageSection";
 import Quote from "../components/quote";
 
 const IndexPage = () => {
-  const { datoCmsLandingPage, allDatoCmsLandingpageBlock } = useStaticQuery(
+  const { datoCmsLandingPage, allDatoCmsLandingPage } = useStaticQuery(
     graphql`
       query {
         datoCmsLandingPage {
           quote
         }
-        allDatoCmsLandingpageBlock {
+        allDatoCmsLandingPage {
           edges {
             node {
               id
-              blockTitle
-              buttonLink {
-                ... on DatoCmsProductsSection {
-                  id
-                  slug
+              landinpageSection {
+                id
+                buttonLink {
+                  ... on DatoCmsProductsPage {
+                    id
+                    slug
+                  }
+                  ... on DatoCmsContactPage {
+                    id
+                    slug
+                  }
+                  ... on DatoCmsAboutPage {
+                    id
+                    slug
+                  }
                 }
-                ... on DatoCmsContactSection {
-                  id
-                  slug
+                blockImage {
+                  alt
+                  fluid {
+                    ...GatsbyDatoCmsFluid
+                  }
                 }
-                ... on DatoCmsAboutSection {
-                  id
-                  slug
-                }
-              }
-              blockDescription
-              blockImage {
-                alt
-                fluid {
-                  ...GatsbyDatoCmsFluid
-                }
+                blockDescription
+                blockTitle
               }
             }
           }
@@ -46,6 +49,7 @@ const IndexPage = () => {
       }
     `
   );
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -58,8 +62,8 @@ const IndexPage = () => {
           </h2>
         </section>
         <section sx={{ paddingY: 4 }}>
-          {allDatoCmsLandingpageBlock.edges.map((section) => (
-            <LandingpageSection key={section.node.id} section={section.node} />
+          {allDatoCmsLandingPage.edges.map(({node}) => (
+            <LandingpageSection key={node.id} section={node} />
           ))}
         </section>
       </main>

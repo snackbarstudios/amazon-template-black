@@ -4,18 +4,30 @@ import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
 
 const About = () => {
-  const { datoCmsAboutSection } = useStaticQuery(
+  const { datoCmsAboutPage } = useStaticQuery(
     graphql`
       query {
-        datoCmsAboutSection {
+        datoCmsAboutPage {
+          banner {
+            alt
+            fluid {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          ingress {
+            ingressText
+            ingressTitle
+          }
+          slug
           title
+          pageTitle
         }
       }
     `
   );
   return (
     <Layout>
-      <h2>{datoCmsAboutSection.title}</h2>
+      <h2>{datoCmsAboutPage.title}</h2>
     </Layout>
   );
 };

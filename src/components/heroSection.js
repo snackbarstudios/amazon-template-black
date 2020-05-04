@@ -10,14 +10,15 @@ const HeroSection = () => {
       query {
         datoCmsHeroSection {
           heroLink {
-            ... on DatoCmsProductsSection {
-              slug
-            }
-            ... on DatoCmsContactSection {
+            ... on DatoCmsProductsPage {
               id
               slug
             }
-            ... on DatoCmsAboutSection {
+            ... on DatoCmsContactPage {
+              id
+              slug
+            }
+            ... on DatoCmsAboutPage {
               id
               slug
             }

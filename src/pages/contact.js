@@ -4,11 +4,12 @@ import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
 
 const Contact = () => {
-  const { datoCmsContactSection } = useStaticQuery(
+  const { datoCmsContactPage } = useStaticQuery(
     graphql`
       query {
-        datoCmsContactSection {
+        datoCmsContactPage {
           title
+          slug
         }
       }
     `
@@ -16,7 +17,7 @@ const Contact = () => {
 
   return (
     <Layout>
-      <h2>{datoCmsContactSection.title}</h2>
+      <h2>{datoCmsContactPage.title}</h2>
     </Layout>
   );
 };
