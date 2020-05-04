@@ -37,6 +37,7 @@ const NavigationButton = ({ isNext, handleClick }) => {
     </button>
   );
 };
+
 export default NavigationButton;
 
 NavigationButton.defaultProps = {

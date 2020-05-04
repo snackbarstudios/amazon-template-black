@@ -16,8 +16,8 @@ const ButtonContainer = ({ children }) => (
   </div>
 );
 
+export default ButtonContainer;
+
 ButtonContainer.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export default ButtonContainer;

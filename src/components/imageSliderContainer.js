@@ -13,8 +13,8 @@ const ImageSliderContainer = ({ children }) => (
   </div>
 );
 
+export default ImageSliderContainer;
+
 ImageSliderContainer.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export default ImageSliderContainer;
