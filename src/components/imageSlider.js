@@ -77,8 +77,9 @@ const ImageSlider = ({ slides }) => {
   );
 };
 
+export default ImageSlider;
+
 ImageSlider.propTypes = {
   slides: PropTypes.array.isRequired,
 };
 
-export default ImageSlider;
