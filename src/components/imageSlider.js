@@ -5,9 +5,9 @@ import Img from "gatsby-image";
 import { useRef } from "react";
 import { Fade } from "react-slideshow-image";
 
-import ButtonContainer from "./ButtonContainer";
-import ImageSliderContainer from "./ImageSliderContainer";
-import NavigationButton from "./NavigationButton";
+import ButtonContainer from "./buttonContainer";
+import ImageSliderContainer from "./imageSliderContainer";
+import NavigationButton from "./navigationButton";
 
 const ImageSlider = ({ slides }) => {
   const fadeImages = [];
