@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, useColorMode } from "theme-ui";
+import { useEffect } from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import MainContainer from "../components/mainContainer";
@@ -10,9 +11,18 @@ import Quote from "../components/quote";
 
 const IndexPage = () => {
   const [colorMode, setColorMode] = useColorMode();
-  const { datoCmsLandingPage, allDatoCmsLandingPage } = useStaticQuery(
+  const {
+    datoCmsLandingPage,
+    allDatoCmsLandingPage,
+    datoCmsColorMode,
+  } = useStaticQuery(
     graphql`
       query {
+        datoCmsColorMode {
+          light
+          raspberrypie
+          oceancalm
+        }
         datoCmsColorMode {
           light
           raspberrypie
@@ -56,19 +66,16 @@ const IndexPage = () => {
       }
     `
   );
-  
-  // useEffect(() => {
-  //   if (datoCmsColorMode.oceancalm) {
-  //     setColorMode("oceancalm");
-  //   } else if (datoCmsColorMode.raspberrypie) {
-  //     setColorMode("raspberrypie");
-  //   } else {
-  //     setColorMode("light");
-  //   }
-  // }, [datoCmsColorMode.oceancalm, datoCmsColorMode.raspberrypie, ]);
 
-  console.log(colorMode);
-  setColorMode("oceanCalm");
+  useEffect(() => {
+    if (datoCmsColorMode.oceancalm) {
+      setColorMode("oceanCalm");
+    } else if (datoCmsColorMode.raspberrypie) {
+      setColorMode("raspberryPie");
+    } else {
+      setColorMode("light");
+    }
+  }, [datoCmsColorMode.oceancalm, datoCmsColorMode.raspberrypie, setColorMode]);
 
   return (
     <Layout>
