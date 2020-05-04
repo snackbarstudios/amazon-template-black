@@ -1,30 +1,48 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import PropTypes from "prop-types";
 import AnchorLink from "./anchorLink";
+import Logo from "./logo";
 
-const NavigationDesktop = ({ logo }) => {
+const NavigationDesktop = () => {
   return (
     <div
       sx={{
         display: ["none", "block"],
+        position: "fixed",
+        zIndex: "99",
+        top: "0",
+        width: "100%",
+        backgroundColor: "white",
+        left: "0",
       }}
     >
       <div
-        sx={{ display: "flex", justifyContent: "space-between", padding: 3 }}
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: 3,
+        }}
       >
-        <div sx={{ width: "30%" }}>
-          <img src={logo.fluid.src} alt={logo.alt} />
+        <div sx={{ display: "flex" }}>
+          <Logo />
         </div>
-        <div sx={{ width: "30%" }}>
-          <ul sx={{ display: "flex", justifyContent: "flex-end" }}>
-            <li sx={{ listStyle: "none", marginX: 2 }}>
+        <div>
+          <ul
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+              marginBottom: "0",
+            }}
+          >
+            <li sx={{ listStyle: "none", marginX: 2, marginBottom: "0" }}>
               <AnchorLink href={`/about/`}>About</AnchorLink>
             </li>
-            <li sx={{ listStyle: "none", marginX: 2 }}>
+            <li sx={{ listStyle: "none", marginX: 2, marginBottom: "0" }}>
               <AnchorLink href={`/products/`}>Products</AnchorLink>
             </li>
-            <li sx={{ listStyle: "none", marginX: 2 }}>
+            <li sx={{ listStyle: "none", marginX: 2, marginBottom: "0" }}>
               <AnchorLink href={`/contact/`}>Contact</AnchorLink>
             </li>
           </ul>
@@ -35,7 +53,3 @@ const NavigationDesktop = ({ logo }) => {
 };
 
 export default NavigationDesktop;
-
-NavigationDesktop.propTypes = {
-  logo: PropTypes.object.isRequired,
-};

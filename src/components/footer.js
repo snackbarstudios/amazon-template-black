@@ -35,30 +35,32 @@ const Footer = () => {
   } = datoCmsFooter;
 
   return (
-    <footer>
-      <div sx={{ display: "flex" }}>
-        <div>
-          <p>{contactDetailsHeading}</p>
+    <footer sx={{ background: "black", paddingY: 3, paddingX: 5 }}>
+      <div sx={{ display: "flex", justifyContent: "space-between" }}>
+        <div xs={{ flex: "1" }}>
+          <h2 sx={{ color: "white" }}>{contactDetailsHeading}</h2>
           {contactDetails.map(({ adressLine }, index) => (
-            <p key={index}>{adressLine}</p>
+            <p sx={{ color: "white" }} key={index}>
+              {adressLine}
+            </p>
           ))}
         </div>
-        <div>
-          <p>{socialMediaHeading}</p>
+        <div xs={{ flex: "1" }}>
+          <h2 sx={{ color: "white" }}>{socialMediaHeading}</h2>
           {socialMedia.map(({ title, urlLink }, index) => (
-            <p key={index}>
+            <p sx={{ color: "white" }} key={index}>
               {title}
               {urlLink}
             </p>
           ))}
         </div>
-        <div>
-          <p>{privacyHeading}</p>
-          <p>{privacyTitle}</p>
+        <div xs={{ flex: "1" }}>
+          <h2 sx={{ color: "white" }}>{privacyHeading}</h2>
+          <h2 sx={{ color: "white" }}>{privacyTitle}</h2>
         </div>
       </div>
       <div>
-        <p>
+        <p sx={{ color: "white" }}>
           © {new Date().getFullYear()} {copyright}. Powered by Snackbar Studios
         </p>
       </div>

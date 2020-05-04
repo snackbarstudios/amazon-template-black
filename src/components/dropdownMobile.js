@@ -8,14 +8,14 @@ const DropDownMobile = ({ children, open }) => {
     if (open) {
       switch (action) {
         case "dropdown":
-          animation.visibility = "visible";
           animation.width = "100%";
+          animation.transition = "all 0.4s ease-in";
           break;
         default:
       }
     }
     return {
-      backgroundColor: "grey",
+      backgroundColor: "primary",
       color: "primary",
       display: "flex",
       flexDirection: "column",
@@ -25,10 +25,9 @@ const DropDownMobile = ({ children, open }) => {
       top: 0,
       zIndex: 10,
       width: "0",
-      visibility: "hidden",
       overflow: "hidden",
       justifyContent: "center",
-      transition: "all 0.6s ease-out ",
+      transition: "all 0.4s ease-out ",
 
       ...animation,
     };

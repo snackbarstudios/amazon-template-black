@@ -1,15 +1,17 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import Navigation from "./navigation";
+import NavigationDesktop from "./navigationDesktop";
+import NavigationMobile from "./navigationMobile";
 
 const Header = () => (
   <header
     sx={{
       background: `white`,
-      marginBottom: `1.45rem`,
+      height: "75px",
     }}
   >
-    <Navigation />
+    <NavigationDesktop />
+    <NavigationMobile />
   </header>
 );
 

@@ -5,8 +5,9 @@ import { useState } from "react";
 import DropDownMobile from "./dropdownMobile";
 import NavItem from "./navItem";
 import AnchorLink from "./anchorLink";
+import Logo from "./logo";
 
-const NavigationMobile = ({ logo }) => {
+const NavigationMobile = () => {
   const [open, setOpen] = useState(false);
   return (
     <div
@@ -36,24 +37,24 @@ const NavigationMobile = ({ logo }) => {
           }}
         >
           <NavItem open={open}>
-            <AnchorLink setOpen={setOpen} href={`/about/`}>
-              <span onClick={() => setOpen(!open)}>About</span>
+            <AnchorLink open={open} href={`/about/`}>
+              About
             </AnchorLink>
           </NavItem>
           <NavItem open={open}>
-            <AnchorLink setOpen={setOpen} href={`/products/`}>
-              <span onClick={() => setOpen(!open)}>Products</span>
+            <AnchorLink open={open} href={`/products/`}>
+              Products
             </AnchorLink>
           </NavItem>
           <NavItem open={open}>
-            <AnchorLink setOpen={setOpen} href={`/contact/`}>
-              <span onClick={() => setOpen(!open)}>Contact</span>
+            <AnchorLink open={open} href={`/contact/`}>
+              Contact
             </AnchorLink>
           </NavItem>
         </ul>
       </DropDownMobile>
-      <div>
-        <img src={logo.fluid.src} alt={logo.alt} />
+      <div sx={{ display: "flex" }}>
+        <Logo />
       </div>
     </div>
   );
