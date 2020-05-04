@@ -107,7 +107,7 @@ const Footer = () => {
             aria-label={`Link to ${slug}`}
             sx={{
               color: "background",
-              fontSize: 1,
+              fontSize: 2,
               textDecoration: "none",
               ":hover": {
                 fontWeight: "heading",
