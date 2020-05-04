@@ -42,7 +42,7 @@ export default {
       marginBottom: 4,
     },
     h2: {
-      fontSize: [24],
+      fontSize: [4],
       fontFamily: "heading",
       fontWeight: "body",
       color: "text",
@@ -56,6 +56,23 @@ export default {
         borderBottom: "2px solid",
         borderColor: "highlight",
       },
+    },
+    h4: {
+      fontSize: [2],
+      fontFamily: "heading",
+      fontWeight: "body",
+      color: "background",
+      textTransform: "uppercase",
+      margin: 0,
+      mt: "46px",
+      mb: 3,
+    },
+    p: {
+      fontSize: [2],
+      fontFamily: "heading",
+      fontWeight: "body",
+      color: "background",
+      margin: 0,
     },
   },
 };

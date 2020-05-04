@@ -1,9 +1,11 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
+import Hr from "./hr";
 
 const Footer = () => {
-  const { datoCmsFooter } = useStaticQuery(
+  const { datoCmsFooter, datoCmsPrivacySection } = useStaticQuery(
     graphql`
       query {
         datoCmsFooter {
@@ -17,8 +19,11 @@ const Footer = () => {
             urlLink
           }
           privacyHeading
-          privacyTitle
+          privacyLink
           copyright
+        }
+        datoCmsPrivacySection {
+          slug
         }
       }
     `
@@ -30,38 +35,112 @@ const Footer = () => {
     socialMediaHeading,
     socialMedia,
     privacyHeading,
-    privacyTitle,
+    privacyLink,
     copyright,
   } = datoCmsFooter;
 
+  const { slug } = datoCmsPrivacySection;
+
   return (
-    <footer sx={{ background: "black", paddingY: 3, paddingX: 5 }}>
-      <div sx={{ display: "flex", justifyContent: "space-between" }}>
-        <div xs={{ flex: "1" }}>
-          <h2 sx={{ color: "white" }}>{contactDetailsHeading}</h2>
+    <footer
+      sx={{
+        minHeight: "200px",
+        backgroundColor: "text",
+        pb: 3,
+        px: 4,
+      }}
+    >
+      <div
+        sx={{
+          display: "flex",
+          flexDirection: ["column", "row", null],
+          justifyContent: "space-between",
+        }}
+      >
+        <div sx={{ flex: "1", mx: [0, 3, 5] }}>
+          <Styled.h4 sx={{ color: "background" }}>
+            {contactDetailsHeading}
+          </Styled.h4>
+          <div sx={{ mb: 3 }}>
+            <Hr />
+          </div>
           {contactDetails.map(({ adressLine }, index) => (
-            <p sx={{ color: "white" }} key={index}>
+            <Styled.p sx={{ color: "background" }} key={index}>
               {adressLine}
-            </p>
+            </Styled.p>
           ))}
         </div>
-        <div xs={{ flex: "1" }}>
-          <h2 sx={{ color: "white" }}>{socialMediaHeading}</h2>
+        <div sx={{ flex: "1", mx: [0, 3, 5] }}>
+          <Styled.h4 sx={{ color: "background" }}>
+            {socialMediaHeading}
+          </Styled.h4>
+          <div sx={{ mb: 3 }}>
+            <Hr />
+          </div>
           {socialMedia.map(({ title, urlLink }, index) => (
-            <p sx={{ color: "white" }} key={index}>
+            <a
+              key={index}
+              href={urlLink}
+              target="_blank"
+              rel="noreferrer noopener"
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                color: "background",
+                textDecoration: "none",
+                ":hover": {
+                  fontWeight: "heading",
+                },
+              }}
+            >
               {title}
-              {urlLink}
-            </p>
+            </a>
           ))}
         </div>
-        <div xs={{ flex: "1" }}>
-          <h2 sx={{ color: "white" }}>{privacyHeading}</h2>
-          <h2 sx={{ color: "white" }}>{privacyTitle}</h2>
+        <div sx={{ flex: "1", mx: [0, 3, 5] }}>
+          <Styled.h4 sx={{ color: "background" }}>{privacyHeading}</Styled.h4>
+          <div sx={{ mb: 3 }}>
+            <Hr />
+          </div>
+          <Link
+            to={slug}
+            aria-label={`Link to ${slug}`}
+            sx={{
+              color: "background",
+              fontSize: 1,
+              textDecoration: "none",
+              ":hover": {
+                fontWeight: "heading",
+              },
+            }}
+          >
+            {privacyLink}
+          </Link>
         </div>
       </div>
-      <div>
-        <p sx={{ color: "white" }}>
-          © {new Date().getFullYear()} {copyright}. Powered by Snackbar Studios
+      <div sx={{ mx: [0, 3, 5] }}>
+        <p
+          sx={{
+            color: "background",
+            fontSize: 1,
+            mt: 4,
+            mb: 0,
+          }}
+        >
+          © {new Date().getFullYear()} {copyright}.
+          <a
+            href="https://www.snackbarstudios.se/"
+            sx={{
+              color: "background",
+              fontSize: 1,
+              textDecoration: "none",
+              ":hover": {
+                fontWeight: "heading",
+              },
+            }}
+          >
+            &nbsp;Powered by Snackbar Studios
+          </a>
         </p>
       </div>
     </footer>

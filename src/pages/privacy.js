@@ -9,18 +9,18 @@ const PrivacyPage = () => {
     graphql`
       query {
         datoCmsPrivacySection {
-          sectionTitle
+          title
         }
       }
     `
   );
 
-  const { sectionTitle } = datoCmsPrivacySection;
+  const { title } = datoCmsPrivacySection;
 
   return (
     <Layout>
       <SEO title="Page two" />
-      <h1>{sectionTitle}</h1>
+      <h1>{title}</h1>
       <p>This is Privacy page</p>
     </Layout>
   );
