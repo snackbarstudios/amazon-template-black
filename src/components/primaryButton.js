@@ -11,7 +11,7 @@ const PrimaryButton = ({ text, href }) => {
         backgroundColor: "highlight",
         color: "white",
         paddingX: "10px",
-        paddingY: "3",
+        paddingY: 2,
         textTransform: "uppercase",
         textDecoration: "none",
         fontFamily: "heading",

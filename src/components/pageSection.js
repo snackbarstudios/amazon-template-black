@@ -2,17 +2,14 @@
 import { jsx, Styled } from "theme-ui";
 import { Fragment } from "react";
 import OutlineButton from "./outlineButton";
-import Img from "gatsby-image";
+import Image from "../components/image";
 
-const LandingpageSection = ({ section }) => {
-  const { landinpageSection } = section;
-
-  console.log(landinpageSection)
+const PageSection = ({ section }) => {
   return (
     <Fragment>
-      {landinpageSection.map((section) => (
+      {section.map((s) => (
         <article
-          key={section.id}
+          key={s.id}
           sx={{
             display: "flex",
             flexDirection: ["column", "row"],
@@ -20,10 +17,7 @@ const LandingpageSection = ({ section }) => {
           }}
         >
           <div sx={{ flex: "1" }}>
-            <Img
-              fluid={section.blockImage.fluid}
-              alt={section.blockImage.alt}
-            />
+            <Image image={s.blockImage.fluid} alt={s.blockImage.alt} />
           </div>
           <div sx={{ flex: "1" }}>
             <div
@@ -35,11 +29,11 @@ const LandingpageSection = ({ section }) => {
                 justifyContent: "center",
               }}
             >
-              <Styled.h2>{section.blockTitle}</Styled.h2>
-              <p>{section.blockDescription}</p>
+              <Styled.h2>{s.blockTitle}</Styled.h2>
+              <p>{s.blockDescription}</p>
               <OutlineButton
-                text={section.buttonLink.slug}
-                href={section.buttonLink.slug}
+                text={s.buttonLink.slug}
+                href={s.buttonLink.slug}
               />
             </div>
           </div>
@@ -49,4 +43,4 @@ const LandingpageSection = ({ section }) => {
   );
 };
 
-export default LandingpageSection;
+export default PageSection;
