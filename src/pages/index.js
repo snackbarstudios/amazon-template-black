@@ -82,13 +82,49 @@ const IndexPage = () => {
       <SEO title="Home" />
       <HeroSection />
       <MainContainer>
-        <section sx={{ paddingX: [2, null] }}>
-          <Quote />
-          <h2 sx={{ textAlign: "center", marginTop: "-24px" }}>
+        <section sx={{ paddingX: [2, null], position: "relative" }}>
+          <div sx={{ position: "absolute", left: "20px", top: "-40px" }}>
+            <Quote
+              width={40}
+              fill={
+                colorMode === "raspberryPie"
+                  ? "#63323A"
+                  : colorMode === "oceanCalm"
+                  ? "#1B5976"
+                  : "#B77C16"
+              }
+            />
+          </div>
+          <h2
+            sx={{
+              marginX: "auto",
+              textAlign: "center",
+              mb: 4,
+              fontSize: 5,
+              fontFamily: "body",
+              fontWeight: "heading",
+              color: "text",
+              lineHeight: 1.2,
+              mt: "96px",
+              textTransform: "uppercase",
+            }}
+          >
             {datoCmsLandingPage.quote}
           </h2>
+          <div sx={{ position: "absolute", right: "20px", bottom: "-40px" }}>
+            <Quote
+              width={40}
+              fill={
+                colorMode === "raspberryPie"
+                  ? "#63323A"
+                  : colorMode === "oceanCalm"
+                  ? "#1B5976"
+                  : "#B77C16"
+              }
+            />
+          </div>
         </section>
-        <section sx={{ paddingY: 4 }}>
+        <section sx={{ paddingX: 4 }}>
           {allDatoCmsLandingPage.edges.map(({ node }) => (
             <PageSection key={node.id} section={node.landinpageSection} />
           ))}
