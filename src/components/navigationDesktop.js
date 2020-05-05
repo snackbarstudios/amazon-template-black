@@ -36,7 +36,13 @@ const NavigationDesktop = () => {
               marginBottom: "0",
             }}
           >
-            <li sx={{ listStyle: "none", marginX: 2, marginBottom: "0" }}>
+            <li
+              sx={{
+                listStyle: "none",
+                marginX: 2,
+                marginBottom: "0",
+              }}
+            >
               <AnchorLink href={`/about/`}>About</AnchorLink>
             </li>
             <li sx={{ listStyle: "none", marginX: 2, marginBottom: "0" }}>

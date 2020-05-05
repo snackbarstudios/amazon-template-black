@@ -83,7 +83,7 @@ export default {
       mb: 3,
     },
     p: {
-      fontSize: [2],
+      fontSize: 2,
       fontFamily: "heading",
       fontWeight: "body",
       color: "background",

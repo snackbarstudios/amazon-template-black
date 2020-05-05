@@ -29,7 +29,7 @@ const NavigationMobile = () => {
             listStyle: "none",
             display: "flex",
             flexDirection: "column",
-            fontSize: "36px",
+            fontSize: 5,
             m: 0,
             width: "100%",
             height: "auto",

@@ -13,8 +13,10 @@ const Footer = () => {
           contactDetails {
             adressLine
           }
+          email
+          phoneNumber
           socialMediaHeading
-          socialMedia {
+          socialMediaLinks {
             title
             urlLink
           }
@@ -32,8 +34,10 @@ const Footer = () => {
   const {
     contactDetailsHeading,
     contactDetails,
+    email,
+    phoneNumber,
     socialMediaHeading,
-    socialMedia,
+    socialMediaLinks,
     privacyHeading,
     privacyLink,
     copyright,
@@ -69,6 +73,34 @@ const Footer = () => {
               {adressLine}
             </Styled.p>
           ))}
+          <a
+            href={`tel:${phoneNumber}`}
+            sx={{
+              color: "background",
+              fontSize: 2,
+              textDecoration: "none",
+              display: "block",
+              ":hover": {
+                fontWeight: "heading",
+              },
+            }}
+          >
+            {phoneNumber}
+          </a>
+          <a
+            href={`mailto:${email}`}
+            sx={{
+              color: "background",
+              fontSize: 2,
+              textDecoration: "none",
+              display: "block",
+              ":hover": {
+                fontWeight: "heading",
+              },
+            }}
+          >
+            {email}
+          </a>
         </div>
         <div sx={{ flex: "1", mx: [0, 3, 5] }}>
           <Styled.h4 sx={{ color: "background" }}>
@@ -77,15 +109,15 @@ const Footer = () => {
           <div sx={{ mb: 3 }}>
             <Hr />
           </div>
-          {socialMedia.map(({ title, urlLink }, index) => (
+          {socialMediaLinks.map(({ title, urlLink }, index) => (
             <a
               key={index}
               href={urlLink}
               target="_blank"
               rel="noreferrer noopener"
               sx={{
-                display: "flex",
-                flexDirection: "column",
+                fontSize: 2,
+                display: "block",
                 color: "background",
                 textDecoration: "none",
                 ":hover": {
@@ -107,7 +139,7 @@ const Footer = () => {
             aria-label={`Link to ${slug}`}
             sx={{
               color: "background",
-              fontSize: 1,
+              fontSize: 2,
               textDecoration: "none",
               ":hover": {
                 fontWeight: "heading",
@@ -122,7 +154,7 @@ const Footer = () => {
         <p
           sx={{
             color: "background",
-            fontSize: 1,
+            fontSize: 0,
             mt: 4,
             mb: 0,
           }}
@@ -132,7 +164,7 @@ const Footer = () => {
             href="https://www.snackbarstudios.se/"
             sx={{
               color: "background",
-              fontSize: 1,
+              fontSize: 0,
               textDecoration: "none",
               ":hover": {
                 fontWeight: "heading",
@@ -142,7 +174,7 @@ const Footer = () => {
             &nbsp;Powered by Snackbar Studios
           </a>
         </p>
-      </div> 
+      </div>
     </footer>
   );
 };
