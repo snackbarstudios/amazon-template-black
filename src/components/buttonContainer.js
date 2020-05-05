@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 const ButtonContainer = ({ children }) => (
   <div
     sx={{
-      display: ["none", "block"],
+      display: ["none", null, "block"],
       zIndex: 2,
       position: "absolute",
       bottom: 0,
-      marginLeft: [0, "-45px"],
+      marginLeft: [0, null, "-33px"],
       backgroundColor: "primary",
     }}
   >

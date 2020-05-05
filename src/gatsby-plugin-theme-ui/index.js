@@ -23,14 +23,14 @@ export default {
   breakpoints: ["40em", "56em", "64em"],
   space: [0, 4, 8, 16, 32, 64, 96, 128, 256, 512],
   fonts: {
-    body: "Avenir Next",
-    heading: "Avenir Next",
+    body: "Source Sans Pro, sans-serif",
+    heading: "Montserrat, sans-serif",
   },
   fontSizes: [12, 14, 16, 20, 24, 36, 48, 64],
   fontWeights: {
     body: 400,
-    heading: 600,
-    bold: 700,
+    heading: 900,
+    bold: 600,
   },
   lineHeights: {
     body: 1.5,
@@ -49,11 +49,10 @@ export default {
       fontWeight: "body",
     },
     h1: {
-      fontSize: [5, 6],
+      fontSize: [5, 7],
       fontFamily: "heading",
       fontWeight: "heading",
       color: "text",
-      textTransform: "uppercase",
       marginBottom: 4,
     },
     h2: {
