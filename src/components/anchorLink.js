@@ -2,6 +2,7 @@
 import PropTypes from "prop-types";
 import { jsx } from "theme-ui";
 import { Link } from "gatsby";
+import { Fragment } from "react";
 
 const AnchorLink = ({ children, href, open }) => {
   const slide = (action) => {
@@ -31,25 +32,28 @@ const AnchorLink = ({ children, href, open }) => {
     };
   };
   return (
-    <Link
-      to={href}
-      aria-label={`Link to ${href}`}
-      activeClassName="active"
-      sx={
-        (slide("hideText"),
-        {
-          color: "black",
-          display: "inline-block",
-          textDecoration: "none",
-          overflow: "hidden",
-          "&.active": {
-            color: "highlight",
-          },
-        })
-      }
-    >
-      {children}
-    </Link>
+    <Fragment>
+      <Link
+        to={href}
+        aria-label={`Link to ${href}`}
+        activeClassName="active"
+        sx={
+          (slide("hideText"),
+          {
+            color: "text",
+            display: "inline-block",
+            textDecoration: "none",
+            position: "relative",
+            overflow: "hidden",
+            "&.active": {
+              color: "highlight",
+            },
+          })
+        }
+      >
+        {children}
+      </Link>
+    </Fragment>
   );
 };
 
