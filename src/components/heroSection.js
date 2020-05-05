@@ -44,8 +44,9 @@ const HeroSection = () => {
     <div
       sx={{
         display: "flex",
-        height: "70vh",
+        height: ["100vh", "50vh", "80vh"],
         flexDirection: ["column-reverse", "row"],
+        mt: "-80px",
       }}
     >
       <div sx={{ flex: "1", backgroundColor: "primary" }}>

@@ -7,23 +7,24 @@ import { PropTypes } from "prop-types";
 const style = {
   buttonWrapper: {
     backgroundColor: "primary",
-    border: "1px solid",
     outline: "none",
+    border: "1px solid",
     borderColor: "white",
     color: "white",
-    height: ["33px", "45px", "64px"],
-    width: ["33px", "45px", "64px"],
+    height: ["33px", "45px"],
+    width: ["33px", "45px"],
     cursor: "pointer",
     ":focus": {
-      backgroundColor: "primary",
+      backgroundColor: "highlight",
     },
     ":active": {
-      backgroundColor: "primary",
+      backgroundColor: "highlight",
     },
   },
   iconStyling: {
     fontSize: [3, 4],
     fontWeight: "heading",
+    mt: "5px",
   },
 };
 
