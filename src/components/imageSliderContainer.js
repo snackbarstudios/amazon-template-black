@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import PropTypes from "prop-types";
 import { jsx } from "theme-ui";
+import PropTypes from "prop-types";
 
 const ImageSliderContainer = ({ children }) => (
   <div
