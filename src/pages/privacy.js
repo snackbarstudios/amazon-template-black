@@ -3,25 +3,41 @@ import { jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import PageTitle from "../components/pageTitle";
+import MainContainer from "../components/mainContainer";
 
 const PrivacyPage = () => {
   const { datoCmsPrivacySection } = useStaticQuery(
     graphql`
       query {
         datoCmsPrivacySection {
-          title
+          pageTitle
+          textNode {
+            internal {
+              content
+            }
+          }
         }
       }
     `
   );
 
-  const { title } = datoCmsPrivacySection;
+  // const { pageTitle, textNode } = datoCmsPrivacySection;
+  const {
+    pageTitle,
+    textNode: {
+      internal: { content },
+    },
+  } = datoCmsPrivacySection;
+  // console.log(textNode);
 
   return (
     <Layout>
       <SEO title="Page two" />
-      <h1>{title}</h1>
-      <p>This is Privacy page</p>
+      <MainContainer>
+        <PageTitle>{pageTitle}</PageTitle>
+        <div>{content}</div>
+      </MainContainer>
     </Layout>
   );
 };

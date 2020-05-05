@@ -81,7 +81,7 @@ const Footer = () => {
               textDecoration: "none",
               display: "block",
               ":hover": {
-                fontWeight: "heading",
+                color: "primary",
               },
             }}
           >
@@ -95,7 +95,7 @@ const Footer = () => {
               textDecoration: "none",
               display: "block",
               ":hover": {
-                fontWeight: "heading",
+                color: "primary",
               },
             }}
           >
@@ -121,7 +121,7 @@ const Footer = () => {
                 color: "background",
                 textDecoration: "none",
                 ":hover": {
-                  fontWeight: "heading",
+                  color: "primary",
                 },
               }}
             >
@@ -142,7 +142,7 @@ const Footer = () => {
               fontSize: 2,
               textDecoration: "none",
               ":hover": {
-                fontWeight: "heading",
+                color: "primary",
               },
             }}
           >
@@ -167,7 +167,7 @@ const Footer = () => {
               fontSize: 0,
               textDecoration: "none",
               ":hover": {
-                fontWeight: "heading",
+                color: "primary",
               },
             }}
           >
