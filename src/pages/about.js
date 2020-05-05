@@ -102,7 +102,6 @@ const About = () => {
             {ingressTitle}
           </h2>
           <p>{ingressText}</p>
-          <article></article>
         </section>
         <section sx={{ py: 4 }}>
           <PageSection section={aboutSection} />
