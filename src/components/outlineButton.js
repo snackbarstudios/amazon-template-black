@@ -7,7 +7,9 @@ const OutlineButton = ({ text, href, fullWidth }) => {
     <a
       sx={{
         border: "1px solid",
-        width: fullWidth ? "100%" : "150px",
+        display: "block",
+        width: ["100%", "200px", null],
+        // width: fullWidth ? "100%" : "150px",
         borderColor: "highlight",
         backgroundColor: ["highlight", "highlight", "transparent"],
         color: ["primary", "primary", "highlight"],

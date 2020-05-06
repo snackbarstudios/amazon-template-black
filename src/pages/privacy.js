@@ -36,7 +36,7 @@ const PrivacyPage = () => {
       <SEO title="Page two" />
       <MainContainer>
         <PageTitle>{pageTitle}</PageTitle>
-        <div>{content}</div>
+        <div sx={{ px: 4 }}>{content}</div>
       </MainContainer>
     </Layout>
   );
