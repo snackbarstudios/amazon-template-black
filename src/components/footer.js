@@ -11,7 +11,7 @@ const Footer = () => {
         datoCmsFooter {
           contactDetailsHeading
           contactDetails {
-            adressLine
+            addressField
           }
           email
           phoneNumber
@@ -51,7 +51,7 @@ const Footer = () => {
         minHeight: "200px",
         backgroundColor: "text",
         pb: 3,
-        px: 4,
+        px: 3,
       }}
     >
       <div
@@ -68,9 +68,9 @@ const Footer = () => {
           <div sx={{ mb: 3 }}>
             <Hr />
           </div>
-          {contactDetails.map(({ adressLine }, index) => (
+          {contactDetails.map(({ addressField }, index) => (
             <Styled.p sx={{ color: "background" }} key={index}>
-              {adressLine}
+              {addressField}
             </Styled.p>
           ))}
           <a
@@ -81,7 +81,7 @@ const Footer = () => {
               textDecoration: "none",
               display: "block",
               ":hover": {
-                fontWeight: "heading",
+                color: "primary",
               },
             }}
           >
@@ -95,7 +95,7 @@ const Footer = () => {
               textDecoration: "none",
               display: "block",
               ":hover": {
-                fontWeight: "heading",
+                color: "primary",
               },
             }}
           >
@@ -121,7 +121,7 @@ const Footer = () => {
                 color: "background",
                 textDecoration: "none",
                 ":hover": {
-                  fontWeight: "heading",
+                  color: "primary",
                 },
               }}
             >
@@ -142,7 +142,7 @@ const Footer = () => {
               fontSize: 2,
               textDecoration: "none",
               ":hover": {
-                fontWeight: "heading",
+                color: "primary",
               },
             }}
           >
@@ -167,7 +167,7 @@ const Footer = () => {
               fontSize: 0,
               textDecoration: "none",
               ":hover": {
-                fontWeight: "heading",
+                color: "primary",
               },
             }}
           >
