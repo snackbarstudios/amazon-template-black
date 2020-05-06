@@ -7,8 +7,8 @@ const Hr = () => {
       sx={{
         border: "0",
         height: "1px",
-        color: "highlight",
-        backgroundColor: "highlight",
+        color: "primary",
+        backgroundColor: "primary",
         width: "100%",
         margin: 0,
       }}
