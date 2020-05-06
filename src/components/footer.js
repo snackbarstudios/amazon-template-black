@@ -11,7 +11,7 @@ const Footer = () => {
         datoCmsFooter {
           contactDetailsHeading
           contactDetails {
-            adressLine
+            addressField
           }
           email
           phoneNumber
@@ -68,9 +68,9 @@ const Footer = () => {
           <div sx={{ mb: 3 }}>
             <Hr />
           </div>
-          {contactDetails.map(({ adressLine }, index) => (
+          {contactDetails.map(({ addressField }, index) => (
             <Styled.p sx={{ color: "background" }} key={index}>
-              {adressLine}
+              {addressField}
             </Styled.p>
           ))}
           <a

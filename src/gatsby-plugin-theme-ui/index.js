@@ -54,6 +54,7 @@ export default {
       fontWeight: "heading",
       color: "text",
       marginBottom: 4,
+      textTransform: "capitalize",
     },
     h2: {
       fontSize: 4,
@@ -76,7 +77,6 @@ export default {
       fontFamily: "heading",
       fontWeight: "body",
       color: "background",
-      textTransform: "uppercase",
       margin: 0,
       mt: "46px",
       mb: 3,

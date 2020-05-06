@@ -51,6 +51,8 @@ const IndexPage = () => {
                     slug
                   }
                 }
+                externalButtonLinkText
+                externalBtnLink
                 blockImage {
                   alt
                   fluid {

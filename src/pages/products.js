@@ -12,19 +12,53 @@ const Products = () => {
     graphql`
       query {
         datoCmsProductsPage {
-          title
+          pageTitle
+          productPageSection {
+            id
+            blockDescription
+            blockTitle
+            buttonLink {
+              ... on DatoCmsProductsPage {
+                id
+                title
+                slug
+              }
+              ... on DatoCmsContactPage {
+                id
+                title
+                slug
+              }
+              ... on DatoCmsAboutPage {
+                id
+                slug
+                title
+              }
+            }
+            externalButtonLinkText
+            externalBtnLink
+            blockImage {
+              fluid {
+                ...GatsbyDatoCmsFluid
+              }
+            }
+          }
         }
       }
     `
   );
 
+  const { pageTitle, productPageSection } = datoCmsProductsPage;
+
   return (
     <Layout>
-      <SEO title={datoCmsProductsPage.title} />
+      <SEO title={pageTitle} />
       <MainContainer>
-        <PageTitle>{datoCmsProductsPage.title}</PageTitle>
-        <section sx={{ py: 4 }}>
-          {/* <PageSection section={aboutSection} /> */}
+        <PageTitle>{pageTitle}</PageTitle>
+        <section sx={{ paddingX: 4 }}>
+          <PageSection
+            section={productPageSection}
+            key={productPageSection.id}
+          />
         </section>
       </MainContainer>
     </Layout>
