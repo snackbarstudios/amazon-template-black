@@ -16,7 +16,6 @@
     "gatsby-plugin-react-helmet": "^3.3.0",
     "gatsby-plugin-sharp": "^2.6.0",
     "gatsby-plugin-theme-ui": "^0.3.0",
-    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-datocms": "^2.2.1",
     "gatsby-source-filesystem": "^2.3.0",
     "gatsby-transformer-sharp": "^2.5.0",
@@ -25,7 +24,9 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
     "react-slideshow-image": "^1.4.2",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.3.1",
+    "typeface-montserrat": "0.0.75",
+    "typeface-source-sans-pro": "^1.1.5"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.30.0",

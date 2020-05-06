@@ -14,15 +14,24 @@ const PageSection = ({ section }) => {
             display: "flex",
             flexDirection: ["column", "row"],
             ":nth-of-type(2)": { flexDirection: [null, "row-reverse"] },
+            py: 4,
           }}
         >
           <div sx={{ flex: "1" }}>
-            <Image image={s.blockImage.fluid} alt={s.blockImage.alt} />
+            <div
+              sx={{
+                px: [1, 4],
+                py: 4,
+                overflow: "hidden",
+              }}
+            >
+              <Image image={s.blockImage.fluid} alt={s.blockImage.alt} />
+            </div>
           </div>
           <div sx={{ flex: "1" }}>
             <div
               sx={{
-                padding: 4,
+                px: [1, 4],
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",

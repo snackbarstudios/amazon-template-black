@@ -35,18 +35,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ["Playfair Display"],
-        },
-        custom: {
-          families: ["Avenir Next"],
-          urls: ["/fonts/fonts.css"],
-        },
-      },
-    },
-    {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.DATO_API_TOKEN,
