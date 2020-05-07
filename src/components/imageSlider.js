@@ -68,11 +68,6 @@ const ImageSlider = ({ slides }) => {
             ))
           : null}
       </Fade>
-
-      <ButtonContainer>
-        <NavigationButton handleClick={prev} />
-        <NavigationButton handleClick={next} isNext />
-      </ButtonContainer>
     </ImageSliderContainer>
   );
 };

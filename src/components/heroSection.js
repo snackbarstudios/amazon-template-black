@@ -62,7 +62,7 @@ const HeroSection = () => {
           </Styled.h1>
           <p
             sx={{
-              color: "white",
+              color: "highlight",
               fontSize: [3, 4],
               fontWeight: "heading",
               mb: 4,
@@ -104,7 +104,6 @@ const HeroSection = () => {
         sx={{
           flex: "3",
           position: "relative",
-          pt: [0, null, 4],
           backgroundColor: "primary",
         }}
       >

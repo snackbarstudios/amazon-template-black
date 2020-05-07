@@ -3,19 +3,19 @@ export default {
   colors: {
     text: "#000",
     background: "#fff",
-    primary: "#EFE5DA",
+    primary: "#FDF6EE",
     highlight: "#B77C16",
     modes: {
       raspberryPie: {
         text: "#000",
         background: "#fff",
-        primary: "#D9B7BD",
+        primary: "#F2EDEE",
         highlight: "#63323A",
       },
       oceanCalm: {
         text: "#000",
         background: "#fff",
-        primary: "#94CFEA",
+        primary: "#E8F8FF",
         highlight: "#1B5976",
       },
     },

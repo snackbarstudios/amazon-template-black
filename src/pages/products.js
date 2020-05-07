@@ -53,7 +53,6 @@ const Products = () => {
     <Layout>
       <SEO title={pageTitle} />
       <MainContainer>
-        <PageTitle>{pageTitle}</PageTitle>
         <section sx={{ paddingX: 4 }}>
           <PageSection
             section={productPageSection}
