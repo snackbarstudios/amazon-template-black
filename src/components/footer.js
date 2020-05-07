@@ -11,6 +11,7 @@ const Footer = () => {
       query {
         datoCmsFooter {
           contactDetailsHeading
+          companyName
           adressNode {
             childMarkdownRemark {
               html
@@ -36,6 +37,7 @@ const Footer = () => {
 
   const {
     contactDetailsHeading,
+    companyName,
     adressNode,
     email,
     phoneNumber,
@@ -52,7 +54,7 @@ const Footer = () => {
     <footer
       sx={{
         backgroundColor: "text",
-        pb: 3,
+        pb: [4, 5, 5],
         px: [3, "0px", null],
       }}
     >
@@ -64,12 +66,22 @@ const Footer = () => {
         }}
       >
         <div sx={{ flex: "1", mx: [0, 3, 5] }}>
-          <Styled.h4 sx={{ color: "background", mb: 2, mt: 4 }}>
+          <Styled.h4 sx={{ color: "background", mb: 2, mt: 5 }}>
             {contactDetailsHeading}
           </Styled.h4>
           <div sx={{ mb: 2 }}>
             <Hr />
           </div>
+          <p
+            sx={{
+              color: "background",
+              fontSize: 1,
+              m: 0,
+              mb: 1,
+            }}
+          >
+            {companyName}
+          </p>
           <div
             sx={{
               p: {
@@ -88,6 +100,7 @@ const Footer = () => {
               fontSize: 1,
               textDecoration: "none",
               display: "block",
+              pt: 1,
               ":hover": {
                 fontWeight: "heading",
               },
@@ -111,7 +124,7 @@ const Footer = () => {
           </a>
         </div>
         <div sx={{ flex: "1", mx: [0, 3, 5] }}>
-          <Styled.h4 sx={{ color: "background", mb: 2, mt: 4 }}>
+          <Styled.h4 sx={{ color: "background", mb: 2, mt: 5 }}>
             {socialMediaHeading}
           </Styled.h4>
           <div sx={{ mb: 2 }}>
@@ -138,7 +151,7 @@ const Footer = () => {
           ))}
         </div>
         <div sx={{ flex: "1", mx: [0, 3, 5] }}>
-          <Styled.h4 sx={{ color: "background", mb: 2, mt: 4 }}>
+          <Styled.h4 sx={{ color: "background", mb: 2, mt: 5 }}>
             {privacyHeading}
           </Styled.h4>
           <div sx={{ mb: 2 }}>
