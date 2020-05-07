@@ -50,11 +50,35 @@ const Footer = () => {
 
   const { slug } = datoCmsPrivacySection;
 
+  const style = {
+    heading: {
+      color: "background",
+      mb: 2,
+      mt: 5,
+    },
+    link: {
+      color: "background",
+      fontSize: 1,
+      textDecoration: "none",
+      display: "block",
+      ":hover": {
+        fontWeight: "heading",
+      },
+    },
+    flex: {
+      flex: "1",
+      mx: [0, 3, 5],
+    },
+    hr: {
+      mb: 2,
+    },
+  };
+
   return (
     <footer
       sx={{
         backgroundColor: "text",
-        pb: [4, 5, 5],
+        pb: 2,
         px: [3, "0px", null],
       }}
     >
@@ -65,11 +89,9 @@ const Footer = () => {
           justifyContent: "space-between",
         }}
       >
-        <div sx={{ flex: "1", mx: [0, 3, 5] }}>
-          <Styled.h4 sx={{ color: "background", mb: 2, mt: 5 }}>
-            {contactDetailsHeading}
-          </Styled.h4>
-          <div sx={{ mb: 2 }}>
+        <div sx={style.flex}>
+          <Styled.h4 sx={style.heading}>{contactDetailsHeading}</Styled.h4>
+          <div sx={style.hr}>
             <Hr />
           </div>
           <p
@@ -93,41 +115,18 @@ const Footer = () => {
               adressNode.childMarkdownRemark.html
             )}
           />
-          <a
-            href={`tel:${phoneNumber}`}
-            sx={{
-              color: "background",
-              fontSize: 1,
-              textDecoration: "none",
-              display: "block",
-              pt: 1,
-              ":hover": {
-                fontWeight: "heading",
-              },
-            }}
-          >
-            {phoneNumber}
-          </a>
-          <a
-            href={`mailto:${email}`}
-            sx={{
-              color: "background",
-              fontSize: 1,
-              textDecoration: "none",
-              display: "block",
-              ":hover": {
-                fontWeight: "heading",
-              },
-            }}
-          >
-            {email}
-          </a>
+          <div sx={{ pt: 2 }}>
+            <a href={`tel:${phoneNumber}`} sx={style.link}>
+              {phoneNumber}
+            </a>
+            <a href={`mailto:${email}`} sx={style.link}>
+              {email}
+            </a>
+          </div>
         </div>
-        <div sx={{ flex: "1", mx: [0, 3, 5] }}>
-          <Styled.h4 sx={{ color: "background", mb: 2, mt: 5 }}>
-            {socialMediaHeading}
-          </Styled.h4>
-          <div sx={{ mb: 2 }}>
+        <div sx={style.flex}>
+          <Styled.h4 sx={style.heading}>{socialMediaHeading}</Styled.h4>
+          <div sx={style.hr}>
             <Hr />
           </div>
           {socialMediaLinks.map(({ title, urlLink }, index) => (
@@ -136,25 +135,15 @@ const Footer = () => {
               href={urlLink}
               target="_blank"
               rel="noreferrer noopener"
-              sx={{
-                fontSize: 1,
-                display: "block",
-                color: "background",
-                textDecoration: "none",
-                ":hover": {
-                  fontWeight: "heading",
-                },
-              }}
+              sx={style.link}
             >
               {title}
             </a>
           ))}
         </div>
-        <div sx={{ flex: "1", mx: [0, 3, 5] }}>
-          <Styled.h4 sx={{ color: "background", mb: 2, mt: 5 }}>
-            {privacyHeading}
-          </Styled.h4>
-          <div sx={{ mb: 2 }}>
+        <div sx={style.flex}>
+          <Styled.h4 sx={style.heading}>{privacyHeading}</Styled.h4>
+          <div sx={style.hr}>
             <Hr />
           </div>
           <Link

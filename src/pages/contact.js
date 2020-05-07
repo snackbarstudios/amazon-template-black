@@ -2,7 +2,6 @@
 import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
-import PageContainer from "../components/pageContainer";
 import MainContainer from "../components/mainContainer";
 import Image from "../components/image";
 import { createMarkup } from "../utils/functions";
@@ -70,7 +69,6 @@ const Contact = () => {
   return (
     <Layout>
       <MainContainer>
-        {/* <PageContainer> */}
         <div
           sx={{
             display: "flex",
@@ -125,7 +123,6 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        {/* </PageContainer> */}
       </MainContainer>
     </Layout>
   );
