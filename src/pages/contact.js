@@ -80,8 +80,8 @@ const Contact = () => {
               }}
             >
               <div sx={{ p: 5 }}>
-                <Styled.h2>{pageTitle}</Styled.h2>
-                <p>{companyName}</p>
+                <Styled.h1>{pageTitle}</Styled.h1>
+                <Styled.h1>{companyName}</Styled.h1>
                 <div sx={{ mt: 4 }}>
                   <a href={`tel:${phoneNumber}`} sx={style.a}>
                     {phoneNumber}
