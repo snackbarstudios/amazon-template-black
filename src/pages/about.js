@@ -66,7 +66,6 @@ const About = () => {
     <Layout>
       <SEO title={ingressTitle} />
       <MainContainer>
-        <PageTitle>{pageTitle}</PageTitle>
         <div sx={{ height: "400px" }}>
           <Image image={banner.fluid} />
         </div>
