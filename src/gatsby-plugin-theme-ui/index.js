@@ -50,15 +50,40 @@ export default {
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
+      color: "text",
+      fontSize: [2],
     },
     body: {
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",
+      fontSize: [1],
+    },
+    p: {
+      fontFamily: "body",
+      lineHeight: "body",
+      fontWeight: "body",
+      fontSize: [1],
+      margin: 0,
     },
     caps: {
       textTransform: "uppercase",
       letterSpacing: "0.1em",
+    },
+    a: {
+      fontFamily: "body",
+      lineHeight: "body",
+      fontWeight: "body",
+      fontSize: [1],
+      color: "highlight",
+      ":hover": {
+        color: "primary",
+      },
+    },
+    ul: {
+      li: {
+        margin: 0,
+      },
     },
   },
 
@@ -85,12 +110,16 @@ export default {
     },
     h3: {
       fontFamily: "heading",
+      fontWeight: "heading",
+      fontSize: [2],
+      margin: 0,
+    },
+    h4: {
+      fontFamily: "heading",
       fontWeight: "body",
       fontSize: 2,
       color: "background",
       margin: 0,
-      mt: "46px",
-      mb: 3,
     },
     a: {
       color: "highlight",
