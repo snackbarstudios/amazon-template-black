@@ -4,7 +4,11 @@ import PropTypes from "prop-types";
 
 const MainContainer = ({ children }) => {
   return (
-    <main sx={{ maxWidth: "1140px", margin: "32px auto" }}>{children}</main>
+    <main
+      sx={{ maxWidth: "1140px", margin: "32px auto", px: [3, null, "0px"] }}
+    >
+      {children}
+    </main>
   );
 };
 
