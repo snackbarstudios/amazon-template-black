@@ -70,34 +70,7 @@ const HeroSection = () => {
           >
             {heroDescription}
           </p>
-          <a
-            href={heroLink.slug}
-            sx={{
-              color: "highlight",
-              textTransform: "capitalize",
-              fontSize: [3, 4],
-              fontWeight: "heading",
-              textDecoration: "none",
-              position: "relative",
-              mb: [0, null, 4],
-
-              "::after": {
-                content: '" "',
-                display: "block",
-                width: "15%",
-                pt: 2,
-                borderBottom: "2px solid",
-                borderColor: "highlight",
-                transition: "0.2s",
-                borderRadius: "2px",
-              },
-              ":hover::after": {
-                width: "30%",
-              },
-            }}
-          >
-            {heroLink.slug}
-          </a>
+          <Styled.a href={heroLink.slug}>{heroLink.slug}</Styled.a>
         </div>
       </div>
       <div

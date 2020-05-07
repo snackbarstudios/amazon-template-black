@@ -1,8 +1,13 @@
 /** @jsx jsx */
-import { jsx, Styled } from "theme-ui";
-import { Fragment } from "react";
+import { jsx, Styled, css } from "theme-ui";
 import OutlineButton from "./outlineButton";
 import Image from "../components/image";
+import { createMarkup } from "../utils/functions";
+
+const style = css`
+color: 'hotpink,
+
+`;
 
 const PageSection = ({ section }) => {
   console.log(section);
@@ -13,9 +18,24 @@ const PageSection = ({ section }) => {
         flexDirection: ["column", "row"],
         backgroundColor: "primary",
         ":nth-of-type(2)": { flexDirection: [null, "row-reverse"] },
-        pb: 4,
       }}
     >
+      <div sx={{ flex: "1" }}>
+        <div
+          sx={{
+            overflow: "hidden",
+            height: "100%",
+            div: {
+              height: "100%",
+            },
+          }}
+        >
+          <Image
+            image={section.blockImage.fluid}
+            alt={section.blockImage.alt}
+          />
+        </div>
+      </div>
       <div sx={{ flex: "1" }}>
         <div
           sx={{
@@ -23,32 +43,36 @@ const PageSection = ({ section }) => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            textAlign: "center",
+            p: 5,
           }}
         >
-        
           <Styled.h2>{section.blockTitle}</Styled.h2>
-          {/* <p>{s.blockDescription}</p>
-          {s.buttonLink && (
-            <OutlineButton text={s.buttonLink.slug} href={s.buttonLink.slug} />
+          <p
+            dangerouslySetInnerHTML={createMarkup(
+              section.blockDescriptionNode.childMarkdownRemark.html
+            )}
+          />
+          {section.buttonLink && (
+            <Styled.a
+              text={section.buttonLink.slug}
+              sx={{
+                "::after": {
+                  margin: "auto",
+                },
+              }}
+            >
+              {section.buttonLink.slug}
+            </Styled.a>
           )}
-          {s.externalBtnLink?.length > 0 && (
+          {section.externalBtnLink?.length > 0 && (
             <OutlineButton
-              text={s.externalButtonLinkText}
-              href={s.externalBtnLink}
+              text={section.externalButtonLinkText}
+              href={section.externalBtnLink}
             />
-          )} */}
+          )}
         </div>
       </div>
-      {/* <div sx={{ flex: "1" }}> */}
-        {/* <div
-          sx={{
-            py: 4,
-            overflow: "hidden",
-          }}
-        >
-          <Image image={s.blockImage.fluid} alt={s.blockImage.alt} />
-        </div> */}
-      {/* </div > */}
     </article>
   );
 };

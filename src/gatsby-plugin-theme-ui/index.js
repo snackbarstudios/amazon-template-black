@@ -1,3 +1,5 @@
+import { noAuto } from "@fortawesome/fontawesome-svg-core";
+
 export default {
   initialColorModeName: "light",
   colors: {
@@ -21,7 +23,7 @@ export default {
     },
   },
   breakpoints: ["40em", "56em", "64em"],
-  space: [0, 4, 8, 16, 32, 64, 96, 128, 256, 512],
+  space: [0, 8, 16, 24, 32, 48, 64, 96, 128, 256, 512],
   fonts: {
     body: "Source Sans Pro, sans-serif",
     heading: "Montserrat, sans-serif",
@@ -42,41 +44,73 @@ export default {
   },
   useBodyStyles: "true",
   useBorderBox: "true",
+  // variants can use custom, user-defined names
+  markdownText: {
+    heading: {
+      fontFamily: "heading",
+      lineHeight: "heading",
+      fontWeight: "heading",
+    },
+    body: {
+      fontFamily: "body",
+      lineHeight: "body",
+      fontWeight: "body",
+    },
+    caps: {
+      textTransform: "uppercase",
+      letterSpacing: "0.1em",
+    },
+  },
+
   styles: {
     root: {
       // uses the theme values provided above
       fontFamily: "body",
       fontWeight: "body",
+      fontSize: 1,
+      margin: 0,
     },
     h1: {
-      fontSize: [4, 5],
       fontFamily: "heading",
       fontWeight: "heading",
-      color: "text",
-      marginBottom: 4,
+      fontSize: [4, 5],
+      margin: 0,
       textTransform: "capitalize",
     },
     h2: {
-      fontSize: 2,
       fontFamily: "heading",
       fontWeight: "heading",
-      color: "highlight",
+      fontSize: 2,
+      margin: 0,
     },
-    h4: {
-      fontSize: [2],
+    h3: {
       fontFamily: "heading",
       fontWeight: "body",
+      fontSize: [2],
       color: "background",
       margin: 0,
       mt: "46px",
       mb: 3,
     },
-    p: {
+    a: {
+      color: "highlight",
+      textTransform: "capitalize",
+      fontWeight: "heading",
       fontSize: 2,
-      fontFamily: "heading",
-      fontWeight: "body",
-      color: "background",
-      margin: 0,
+      textDecoration: "none",
+      "::after": {
+        content: '" "',
+        display: "block",
+        width: "15%",
+        pt: 2,
+        borderBottom: "2px solid",
+        borderColor: "highlight",
+        transition: "0.2s",
+        borderRadius: "2px",
+      },
+      ":hover::after": {
+        width: "30%",
+      },
     },
   },
 };

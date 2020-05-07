@@ -71,8 +71,8 @@ const Contact = () => {
 
   return (
     <Layout>
-      <MainContainer>
-        {/* <PageTitle>{pageTitle}</PageTitle>
+      {/* <MainContainer>
+        <PageTitle>{pageTitle}</PageTitle>
         <PageContainer>
           <div
             sx={{
@@ -108,8 +108,8 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </PageContainer> */}
-      </MainContainer>
+        </PageContainer>
+      </MainContainer> */}
     </Layout>
   );
 };

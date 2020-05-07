@@ -3,18 +3,13 @@ import { jsx, useColorMode } from "theme-ui";
 import { useEffect } from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import MainContainer from "../components/mainContainer";
 import HeroSection from "../components/heroSection";
 import { useStaticQuery, graphql } from "gatsby";
 import PageSection from "../components/pageSection";
-import Quote from "../components/quote";
 
 const IndexPage = () => {
   const [colorMode, setColorMode] = useColorMode();
-  const {
-    datoCmsLandingPage,
-    datoCmsColorMode,
-  } = useStaticQuery(
+  const { datoCmsLandingPage, datoCmsColorMode } = useStaticQuery(
     graphql`
       query {
         datoCmsColorMode {
@@ -82,13 +77,13 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <HeroSection />
-      <MainContainer>
+      <main>
         <section>
           {datoCmsLandingPage.landinpageSection.map((node) => {
             return <PageSection key={node.id} section={node} />;
           })}
         </section>
-      </MainContainer>
+      </main>
     </Layout>
   );
 };
