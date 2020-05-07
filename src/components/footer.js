@@ -3,6 +3,7 @@ import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";
 import Hr from "./hr";
+import { createMarkup } from "../utils/functions";
 
 const Footer = () => {
   const { datoCmsFooter, datoCmsPrivacySection } = useStaticQuery(
@@ -10,8 +11,10 @@ const Footer = () => {
       query {
         datoCmsFooter {
           contactDetailsHeading
-          contactDetails {
-            addressField
+          adressNode {
+            childMarkdownRemark {
+              html
+            }
           }
           email
           phoneNumber
@@ -33,7 +36,7 @@ const Footer = () => {
 
   const {
     contactDetailsHeading,
-    contactDetails,
+    adressNode,
     email,
     phoneNumber,
     socialMediaHeading,
@@ -48,10 +51,9 @@ const Footer = () => {
   return (
     <footer
       sx={{
-        minHeight: "200px",
         backgroundColor: "text",
         pb: 3,
-        px: 3,
+        px: [3, "0px", null],
       }}
     >
       <div
@@ -62,26 +64,32 @@ const Footer = () => {
         }}
       >
         <div sx={{ flex: "1", mx: [0, 3, 5] }}>
-          <Styled.h4 sx={{ color: "background" }}>
+          <Styled.h4 sx={{ color: "background", mb: 2, mt: 4 }}>
             {contactDetailsHeading}
           </Styled.h4>
-          <div sx={{ mb: 3 }}>
+          <div sx={{ mb: 2 }}>
             <Hr />
           </div>
-          {contactDetails.map(({ addressField }, index) => (
-            <Styled.p sx={{ color: "background" }} key={index}>
-              {addressField}
-            </Styled.p>
-          ))}
+          <div
+            sx={{
+              p: {
+                variant: "markdownText.p",
+                color: "background",
+              },
+            }}
+            dangerouslySetInnerHTML={createMarkup(
+              adressNode.childMarkdownRemark.html
+            )}
+          />
           <a
             href={`tel:${phoneNumber}`}
             sx={{
               color: "background",
-              fontSize: 2,
+              fontSize: 1,
               textDecoration: "none",
               display: "block",
               ":hover": {
-                color: "primary",
+                fontWeight: "heading",
               },
             }}
           >
@@ -91,11 +99,11 @@ const Footer = () => {
             href={`mailto:${email}`}
             sx={{
               color: "background",
-              fontSize: 2,
+              fontSize: 1,
               textDecoration: "none",
               display: "block",
               ":hover": {
-                color: "primary",
+                fontWeight: "heading",
               },
             }}
           >
@@ -103,10 +111,10 @@ const Footer = () => {
           </a>
         </div>
         <div sx={{ flex: "1", mx: [0, 3, 5] }}>
-          <Styled.h4 sx={{ color: "background" }}>
+          <Styled.h4 sx={{ color: "background", mb: 2, mt: 4 }}>
             {socialMediaHeading}
           </Styled.h4>
-          <div sx={{ mb: 3 }}>
+          <div sx={{ mb: 2 }}>
             <Hr />
           </div>
           {socialMediaLinks.map(({ title, urlLink }, index) => (
@@ -116,12 +124,12 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer noopener"
               sx={{
-                fontSize: 2,
+                fontSize: 1,
                 display: "block",
                 color: "background",
                 textDecoration: "none",
                 ":hover": {
-                  color: "primary",
+                  fontWeight: "heading",
                 },
               }}
             >
@@ -130,8 +138,10 @@ const Footer = () => {
           ))}
         </div>
         <div sx={{ flex: "1", mx: [0, 3, 5] }}>
-          <Styled.h4 sx={{ color: "background" }}>{privacyHeading}</Styled.h4>
-          <div sx={{ mb: 3 }}>
+          <Styled.h4 sx={{ color: "background", mb: 2, mt: 4 }}>
+            {privacyHeading}
+          </Styled.h4>
+          <div sx={{ mb: 2 }}>
             <Hr />
           </div>
           <Link
@@ -139,10 +149,10 @@ const Footer = () => {
             aria-label={`Link to ${slug}`}
             sx={{
               color: "background",
-              fontSize: 2,
+              fontSize: 1,
               textDecoration: "none",
               ":hover": {
-                color: "primary",
+                fontWeight: "heading",
               },
             }}
           >
@@ -167,7 +177,7 @@ const Footer = () => {
               fontSize: 0,
               textDecoration: "none",
               ":hover": {
-                color: "primary",
+                fontWeight: "heading",
               },
             }}
           >
