@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import PageTitle from "../components/pageTitle";
 import MainContainer from "../components/mainContainer";
 import { createMarkup } from "../utils/functions";
 
@@ -24,27 +23,30 @@ const PrivacyPage = () => {
   );
 
   const { pageTitle, textNode } = datoCmsPrivacySection;
-  console.log(textNode);
 
   return (
     <Layout>
       <SEO title="Page two" />
       <MainContainer>
-        <PageTitle>{pageTitle}</PageTitle>
-        <div
-          sx={{
-            px: 4,
-            h1: {
-              fontSize: [3],
-              fontFamily: "heading",
-              fontWeight: "heading",
-              color: "text",
-            },
-          }}
-          dangerouslySetInnerHTML={createMarkup(
-            textNode.childMarkdownRemark.html
-          )}
-        />
+        <div sx={{ maxWidth: "800px", margin: "0px auto" }}>
+          <div sx={{ color: "highlight" }}>
+            <Styled.h2>{pageTitle}</Styled.h2>
+          </div>
+          <div
+            sx={{
+              py: 5,
+              h1: {
+                variant: "markdownText.heading",
+              },
+              ul: {
+                variant: "markdownText.ul",
+              },
+            }}
+            dangerouslySetInnerHTML={createMarkup(
+              textNode.childMarkdownRemark.html
+            )}
+          />
+        </div>
       </MainContainer>
     </Layout>
   );
