@@ -26,7 +26,7 @@ export default {
     body: "Source Sans Pro, sans-serif",
     heading: "Montserrat, sans-serif",
   },
-  fontSizes: [12, 14, 16, 20, 24, 36, 48, 64],
+  fontSizes: [12, 16, 24, 36, 48, 64],
   fontWeights: {
     body: 400,
     heading: 900,
@@ -49,7 +49,7 @@ export default {
       fontWeight: "body",
     },
     h1: {
-      fontSize: [5, 7],
+      fontSize: [4, 5],
       fontFamily: "heading",
       fontWeight: "heading",
       color: "text",
@@ -57,20 +57,10 @@ export default {
       textTransform: "capitalize",
     },
     h2: {
-      fontSize: 4,
-      fontFamily: "body",
+      fontSize: 2,
+      fontFamily: "heading",
       fontWeight: "heading",
-      color: "text",
-      marginBottom: 4,
-      display: "block",
-      "::after": {
-        content: '" "',
-        display: "block",
-        width: "20%",
-        paddingTop: 2,
-        borderBottom: "2px solid",
-        borderColor: "highlight",
-      },
+      color: "highlight",
     },
     h4: {
       fontSize: [2],

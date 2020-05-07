@@ -13,8 +13,8 @@ const PrivacyPage = () => {
         datoCmsPrivacySection {
           pageTitle
           textNode {
-            internal {
-              content
+            childMarkdownRemark {
+              html
             }
           }
         }
@@ -23,20 +23,29 @@ const PrivacyPage = () => {
   );
 
   // const { pageTitle, textNode } = datoCmsPrivacySection;
-  const {
-    pageTitle,
-    textNode: {
-      internal: { content },
-    },
-  } = datoCmsPrivacySection;
-  // console.log(textNode);
+  const { pageTitle, textNode } = datoCmsPrivacySection;
+  console.log(textNode);
+
+  function createMarkup() {
+    return { __html: textNode.childMarkdownRemark.html };
+  }
 
   return (
     <Layout>
       <SEO title="Page two" />
       <MainContainer>
         <PageTitle>{pageTitle}</PageTitle>
-        <div sx={{ px: 4 }}>{content}</div>
+        <div
+          sx={{
+            px: 4,
+            h1: {
+              fontSize: [3],
+              fontFamily: "heading",
+              fontWeight: "heading",
+              color: "text"            },
+          }}
+          dangerouslySetInnerHTML={createMarkup()}
+        />
       </MainContainer>
     </Layout>
   );

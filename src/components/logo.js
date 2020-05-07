@@ -18,13 +18,12 @@ const Logo = () => {
       }
     `
   );
-
   return (
     <Link to="/">
       <div sx={{ width: "100px" }}>
         <Image
           image={datoCmsLogo.brandLogo.fluid}
-          alt={datoCmsLogo.brandLogo}
+          alt={datoCmsLogo.brandLogo.alt}
         />
       </div>
     </Link>
