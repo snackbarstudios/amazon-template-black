@@ -11,7 +11,7 @@ const PageSection = ({ section }) => {
       sx={{
         display: "flex",
         flexDirection: ["column", "row"],
-        backgrounColor: "primary",
+        backgroundColor: "primary",
         ":nth-of-type(2)": { flexDirection: [null, "row-reverse"] },
         pb: 4,
       }}

@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PageTitle from "../components/pageTitle";
 import MainContainer from "../components/mainContainer";
+import { createMarkup } from "../utils/functions";
 
 const PrivacyPage = () => {
   const { datoCmsPrivacySection } = useStaticQuery(
@@ -22,13 +23,8 @@ const PrivacyPage = () => {
     `
   );
 
-  // const { pageTitle, textNode } = datoCmsPrivacySection;
   const { pageTitle, textNode } = datoCmsPrivacySection;
   console.log(textNode);
-
-  function createMarkup() {
-    return { __html: textNode.childMarkdownRemark.html };
-  }
 
   return (
     <Layout>
@@ -42,9 +38,12 @@ const PrivacyPage = () => {
               fontSize: [3],
               fontFamily: "heading",
               fontWeight: "heading",
-              color: "text"            },
+              color: "text",
+            },
           }}
-          dangerouslySetInnerHTML={createMarkup()}
+          dangerouslySetInnerHTML={createMarkup(
+            textNode.childMarkdownRemark.html
+          )}
         />
       </MainContainer>
     </Layout>

@@ -9,42 +9,42 @@ import Image from "../components/image";
 import OutlineButton from "../components/outlineButton";
 
 const Contact = () => {
-  const { datoCmsContactPage } = useStaticQuery(
-    graphql`
-      query {
-        datoCmsContactPage {
-          phoneNumber
-          pageTitle
-          companyName
-          address {
-            addressLine
-          }
-          email
-          mapButtonText
-          mapButtonLink {
-            latitude
-            longitude
-          }
-          image {
-            alt
-            fluid {
-              ...GatsbyDatoCmsFluid
-            }
-          }
-        }
-      }
-    `
-  );
-  const {
-    phoneNumber,
-    pageTitle,
-    companyName,
-    address,
-    email,
-    mapButtonText,
-    mapButtonLink,
-    image,
-  } = datoCmsContactPage;
+  // const { datoCmsContactPage } = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       datoCmsContactPage {
+  //         phoneNumber
+  //         pageTitle
+  //         companyName
+  //         address {
+  //           addressLine
+  //         }
+  //         email
+  //         mapButtonText
+  //         mapButtonLink {
+  //           latitude
+  //           longitude
+  //         }
+  //         image {
+  //           alt
+  //           fluid {
+  //             ...GatsbyDatoCmsFluid
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `
+  // );
+  // const {
+  //   phoneNumber,
+  //   pageTitle,
+  //   companyName,
+  //   address,
+  //   email,
+  //   mapButtonText,
+  //   mapButtonLink,
+  //   image,
+  // } = datoCmsContactPage;
 
   const style = {
     paragraph: {
@@ -72,7 +72,7 @@ const Contact = () => {
   return (
     <Layout>
       <MainContainer>
-        <PageTitle>{pageTitle}</PageTitle>
+        {/* <PageTitle>{pageTitle}</PageTitle>
         <PageContainer>
           <div
             sx={{
@@ -108,7 +108,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </PageContainer>
+        </PageContainer> */}
       </MainContainer>
     </Layout>
   );
