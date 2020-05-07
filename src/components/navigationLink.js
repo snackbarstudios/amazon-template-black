@@ -27,18 +27,17 @@ const NavigationLink = ({ children, href, open }) => {
           color: "text",
           zIndex: 2,
           "::after": {
+            content: '" "',
             position: "absolute",
             zIndex: -1,
-            content: '" "',
             display: "block",
             width: "120%",
+            height: "16px",
             ml: "-20%",
-            height: "12px",
+            mt: "-12px",
             backgroundColor: "primary",
-            borderRadius: "2px",
-            mt: "-15px",
             opacity: 0,
-            transition: "1s",
+            transition: "0.5s",
           },
           ":hover": {
             "::after": {

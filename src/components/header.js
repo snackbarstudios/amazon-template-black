@@ -6,7 +6,7 @@ import NavigationMobile from "./navigationMobile";
 const Header = () => (
   <header
     sx={{
-      height: "50px",
+      height: "60px",
     }}
   >
     <NavigationDesktop />

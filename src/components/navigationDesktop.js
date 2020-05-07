@@ -7,44 +7,35 @@ const NavigationDesktop = () => {
   return (
     <div
       sx={{
-        display: ["none", "block"],
+        display: ["none", "flex"],
         position: "fixed",
-        zIndex: "10",
+        zIndex: 2,
         backgroundColor: "background",
-        top: "0",
         width: "100%",
-        left: "0",
+        height: "60px",
+        px: 4,
+        justifyContent: "space-between",
+        alignItems: "center",
       }}
     >
-      <div
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          py: 1,
-          px: 4,
-        }}
-      >
-        <div sx={{ display: "flex" }}>
-          <Logo />
-        </div>
+      <div sx={{ display: "flex" }}>
+        <Logo />
+      </div>
 
-        <div>
-          <ul
-            sx={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              marginBottom: "0",
-            }}
-          >
-            <NavigationLink href={`/about/`}>About</NavigationLink>
+      <div>
+        <ul
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+          }}
+        >
+          <NavigationLink href={`/about/`}>About</NavigationLink>
 
-            <NavigationLink href={`/products/`}>Products</NavigationLink>
+          <NavigationLink href={`/products/`}>Products</NavigationLink>
 
-            <NavigationLink href={`/contact/`}>Contact</NavigationLink>
-          </ul>
-        </div>
+          <NavigationLink href={`/contact/`}>Contact</NavigationLink>
+        </ul>
       </div>
     </div>
   );
