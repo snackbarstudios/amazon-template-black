@@ -3,8 +3,7 @@ import { jsx } from "theme-ui";
 import Hamburger from "./hamburger";
 import { useState } from "react";
 import DropDownMobile from "./dropdownMobile";
-import NavItem from "./navItem";
-import AnchorLink from "./anchorLink";
+import NavigationLink from "./navigationLink";
 import Logo from "./logo";
 
 const NavigationMobile = () => {
@@ -13,12 +12,6 @@ const NavigationMobile = () => {
     <div
       sx={{
         display: ["block", "none", null],
-        height: "70px",
-        backgroundColor: "white",
-        position: "fixed",
-        top: "0",
-        left: "0",
-        width: "100%",
         padding: 3,
       }}
     >
@@ -36,21 +29,16 @@ const NavigationMobile = () => {
             li: { margin: "28px" },
           }}
         >
-          <NavItem open={open}>
-            <AnchorLink open={open} href={`/about/`}>
-              About
-            </AnchorLink>
-          </NavItem>
-          <NavItem open={open}>
-            <AnchorLink open={open} href={`/products/`}>
-              Products
-            </AnchorLink>
-          </NavItem>
-          <NavItem open={open}>
-            <AnchorLink open={open} href={`/contact/`}>
-              Contact
-            </AnchorLink>
-          </NavItem>
+          <NavigationLink open={open} href={`/about/`}>
+            About
+          </NavigationLink>
+          <NavigationLink open={open} href={`/products/`}>
+            Products
+          </NavigationLink>
+
+          <NavigationLink open={open} href={`/contact/`}>
+            Contact
+          </NavigationLink>
         </ul>
       </DropDownMobile>
       <div sx={{ display: "flex" }}>

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import AnchorLink from "./anchorLink";
+import NavigationLink from "./navigationLink";
 import Logo from "./logo";
 
 const NavigationDesktop = () => {
@@ -9,7 +9,8 @@ const NavigationDesktop = () => {
       sx={{
         display: ["none", "block"],
         position: "fixed",
-        zIndex: "99",
+        zIndex: "10",
+        backgroundColor: "background",
         top: "0",
         width: "100%",
         left: "0",
@@ -20,12 +21,14 @@ const NavigationDesktop = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: 3,
+          py: 1,
+          px: 4,
         }}
       >
         <div sx={{ display: "flex" }}>
           <Logo />
         </div>
+
         <div>
           <ul
             sx={{
@@ -35,21 +38,11 @@ const NavigationDesktop = () => {
               marginBottom: "0",
             }}
           >
-            <li
-              sx={{
-                listStyle: "none",
-                marginX: 2,
-                marginBottom: "0",
-              }}
-            >
-              <AnchorLink href={`/about/`}>About</AnchorLink>
-            </li>
-            <li sx={{ listStyle: "none", marginX: 2, marginBottom: "0" }}>
-              <AnchorLink href={`/products/`}>Products</AnchorLink>
-            </li>
-            <li sx={{ listStyle: "none", marginX: 2, marginBottom: "0" }}>
-              <AnchorLink href={`/contact/`}>Contact</AnchorLink>
-            </li>
+            <NavigationLink href={`/about/`}>About</NavigationLink>
+
+            <NavigationLink href={`/products/`}>Products</NavigationLink>
+
+            <NavigationLink href={`/contact/`}>Contact</NavigationLink>
           </ul>
         </div>
       </div>

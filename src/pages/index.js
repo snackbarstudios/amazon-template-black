@@ -78,7 +78,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <HeroSection />
       <main>
-        <section>
+        <section sx={{ my: 6 }}>
           {datoCmsLandingPage.landinpageSection.map((node) => {
             return <PageSection key={node.id} section={node} />;
           })}

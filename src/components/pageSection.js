@@ -1,13 +1,8 @@
 /** @jsx jsx */
-import { jsx, Styled, css } from "theme-ui";
-import OutlineButton from "./outlineButton";
-import Image from "../components/image";
+import { jsx, Styled } from "theme-ui";
+import StyledLink from "./styledLink";
+import Image from "./image";
 import { createMarkup } from "../utils/functions";
-
-const style = css`
-color: 'hotpink,
-
-`;
 
 const PageSection = ({ section }) => {
   console.log(section);
@@ -44,32 +39,47 @@ const PageSection = ({ section }) => {
             flexDirection: "column",
             justifyContent: "center",
             textAlign: "center",
-            p: 5,
+            p: 6,
+            a: {
+              "::after": {
+                mx: "auto",
+              },
+            },
           }}
         >
-          <Styled.h2>{section.blockTitle}</Styled.h2>
+          <Styled.h2 sx={{ color: "highlight", mb: 3 }}>
+            {section.blockTitle}
+          </Styled.h2>
           <p
             dangerouslySetInnerHTML={createMarkup(
               section.blockDescriptionNode.childMarkdownRemark.html
             )}
           />
           {section.buttonLink && (
-            <Styled.a
-              text={section.buttonLink.slug}
+            <StyledLink
+              href={section.buttonLink.slug}
               sx={{
+                fontSize: 1,
                 "::after": {
                   margin: "auto",
                 },
               }}
             >
               {section.buttonLink.slug}
-            </Styled.a>
+            </StyledLink>
           )}
           {section.externalBtnLink?.length > 0 && (
-            <OutlineButton
-              text={section.externalButtonLinkText}
+            <Styled.a
               href={section.externalBtnLink}
-            />
+              sx={{
+                fontSize: 1,
+                "::after": {
+                  margin: "auto",
+                },
+              }}
+            >
+              {section.externalButtonLinkText}
+            </Styled.a>
           )}
         </div>
       </div>
