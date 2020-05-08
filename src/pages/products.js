@@ -12,25 +12,31 @@ const Products = () => {
       query {
         datoCmsProductsPage {
           title
-          productPageSection {
+          slug
+          productBlock {
             id
-            blockTitle
+            heading
             price
-            blockDescription
-            blockDescriptionNode {
+            descriptionNode {
               childMarkdownRemark {
                 html
               }
             }
-            externalBtnLink
-            externalButtonLinkText
-            specificationHeading
-            specificationTextNode {
+            specificationTitle
+            specificationListNode {
               childMarkdownRemark {
                 html
               }
             }
-            blockImage {
+            externalButtonText
+            externalButtonLink
+            imageGallery {
+              alt
+              fluid {
+                ...GatsbyDatoCmsFluid
+              }
+            }
+            image {
               alt
               fluid {
                 ...GatsbyDatoCmsFluid
@@ -42,14 +48,13 @@ const Products = () => {
     `
   );
 
-  const { title, productPageSection } = datoCmsProductsPage;
-
+  const { title, productBlock } = datoCmsProductsPage;
   return (
     <Layout>
       <SEO title={title} />
       <MainContainer>
         <section sx={{ paddingX: 4 }}>
-          <Card section={productPageSection} />
+          <Card section={productBlock} />
         </section>
       </MainContainer>
     </Layout>

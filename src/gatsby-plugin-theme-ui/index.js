@@ -79,6 +79,7 @@ export default {
       },
     },
     ul: {
+      pl: 2,
       li: {
         margin: 0,
       },

@@ -16,20 +16,7 @@ const PageSection = ({ section }) => {
       }}
     >
       <div sx={{ flex: "1" }}>
-        <div
-          sx={{
-            overflow: "hidden",
-            height: "100%",
-            div: {
-              height: "100%",
-            },
-          }}
-        >
-          {/* <Image
-            image={section.blockImage.fluid}
-            alt={section.blockImage.alt}
-          /> */}
-        </div>
+        <Image image={section.blockImage.fluid} alt={section.blockImage.alt} />
       </div>
       <div sx={{ flex: "1" }}>
         <div
@@ -40,11 +27,6 @@ const PageSection = ({ section }) => {
             justifyContent: "center",
             textAlign: "center",
             p: 6,
-            a: {
-              "::after": {
-                mx: "auto",
-              },
-            },
           }}
         >
           <Styled.h2 sx={{ color: "highlight", mb: 3 }}>
