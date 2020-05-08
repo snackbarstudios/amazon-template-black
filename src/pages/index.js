@@ -8,74 +8,74 @@ import { useStaticQuery, graphql } from "gatsby";
 import PageSection from "../components/pageSection";
 
 const IndexPage = () => {
-  const [colorMode, setColorMode] = useColorMode();
-  const { datoCmsLandingPage, datoCmsColorMode } = useStaticQuery(
-    graphql`
-      query {
-        datoCmsColorMode {
-          light
-          raspberrypie
-          oceancalm
-        }
-        datoCmsColorMode {
-          light
-          raspberrypie
-          oceancalm
-        }
-        datoCmsLandingPage {
-          landinpageSection {
-            id
-            blockDescriptionNode {
-              childMarkdownRemark {
-                html
-              }
-            }
-            blockDescription
-            buttonLink {
-              ... on DatoCmsProductsPage {
-                id
-                title
-                slug
-              }
-              ... on DatoCmsContactPage {
-                id
-                title
-                slug
-              }
-              ... on DatoCmsAboutPage {
-                id
-                title
-                slug
-              }
-            }
-            externalBtnLink
-            externalButtonLinkText
-            blockTitle
-            blockImage {
-              fluid {
-                ...GatsbyDatoCmsFluid
-              }
-            }
-          }
-          quote
-        }
-      }
-    `
-  );
+//   const [colorMode, setColorMode] = useColorMode();
+//   const { datoCmsLandingPage, datoCmsColorMode } = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       datoCmsColorMode {
+  //         light
+  //         raspberrypie
+  //         oceancalm
+  //       }
+  //       datoCmsColorMode {
+  //         light
+  //         raspberrypie
+  //         oceancalm
+  //       }
+  //       datoCmsLandingPage {
+  //         landinpageSection {
+  //           id
+  //           blockDescriptionNode {
+  //             childMarkdownRemark {
+  //               html
+  //             }
+  //           }
+  //           blockDescription
+  //           buttonLink {
+  //             ... on DatoCmsProductsPage {
+  //               id
+  //               title
+  //               slug
+  //             }
+  //             ... on DatoCmsContactPage {
+  //               id
+  //               title
+  //               slug
+  //             }
+  //             ... on DatoCmsAboutPage {
+  //               id
+  //               title
+  //               slug
+  //             }
+  //           }
+  //           externalBtnLink
+  //           externalButtonLinkText
+  //           blockTitle
+  //           blockImage {
+  //             fluid {
+  //               ...GatsbyDatoCmsFluid
+  //             }
+  //           }
+  //         }
+  //         quote
+  //       }
+  //     }
+  //   `
+  // );
 
-  useEffect(() => {
-    if (datoCmsColorMode.oceancalm) {
-      setColorMode("oceanCalm");
-    } else if (datoCmsColorMode.raspberrypie) {
-      setColorMode("raspberryPie");
-    } else {
-      setColorMode("light");
-    }
-  }, [datoCmsColorMode.oceancalm, datoCmsColorMode.raspberrypie, setColorMode]);
+  // useEffect(() => {
+  //   if (datoCmsColorMode.oceancalm) {
+  //     setColorMode("oceanCalm");
+  //   } else if (datoCmsColorMode.raspberrypie) {
+  //     setColorMode("raspberryPie");
+  //   } else {
+  //     setColorMode("light");
+  //   }
+  // }, [datoCmsColorMode.oceancalm, datoCmsColorMode.raspberrypie, setColorMode]);
 
   return (
     <Layout>
-      <SEO title="Home" />
+      {/* <SEO title="Home" />
       <HeroSection />
       <main>
         <section sx={{ my: 6 }}>
@@ -83,7 +83,7 @@ const IndexPage = () => {
             return <PageSection key={node.id} section={node} />;
           })}
         </section>
-      </main>
+      </main> */}
     </Layout>
   );
 };

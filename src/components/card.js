@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "../components/image";
 import { createMarkup } from "../utils/functions";
 import { Fragment } from "react";
@@ -42,7 +42,7 @@ const Card = ({ section }) => {
                 display: "flex",
                 flexDirection: ["column-reverse", "row-reverse"],
                 mb: 6,
-                border: "1px solid grey",
+                // border: "1px solid grey",
               }}
             >
               <div sx={{ flex: "1" }}>

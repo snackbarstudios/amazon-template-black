@@ -36,12 +36,6 @@ const Products = () => {
                 ...GatsbyDatoCmsFluid
               }
             }
-            image {
-              alt
-              fluid {
-                ...GatsbyDatoCmsFluid
-              }
-            }
           }
         }
       }
