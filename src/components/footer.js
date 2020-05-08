@@ -54,7 +54,7 @@ const Footer = () => {
     heading: {
       color: "background",
       mb: 2,
-      mt: 5,
+      mt: 3,
     },
     link: {
       color: "background",
@@ -62,7 +62,7 @@ const Footer = () => {
       textDecoration: "none",
       display: "block",
       ":hover": {
-        fontWeight: "heading",
+        color: "highlight",
       },
     },
     flex: {

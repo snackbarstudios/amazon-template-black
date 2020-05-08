@@ -5,7 +5,6 @@ import Image from "./image";
 import { createMarkup } from "../utils/functions";
 
 const PageSection = ({ section }) => {
-  console.log(section);
   return (
     <article
       sx={{
@@ -39,14 +38,7 @@ const PageSection = ({ section }) => {
           />
           {section.buttonLink && (
             <StyledLink
-              href={section.buttonLink.slug}
-              sx={{
-                fontSize: 1,
-                "::after": {
-                  margin: "auto",
-                },
-              }}
-            >
+              href={section.buttonLink.slug}>
               {section.buttonLink.slug}
             </StyledLink>
           )}

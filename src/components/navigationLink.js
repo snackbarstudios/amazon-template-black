@@ -23,7 +23,7 @@ const NavigationLink = ({ children, href, open }) => {
           display: "inline-block",
           position: "relative",
           textDecoration: "none",
-          fontFamily: "heading",
+          fontFamily: "body",
           fontWeight: "heading",
           fontSize: [4, 1],
           color: "text",

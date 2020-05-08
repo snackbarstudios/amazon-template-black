@@ -72,7 +72,7 @@ export default {
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",
-      fontSize: [1],
+      fontSize: 1,
       color: "highlight",
       ":hover": {
         color: "primary",
@@ -91,6 +91,7 @@ export default {
       // uses the theme values provided above
       fontFamily: "body",
       fontWeight: "body",
+      lineHeight: "body",
       fontSize: 1,
       margin: 0,
     },
@@ -102,7 +103,7 @@ export default {
       textTransform: "capitalize",
     },
     h2: {
-      fontFamily: "heading",
+      fontFamily: "body",
       fontWeight: "heading",
       fontSize: 2,
       margin: 0,
@@ -110,7 +111,7 @@ export default {
     h3: {
       fontFamily: "heading",
       fontWeight: "heading",
-      fontSize: [2],
+      fontSize: 2,
       margin: 0,
     },
     h4: {

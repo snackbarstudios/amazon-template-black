@@ -63,8 +63,9 @@ const HeroSection = () => {
           <p
             sx={{
               color: "highlight",
-              fontSize: [3, 4],
+              fontSize: [3],
               fontWeight: "body",
+              lineHeight: 1.2,
               mb: 4,
             }}
           >

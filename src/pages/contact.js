@@ -75,6 +75,7 @@ const Contact = () => {
             flexDirection: ["column-reverse", "row", null],
             width: "100%",
             height: "100%",
+            mt: 5,
           }}
         >
           <div
@@ -84,11 +85,17 @@ const Contact = () => {
             }}
           >
             <div sx={{ p: 5 }}>
-              <div sx={{ color: "highlight" }}>
-                <Styled.h2>{pageTitle}</Styled.h2>
+              <div
+                sx={{
+                  color: "highlight",
+                  fontFamily: "body",
+                  textTransform: "uppercase",
+                }}
+              >
+                <h1>{pageTitle}</h1>
               </div>
-              <div sx={{ my: 3 }}>
-                <Styled.h3>{companyName}</Styled.h3>
+              <div sx={{ my: 3, color: "highlight" }}>
+                <Styled.h2>{companyName}</Styled.h2>
               </div>
               <div
                 sx={{
