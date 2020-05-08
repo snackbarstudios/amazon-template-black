@@ -8,9 +8,10 @@ const NavigationLink = ({ children, href, open }) => {
     <li
       sx={{
         listStyle: "none",
-        ml: 4,
         position: "relative",
-        height: "24px",
+        height: ["auto", 3],
+        ml: 4,
+        mt: [4, "0px"],
         pl: 1,
       }}
     >
@@ -24,6 +25,7 @@ const NavigationLink = ({ children, href, open }) => {
           textDecoration: "none",
           fontFamily: "heading",
           fontWeight: "heading",
+          fontSize: [4, 1],
           color: "text",
           zIndex: 2,
           "::after": {
@@ -32,9 +34,9 @@ const NavigationLink = ({ children, href, open }) => {
             zIndex: -1,
             display: "block",
             width: "120%",
-            height: "16px",
+            height: ["24px", "16px"],
             ml: "-20%",
-            mt: "-12px",
+            mt: ["-24px","-12px"],
             backgroundColor: "primary",
             opacity: 0,
             transition: "0.5s",

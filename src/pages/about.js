@@ -64,10 +64,10 @@ const About = () => {
 
   return (
     <Layout>
-      <SEO title={ingressTitle} />
+      <SEO title={pageTitle} />
       <MainContainer>
         <div sx={{ height: "400px" }}>
-          <Image image={banner.fluid} />
+          <Image image={banner.fluid} alt={banner.alt} />
         </div>
         <section
           sx={{
@@ -102,9 +102,9 @@ const About = () => {
           </h2>
           <p>{ingressText}</p>
         </section>
-        <section sx={{ py: 4 }}>
+        {/* <section sx={{ py: 4 }}>
           <PageSection section={aboutSection} />
-        </section>
+        </section> */}
       </MainContainer>
     </Layout>
   );

@@ -1,5 +1,3 @@
-import { noAuto } from "@fortawesome/fontawesome-svg-core";
-
 export default {
   initialColorModeName: "light",
   colors: {

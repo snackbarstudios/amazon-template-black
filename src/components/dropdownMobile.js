@@ -15,13 +15,13 @@ const DropDownMobile = ({ children, open }) => {
       }
     }
     return {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      zIndex: 10,
       backgroundColor: "background",
       color: "primary",
-      position: "absolute",
       overflow: "hidden",
-      left: 0,
-      top: 0,
-      zIndex: 10,
       height: "100vh",
       width: "0",
       display: "flex",

@@ -11,24 +11,19 @@ const NavigationMobile = () => {
   return (
     <div
       sx={{
-        display: ["block", "none", null],
-        padding: 3,
+        height: "60px",
+        display: ["flex", "none", null],
+        alignItems: "center",
+        a: {
+          ml: "18px",
+        },
       }}
     >
       <Hamburger setOpen={setOpen} open={open} />
+      <Logo />
+
       <DropDownMobile open={open}>
-        <ul
-          sx={{
-            listStyle: "none",
-            display: "flex",
-            flexDirection: "column",
-            fontSize: 5,
-            m: 0,
-            width: "100%",
-            height: "auto",
-            li: { margin: "28px" },
-          }}
-        >
+        <ul>
           <NavigationLink open={open} href={`/about/`}>
             About
           </NavigationLink>
@@ -41,9 +36,6 @@ const NavigationMobile = () => {
           </NavigationLink>
         </ul>
       </DropDownMobile>
-      <div sx={{ display: "flex" }}>
-        <Logo />
-      </div>
     </div>
   );
 };

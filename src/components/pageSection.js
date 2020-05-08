@@ -25,10 +25,10 @@ const PageSection = ({ section }) => {
             },
           }}
         >
-          <Image
+          {/* <Image
             image={section.blockImage.fluid}
             alt={section.blockImage.alt}
-          />
+          /> */}
         </div>
       </div>
       <div sx={{ flex: "1" }}>

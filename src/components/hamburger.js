@@ -7,11 +7,11 @@ const Hamburger = ({ open, setOpen }) => {
     if (open) {
       switch (action) {
         case "rotateCW":
-          animation.transform = "rotate(-135deg) translate(-4px, -2px)";
+          animation.transform = "rotate(-135deg) translate(-4px, -3px)";
           animation.backgroundColor = "highlight";
           break;
         case "rotateCCW":
-          animation.transform = "rotate(135deg) translate(-3px, 2px)";
+          animation.transform = "rotate(135deg) translate(-4px, 3px)";
           animation.backgroundColor = "highlight";
           break;
         default:
@@ -19,16 +19,16 @@ const Hamburger = ({ open, setOpen }) => {
     }
     return {
       display: "block",
-      padding: "0",
-      height: "3px",
+      padding: 0,
+      height: "2px",
       backgroundColor: "black",
-      marginY: "5px",
-      borderRadius: "2px",
+      marginY: 1,
+      borderRadius: "3px",
       ":first-of-type": {
-        width: "20px",
+        width: "25px",
       },
       ":nth-of-type(3)": {
-        width: "20px",
+        width: "25px",
       },
       transition: "ease-in-out 0.3s",
       ...animation,
