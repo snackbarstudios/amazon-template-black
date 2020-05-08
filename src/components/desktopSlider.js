@@ -5,13 +5,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-const DesktopSlider = ({ imageGallery }) => {
+const DesktopSlider = ({ imageGallery, setFocusImage }) => {
   const settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     slidesPerRow: 1,
+    focusOnSelect: true,
   };
   return (
     <Slider {...settings}>
@@ -32,7 +33,11 @@ const DesktopSlider = ({ imageGallery }) => {
               },
             }}
           >
-            <Image alt={alt} image={fluid} />
+            <Image
+              alt={alt}
+              image={fluid}
+              onClick={() => setFocusImage(fluid)}
+            />
           </div>
         </div>
       ))}

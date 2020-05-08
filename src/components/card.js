@@ -1,23 +1,34 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "../components/image";
 import { createMarkup } from "../utils/functions";
 import { Fragment } from "react";
 import Outlinebutton from "./outlineButton";
-import DesktopSlider from "./desktopSlider";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 const Card = ({ section }) => {
   const [slideImage, setSlideImage] = useState();
+  const [focusImage, setFocusImage] = useState(null);
+  console.log(focusImage);
+
   const settings = {
-    infinite: false,
-    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    slidesPerRow: 1,
+    focusOnSelect: true,
+  };
+  const settingsMain = {
+    infinite: true,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
+    slidesPerRow: 1,
+    focusOnSelect: true,
   };
 
   return (
@@ -42,7 +53,6 @@ const Card = ({ section }) => {
                 display: "flex",
                 flexDirection: ["column-reverse", "row-reverse"],
                 mb: 6,
-                // border: "1px solid grey",
               }}
             >
               <div sx={{ flex: "1" }}>
@@ -72,7 +82,24 @@ const Card = ({ section }) => {
                       display: ["none", "inline-block", null],
                     }}
                   >
-                    <DesktopSlider imageGallery={imageGallery} />
+                    <Slider {...settings}>
+                      {imageGallery.map(({ fluid, alt }, index) => (
+                        <div
+                          key={index}
+                          sx={{
+                            width: "80px",
+                            height: "80px",
+                            div: {
+                              height: "100%",
+                              zIndex: 5000,
+                            },
+                          }}
+                          onClick={() => setFocusImage(fluid)}
+                        >
+                          <Image alt={alt} image={fluid} />
+                        </div>
+                      ))}
+                    </Slider>
                   </div>
                   <p
                     sx={{
@@ -111,16 +138,28 @@ const Card = ({ section }) => {
                     },
                   }}
                 >
-                  <Slider {...settings}>
+                  <Slider {...settingsMain}>
                     {imageGallery.map(({ fluid, alt }, index) => (
-                      <Image
+                      <div
                         key={index}
-                        alt={alt}
-                        image={fluid}
-                        onClick={() => setSlideImage(fluid)}
-                      />
+                        sx={{
+                          height: "100%",
+                          div: {
+                            height: "100%",
+                          },
+                        }}
+                      >
+                        <Image
+                          alt={alt}
+                          image={focusImage ? focusImage : fluid}
+                        />
+                      </div>
                     ))}
                   </Slider>
+                  {/* <Image
+                    image={focusImage ? focusImage : imageGallery[0].fluid}
+                    alt="#"
+                  /> */}
                 </div>
               </div>
             </div>
