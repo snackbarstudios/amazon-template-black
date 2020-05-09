@@ -8,6 +8,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import PageSection from "../components/pageSection";
 import Banner from "../components/banner";
 import Ingress from "../components/ingress";
+import SingleProductGallery from "../components/singleProductGallery";
+import ProductGallery from "../components/productGallery";
 
 const IndexPage = () => {
   const [colorMode, setColorMode] = useColorMode();
@@ -86,6 +88,20 @@ const IndexPage = () => {
               ...GatsbyDatoCmsFluid
             }
           }
+          productGallery {
+            productDescrriptionNode {
+              childMarkdownRemark {
+                html
+              }
+            }
+            productTitle
+            productImage {
+              alt
+              fluid {
+                ...GatsbyDatoCmsFluid
+              }
+            }
+          }
         }
       }
     `
@@ -109,6 +125,7 @@ const IndexPage = () => {
     bannerExternalLink,
     bannerExternalLinkTitle,
     bannerLink,
+    productGallery,
   } = datoCmsLandingPage;
   return (
     <Layout>
@@ -117,7 +134,7 @@ const IndexPage = () => {
       <main>
         <section sx={{ my: 6 }}>
           <Ingress>{ingress}</Ingress>
-          <aside sx={{ mb: 6 }}>
+          <aside>
             <Banner
               image={parallaxImage.fluid}
               text={bannerText}
@@ -126,6 +143,13 @@ const IndexPage = () => {
               bannerExternalLinkTitle={bannerExternalLinkTitle}
             />
           </aside>
+          <section>
+            {productGallery.length > 1 ? (
+              <ProductGallery products={productGallery} />
+            ) : (
+              <SingleProductGallery products={productGallery} />
+            )}
+          </section>
           {landinpageSection.map((node) => {
             return <PageSection key={node.id} section={node} />;
           })}

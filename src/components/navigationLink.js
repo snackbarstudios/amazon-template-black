@@ -36,7 +36,7 @@ const NavigationLink = ({ children, href, open }) => {
             width: "120%",
             height: ["24px", "16px"],
             ml: "-20%",
-            mt: ["-24px","-12px"],
+            mt: ["-24px", "-12px"],
             backgroundColor: "primary",
             opacity: 0,
             transition: "0.5s",

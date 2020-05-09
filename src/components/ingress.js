@@ -7,7 +7,7 @@ const Ingress = ({ children }) => {
     <div
       sx={{
         textAlign: "center",
-        maxWidth: ["300px", "800px"],
+        maxWidth: ["400px", "600px", "800px"],
         m: "0 auto",
         mb: 6,
         p: [2],
