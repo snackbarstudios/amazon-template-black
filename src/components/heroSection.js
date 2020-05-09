@@ -57,16 +57,18 @@ const HeroSection = () => {
             height: "100%",
           }}
         >
-          <Styled.h1 sx={{ color: "highlight", lineHeight: 1.2, mb: "24px" }}>
+          <Styled.h1
+            sx={{ color: "highlight", lineHeight: 1.2, mb: ["0px", 3] }}
+          >
             {heroTitle}
           </Styled.h1>
           <p
             sx={{
+              maxWidth: "500px",
               color: "highlight",
-              fontSize: [3],
+              fontSize: [2, 3],
               fontWeight: "body",
               lineHeight: 1.2,
-              mb: 4,
             }}
           >
             {heroDescription}

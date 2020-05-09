@@ -9,7 +9,7 @@ const NavigationLink = ({ children, href, open }) => {
       sx={{
         listStyle: "none",
         position: "relative",
-        height: ["auto", 3],
+        height: ["auto", "25px"],
         ml: 4,
         mt: [4, "0px"],
         pl: 1,

@@ -6,7 +6,8 @@ import SEO from "../components/seo";
 import HeroSection from "../components/heroSection";
 import { useStaticQuery, graphql } from "gatsby";
 import PageSection from "../components/pageSection";
-import Parallax from "../components/parallax";
+import Banner from "../components/banner";
+import Ingress from "../components/ingress";
 
 const IndexPage = () => {
   const [colorMode, setColorMode] = useColorMode();
@@ -111,19 +112,15 @@ const IndexPage = () => {
   } = datoCmsLandingPage;
   return (
     <Layout>
- <SEO title="Home" />
+      <SEO title="Home" />
       <HeroSection />
       <main>
         <section sx={{ my: 6 }}>
-          <p
-            sx={{ textAlign: "center", maxWidth: "800px", m: "0 auto", mb: 6 }}
-          >
-            {ingress}
-          </p>
+          <Ingress>{ingress}</Ingress>
           <aside sx={{ mb: 6 }}>
-            <Parallax
+            <Banner
+              image={parallaxImage.fluid}
               text={bannerText}
-              imageURL={parallaxImage.fluid.src}
               bannerExternalLink={bannerExternalLink}
               bannerLink={bannerLink}
               bannerExternalLinkTitle={bannerExternalLinkTitle}
