@@ -2,41 +2,36 @@
 import { jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import SEO from "../components/seo";
-import PageSection from "../components/pageSection";
+import Card from "../components/card";
 import Layout from "../components/layout";
 import MainContainer from "../components/mainContainer";
-import PageTitle from "../components/pageTitle";
 
 const Products = () => {
   const { datoCmsProductsPage } = useStaticQuery(
     graphql`
       query {
         datoCmsProductsPage {
-          pageTitle
-          productPageSection {
+          title
+          slug
+          productBlock {
             id
-            blockDescription
-            blockTitle
-            buttonLink {
-              ... on DatoCmsProductsPage {
-                id
-                title
-                slug
-              }
-              ... on DatoCmsContactPage {
-                id
-                title
-                slug
-              }
-              ... on DatoCmsAboutPage {
-                id
-                slug
-                title
+            heading
+            price
+            descriptionNode {
+              childMarkdownRemark {
+                html
               }
             }
-            externalButtonLinkText
-            externalBtnLink
-            blockImage {
+            specificationTitle
+            specificationListNode {
+              childMarkdownRemark {
+                html
+              }
+            }
+            externalButtonText
+            externalButtonLink
+            imageGallery {
+              alt
               fluid {
                 ...GatsbyDatoCmsFluid
               }
@@ -47,17 +42,13 @@ const Products = () => {
     `
   );
 
-  const { pageTitle, productPageSection } = datoCmsProductsPage;
-
+  const { title, productBlock } = datoCmsProductsPage;
   return (
     <Layout>
-      <SEO title={pageTitle} />
+      <SEO title={title} />
       <MainContainer>
         <section sx={{ paddingX: 4 }}>
-          <PageSection
-            section={productPageSection}
-            key={productPageSection.id}
-          />
+          <Card section={productBlock} />
         </section>
       </MainContainer>
     </Layout>

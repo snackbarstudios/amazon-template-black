@@ -1,57 +1,41 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import AnchorLink from "./anchorLink";
+import NavigationLink from "./navigationLink";
 import Logo from "./logo";
 
 const NavigationDesktop = () => {
   return (
     <div
       sx={{
-        display: ["none", "block"],
+        display: ["none", "flex"],
         position: "fixed",
-        zIndex: "99",
-        top: "0",
+        zIndex: 2,
+        backgroundColor: "background",
         width: "100%",
-        left: "0",
+        height: "60px",
+        px: 4,
+        justifyContent: "space-between",
+        alignItems: "center",
       }}
     >
-      <div
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: 3,
-        }}
-      >
-        <div sx={{ display: "flex" }}>
-          <Logo />
-        </div>
-        <div>
-          <ul
-            sx={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              marginBottom: "0",
-            }}
-          >
-            <li
-              sx={{
-                listStyle: "none",
-                marginX: 2,
-                marginBottom: "0",
-              }}
-            >
-              <AnchorLink href={`/about/`}>About</AnchorLink>
-            </li>
-            <li sx={{ listStyle: "none", marginX: 2, marginBottom: "0" }}>
-              <AnchorLink href={`/products/`}>Products</AnchorLink>
-            </li>
-            <li sx={{ listStyle: "none", marginX: 2, marginBottom: "0" }}>
-              <AnchorLink href={`/contact/`}>Contact</AnchorLink>
-            </li>
-          </ul>
-        </div>
+      <div sx={{ display: "flex" }}>
+        <Logo />
+      </div>
+
+      <div>
+        <ul
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+          }}
+        >
+          <NavigationLink href={`/about/`}>About</NavigationLink>
+
+          <NavigationLink href={`/products/`}>Products</NavigationLink>
+
+          <NavigationLink href={`/contact/`}>Contact</NavigationLink>
+        </ul>
       </div>
     </div>
   );

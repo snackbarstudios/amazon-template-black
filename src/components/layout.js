@@ -5,7 +5,6 @@ import { useStaticQuery, graphql } from "gatsby";
 import Header from "./header";
 import Footer from "./footer";
 import { Fragment } from "react";
-import "./layout.css";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -20,9 +19,25 @@ const Layout = ({ children }) => {
 
   return (
     <Fragment>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div>
-        <div sx={{ minHeight: "100vh" }}>{children}</div>
+      <div
+        sx={{
+          position: "relative",
+          minHeight: "100vh",
+          main: {
+            pb: ["600px", "330px"],
+          },
+          footer: {
+            position: "absolute",
+            bottom: 0,
+            width: "100%",
+            height: ["600px", "330px"],
+          },
+        }}
+      >
+        <div>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          {children}
+        </div>
         <Footer />
       </div>
     </Fragment>

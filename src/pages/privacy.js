@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import PageTitle from "../components/pageTitle";
 import MainContainer from "../components/mainContainer";
+import { createMarkup } from "../utils/functions";
 
 const PrivacyPage = () => {
   const { datoCmsPrivacySection } = useStaticQuery(
@@ -13,8 +13,8 @@ const PrivacyPage = () => {
         datoCmsPrivacySection {
           pageTitle
           textNode {
-            internal {
-              content
+            childMarkdownRemark {
+              html
             }
           }
         }
@@ -22,21 +22,31 @@ const PrivacyPage = () => {
     `
   );
 
-  // const { pageTitle, textNode } = datoCmsPrivacySection;
-  const {
-    pageTitle,
-    textNode: {
-      internal: { content },
-    },
-  } = datoCmsPrivacySection;
-  // console.log(textNode);
+  const { pageTitle, textNode } = datoCmsPrivacySection;
 
   return (
     <Layout>
       <SEO title="Page two" />
       <MainContainer>
-        <PageTitle>{pageTitle}</PageTitle>
-        <div sx={{ px: 4 }}>{content}</div>
+        <div sx={{ maxWidth: "800px", margin: "0px auto" }}>
+          <div sx={{ color: "highlight" }}>
+            <Styled.h2>{pageTitle}</Styled.h2>
+          </div>
+          <div
+            sx={{
+              py: 5,
+              h1: {
+                variant: "markdownText.heading",
+              },
+              ul: {
+                variant: "markdownText.ul",
+              },
+            }}
+            dangerouslySetInnerHTML={createMarkup(
+              textNode.childMarkdownRemark.html
+            )}
+          />
+        </div>
       </MainContainer>
     </Layout>
   );

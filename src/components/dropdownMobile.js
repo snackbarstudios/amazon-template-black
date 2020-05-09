@@ -15,20 +15,19 @@ const DropDownMobile = ({ children, open }) => {
       }
     }
     return {
-      backgroundColor: "primary",
+      position: "fixed",
+      top: 0,
+      left: 0,
+      zIndex: 10,
+      backgroundColor: "background",
       color: "primary",
+      overflow: "hidden",
+      height: "100vh",
+      width: "0",
       display: "flex",
       flexDirection: "column",
-      height: "100vh",
-      position: "absolute",
-      left: 0,
-      top: 0,
-      zIndex: 10,
-      width: "0",
-      overflow: "hidden",
       justifyContent: "center",
       transition: "all 0.4s ease-out ",
-
       ...animation,
     };
   };

@@ -2,28 +2,23 @@
 import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
-import PageTitle from "../components/pageTitle";
-import PageContainer from "../components/pageContainer";
 import MainContainer from "../components/mainContainer";
 import Image from "../components/image";
-import OutlineButton from "../components/outlineButton";
+import { createMarkup } from "../utils/functions";
 
 const Contact = () => {
   const { datoCmsContactPage } = useStaticQuery(
     graphql`
       query {
         datoCmsContactPage {
-          phoneNumber
           pageTitle
-          companyName
-          address {
-            addressLine
-          }
+          phoneNumber
           email
-          mapButtonText
-          mapButtonLink {
-            latitude
-            longitude
+          companyName
+          adressNode {
+            childMarkdownRemark {
+              html
+            }
           }
           image {
             alt
@@ -36,13 +31,11 @@ const Contact = () => {
     `
   );
   const {
-    phoneNumber,
     pageTitle,
     companyName,
-    address,
+    adressNode,
+    phoneNumber,
     email,
-    mapButtonText,
-    mapButtonLink,
     image,
   } = datoCmsContactPage;
 
@@ -56,7 +49,7 @@ const Contact = () => {
     },
     a: {
       color: "text",
-      fontSize: 2,
+      fontSize: 1,
       textDecoration: "none",
       display: "block",
       ":hover": {
@@ -64,30 +57,64 @@ const Contact = () => {
       },
     },
     image: {
-      overflow: "hidden",
-      mb: [4, "0px", null],
+      width: "100%",
+      height: "100%",
+      div: {
+        width: "100%",
+        height: "100%",
+      },
     },
   };
 
   return (
     <Layout>
       <MainContainer>
-        <PageTitle>{pageTitle}</PageTitle>
-        <PageContainer>
+        <div
+          sx={{
+            display: "flex",
+            flexDirection: ["column-reverse", "row", null],
+            width: "100%",
+            height: "100%",
+            mt: 5,
+          }}
+        >
           <div
             sx={{
-              display: "flex",
-              flexDirection: ["column-reverse", "row", null],
+              flex: 1,
+              backgroundColor: "primary",
             }}
           >
-            <div sx={{ flex: 1, pr: ["0px", 4, null], pt: ["0px", null, 4] }}>
-              <Styled.h2>{companyName}</Styled.h2>
-              {address.map(({ addressLine }, index) => (
-                <p key={index} sx={style.paragraph}>
-                  {addressLine}
-                </p>
-              ))}
-              <div sx={{ mt: 4, mb: [4, null, 5] }}>
+            <div sx={{ p: 5 }}>
+              <div
+                sx={{
+                  color: "highlight",
+                  fontFamily: "body",
+                  textTransform: "uppercase",
+                }}
+              >
+                <h1>{pageTitle}</h1>
+              </div>
+              <div sx={{ my: 3, color: "highlight" }}>
+                <Styled.h2>{companyName}</Styled.h2>
+              </div>
+              <div
+                sx={{
+                  p: {
+                    variant: "markdownText.p",
+                  },
+                  h1: {
+                    variant: "markdownText.heading",
+                  },
+                  a: {
+                    variant: "markdownText.a",
+                  },
+                }}
+                dangerouslySetInnerHTML={createMarkup(
+                  adressNode.childMarkdownRemark.html
+                )}
+              />
+
+              <div sx={{ mt: 4 }}>
                 <a href={`tel:${phoneNumber}`} sx={style.a}>
                   {phoneNumber}
                 </a>
@@ -95,20 +122,14 @@ const Contact = () => {
                   {email}
                 </a>
               </div>
-              <OutlineButton
-                text={mapButtonText}
-                target="_blank"
-                rel="noreferrer noopener"
-                href={`https://www.google.com/maps/search/?api=1&query${mapButtonLink.latitude}${mapButtonLink.longitude}`}
-              />
-            </div>
-            <div sx={{ flex: 2 }}>
-              <div sx={style.image}>
-                <Image image={image.fluid} />
-              </div>
             </div>
           </div>
-        </PageContainer>
+          <div sx={{ flex: 1 }}>
+            <div sx={style.image}>
+              <Image alt={image.alt} image={image.fluid} />
+            </div>
+          </div>
+        </div>
       </MainContainer>
     </Layout>
   );

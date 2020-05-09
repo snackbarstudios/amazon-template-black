@@ -3,19 +3,14 @@ import { jsx, useColorMode } from "theme-ui";
 import { useEffect } from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import MainContainer from "../components/mainContainer";
 import HeroSection from "../components/heroSection";
 import { useStaticQuery, graphql } from "gatsby";
 import PageSection from "../components/pageSection";
-import Quote from "../components/quote";
+import Parallax from "../components/parallax";
 
 const IndexPage = () => {
   const [colorMode, setColorMode] = useColorMode();
-  const {
-    datoCmsLandingPage,
-    allDatoCmsLandingPage,
-    datoCmsColorMode,
-  } = useStaticQuery(
+  const { datoCmsLandingPage, datoCmsColorMode } = useStaticQuery(
     graphql`
       query {
         datoCmsColorMode {
@@ -29,39 +24,65 @@ const IndexPage = () => {
           oceancalm
         }
         datoCmsLandingPage {
-          quote
-        }
-        allDatoCmsLandingPage {
-          edges {
-            node {
-              id
-              landinpageSection {
-                id
-                buttonLink {
-                  ... on DatoCmsProductsPage {
-                    id
-                    slug
-                  }
-                  ... on DatoCmsContactPage {
-                    id
-                    slug
-                  }
-                  ... on DatoCmsAboutPage {
-                    id
-                    slug
-                  }
-                }
-                externalButtonLinkText
-                externalBtnLink
-                blockImage {
-                  alt
-                  fluid {
-                    ...GatsbyDatoCmsFluid
-                  }
-                }
-                blockDescription
-                blockTitle
+          landinpageSection {
+            id
+            blockDescriptionNode {
+              childMarkdownRemark {
+                html
               }
+            }
+            blockDescription
+            buttonLink {
+              ... on DatoCmsProductsPage {
+                id
+                title
+                slug
+              }
+              ... on DatoCmsContactPage {
+                id
+                title
+                slug
+              }
+              ... on DatoCmsAboutPage {
+                id
+                title
+                slug
+              }
+            }
+            externalBtnLink
+            externalButtonLinkText
+            blockTitle
+            blockImage {
+              alt
+              fluid {
+                ...GatsbyDatoCmsFluid
+              }
+            }
+          }
+          ingress
+          bannerExternalLink
+          bannerExternalLinkTitle
+          bannerLink {
+            ... on DatoCmsProductsPage {
+              id
+              slug
+              title
+            }
+            ... on DatoCmsContactPage {
+              id
+              slug
+              title
+            }
+            ... on DatoCmsAboutPage {
+              id
+              slug
+              title
+            }
+          }
+          bannerText
+          parallaxImage {
+            fluid {
+              ...GatsbyDatoCmsFluid
             }
           }
         }
@@ -79,59 +100,40 @@ const IndexPage = () => {
     }
   }, [datoCmsColorMode.oceancalm, datoCmsColorMode.raspberrypie, setColorMode]);
 
+  const {
+    landinpageSection,
+    ingress,
+    parallaxImage,
+    bannerText,
+    bannerExternalLink,
+    bannerExternalLinkTitle,
+    bannerLink,
+  } = datoCmsLandingPage;
   return (
     <Layout>
-      <SEO title="Home" />
+ <SEO title="Home" />
       <HeroSection />
-      <MainContainer>
-        <section sx={{ paddingX: [2, null], position: "relative" }}>
-          <div sx={{ position: "absolute", left: "20px", top: "-40px" }}>
-            <Quote
-              width={40}
-              fill={
-                colorMode === "raspberryPie"
-                  ? "#63323A"
-                  : colorMode === "oceanCalm"
-                  ? "#1B5976"
-                  : "#B77C16"
-              }
-            />
-          </div>
-          <h2
-            sx={{
-              marginX: "auto",
-              textAlign: "center",
-              mb: 4,
-              fontSize: 5,
-              fontFamily: "body",
-              fontWeight: "heading",
-              color: "text",
-              lineHeight: 1.2,
-              mt: "96px",
-              textTransform: "uppercase",
-            }}
+      <main>
+        <section sx={{ my: 6 }}>
+          <p
+            sx={{ textAlign: "center", maxWidth: "800px", m: "0 auto", mb: 6 }}
           >
-            {datoCmsLandingPage.quote}
-          </h2>
-          <div sx={{ position: "absolute", right: "20px", bottom: "-40px" }}>
-            <Quote
-              width={40}
-              fill={
-                colorMode === "raspberryPie"
-                  ? "#63323A"
-                  : colorMode === "oceanCalm"
-                  ? "#1B5976"
-                  : "#B77C16"
-              }
+            {ingress}
+          </p>
+          <aside sx={{ mb: 6 }}>
+            <Parallax
+              text={bannerText}
+              imageURL={parallaxImage.fluid.src}
+              bannerExternalLink={bannerExternalLink}
+              bannerLink={bannerLink}
+              bannerExternalLinkTitle={bannerExternalLinkTitle}
             />
-          </div>
+          </aside>
+          {landinpageSection.map((node) => {
+            return <PageSection key={node.id} section={node} />;
+          })}
         </section>
-        <section sx={{ paddingX: 4 }}>
-          {allDatoCmsLandingPage.edges.map(({ node }) => (
-            <PageSection key={node.id} section={node.landinpageSection} />
-          ))}
-        </section>
-      </MainContainer>
+      </main>
     </Layout>
   );
 };
