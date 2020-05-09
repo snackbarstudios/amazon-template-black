@@ -14,31 +14,11 @@ const About = () => {
           pageTitle
           ingressText
           ingressTitle
-          bannerExternalLinkTitle
-          bannerExternalLink
-          bannerText
           bannerImage {
             fluid {
               src
             }
             alt
-          }
-          bannerLink {
-            ... on DatoCmsProductsPage {
-              id
-              title
-              slug
-            }
-            ... on DatoCmsContactPage {
-              id
-              slug
-              title
-            }
-            ... on DatoCmsAboutPage {
-              id
-              title
-              slug
-            }
           }
 
           aboutSection {
@@ -84,26 +64,15 @@ const About = () => {
   const {
     pageTitle,
     bannerImage,
-    bannerText,
     aboutSection,
     ingressText,
     ingressTitle,
-    bannerLink,
-    bannerExternalLinkTitle,
-    bannerExternalLink,
   } = datoCmsAboutPage;
 
   return (
     <Layout>
       <SEO title={pageTitle} />
       <main>
-        <Parallax
-          text={bannerText}
-          imageURL={bannerImage.fluid.src}
-          bannerExternalLink={bannerExternalLink}
-          bannerLink={bannerLink}
-          bannerExternalLinkTitle={bannerExternalLinkTitle}
-        />
         <section
           sx={{
             textAlign: "center",
