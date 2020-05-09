@@ -89,6 +89,7 @@ const IndexPage = () => {
             }
           }
           productGallery {
+            id
             productDescrriptionNode {
               childMarkdownRemark {
                 html
