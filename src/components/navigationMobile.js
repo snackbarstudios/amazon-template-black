@@ -13,14 +13,15 @@ const NavigationMobile = () => {
       sx={{
         height: "60px",
         display: ["flex", "none", null],
+        justifyContent: "space-between",
         alignItems: "center",
         a: {
-          ml: "18px",
+          ml: "24px",
         },
       }}
     >
-      <Hamburger setOpen={setOpen} open={open} />
       <Logo />
+      <Hamburger setOpen={setOpen} open={open} />
 
       <DropDownMobile open={open}>
         <ul>
