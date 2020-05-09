@@ -23,6 +23,7 @@ const StyledLink = ({ children, href, open }) => {
           borderColor: "highlight",
           transition: "0.2s",
           borderRadius: "2px",
+          margin: "auto",
         },
         ":hover::after": {
           width: "15%",

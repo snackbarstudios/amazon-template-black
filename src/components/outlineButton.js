@@ -14,16 +14,14 @@ const OutlineButton = ({ text, href, fullWidth }) => {
         color: "background",
         fontWeight: "body",
         fontSize: 1,
-        paddingX: 1,
+        paddingX: 2,
         paddingY: 1,
         textAlign: "center",
         textTransform: "uppercase",
         textDecoration: "none",
         fontFamily: "heading",
         ":hover": {
-          // color: "background",
-          // backgroundColor: "highlight",
-          // boxShadow: "0 0 20px 2px rgba(0,0,0,0.17);",
+          boxShadow: "0 0 20px 2px rgba(0,0,0,0.17);",
         },
       }}
       href={href}

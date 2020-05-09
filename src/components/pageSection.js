@@ -11,10 +11,13 @@ const PageSection = ({ section }) => {
         display: "flex",
         flexDirection: ["column", "row"],
         backgroundColor: "primary",
-        ":nth-of-type(2)": { flexDirection: [null, "row-reverse"] },
+        ":nth-of-type(2)": {
+          flexDirection: [null, "row-reverse"],
+          backgroundColor: ["background", "primary"],
+        },
       }}
     >
-      <div sx={{ flex: "1" }}>
+      <div sx={{ flex: "1", div: { height: "100%" } }}>
         <Image image={section.blockImage.fluid} alt={section.blockImage.alt} />
       </div>
       <div sx={{ flex: "1" }}>
@@ -25,7 +28,7 @@ const PageSection = ({ section }) => {
             flexDirection: "column",
             justifyContent: "center",
             textAlign: "center",
-            p: 6,
+            p: [2, 6],
           }}
         >
           <Styled.h2 sx={{ color: "highlight", mb: 3 }}>
@@ -37,8 +40,7 @@ const PageSection = ({ section }) => {
             )}
           />
           {section.buttonLink && (
-            <StyledLink
-              href={section.buttonLink.slug}>
+            <StyledLink href={section.buttonLink.slug}>
               {section.buttonLink.slug}
             </StyledLink>
           )}

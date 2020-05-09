@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PageSection from "../components/pageSection";
-import Parallax from "../components/parallax";
+import Banner from "../components/banner";
 
 const About = () => {
   const { datoCmsAboutPage } = useStaticQuery(
@@ -35,26 +35,6 @@ const About = () => {
                 ...GatsbyDatoCmsFluid
               }
             }
-            buttonLink {
-              ... on DatoCmsProductsPage {
-                id
-                slug
-                title
-              }
-              ... on DatoCmsContactPage {
-                id
-                slug
-                title
-              }
-              ... on DatoCmsAboutPage {
-                id
-                slug
-                title
-              }
-            }
-            externalBtnLink
-            externalButtonLinkText
-            id
           }
         }
       }
@@ -73,6 +53,8 @@ const About = () => {
     <Layout>
       <SEO title={pageTitle} />
       <main>
+        <Banner image={bannerImage.fluid} />
+
         <section
           sx={{
             textAlign: "center",
