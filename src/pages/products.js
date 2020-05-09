@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import SEO from "../components/seo";
-import Card from "../components/Card";
+import Card from "../components/card";
 import Layout from "../components/layout";
 import MainContainer from "../components/mainContainer";
 

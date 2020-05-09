@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 const Card = ({ section }) => {
-  const [slideImage, setSlideImage] = useState;
+  const [slideImage, setSlideImage] = useState();
   const settings = {
     infinite: false,
     dots: false,
