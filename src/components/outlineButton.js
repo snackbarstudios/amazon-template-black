@@ -8,7 +8,7 @@ const OutlineButton = ({ text, href, fullWidth }) => {
       sx={{
         border: "1px solid",
         display: "block",
-        maxWidth: "150px",
+        maxWidth: "170px",
         borderColor: "highlight",
         backgroundColor: "highlight",
         color: "background",

@@ -134,7 +134,7 @@ const IndexPage = () => {
       <main>
         <section sx={{ my: 6 }}>
           <Ingress>{ingress}</Ingress>
-          <aside sx={{ mb: 6 }}>
+          <aside>
             <Banner
               image={parallaxImage.fluid}
               text={bannerText}
