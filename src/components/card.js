@@ -18,7 +18,7 @@ const Card = ({ section }) => {
           externalButtonLink,
           imageGallery,
         }) => (
-          <Fragment>
+          <Fragment key={section.id}>
             <DesktopSlider
               heading={heading}
               price={price}
