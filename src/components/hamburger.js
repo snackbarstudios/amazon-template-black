@@ -44,10 +44,10 @@ const Hamburger = ({ open, setOpen }) => {
         outline: "none",
         width: "50px",
         padding: "0",
-        zIndex: "99",
-        position: "fixed",
+        position: "absolute",
+        zIndex: "100",
         top: "5px",
-        right: "5px",
+        right: "12px",
         cursor: "pointer",
         background: "transparent",
       }}
