@@ -13,7 +13,7 @@ const Ingress = ({ children }) => {
         p: [2],
       }}
     >
-      {children}{" "}
+      {children}
     </div>
   );
 };

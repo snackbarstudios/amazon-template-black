@@ -58,8 +58,7 @@ const DesktopSlider = ({
           {imageGallery.length >= 1 ? (
             <div
               sx={{
-                height: "50px",
-                width: "300px",
+                width: imageGallery.length > 2 ? "300px" : "200px",
                 display: ["none", "inline-block", null],
               }}
             >
@@ -68,13 +67,17 @@ const DesktopSlider = ({
                   <div
                     key={index}
                     sx={{
-                      width: "80px",
-                      height: "80px",
+                      width: "100px",
+                      height: "100px",
                       outline: "none",
                     }}
                     onClick={() => setFocusImage(fluid)}
                   >
-                    <Image alt={alt} image={fluid} />
+                    <Image
+                      sx={{ width: "100px", height: "100px" }}
+                      alt={alt}
+                      image={fluid}
+                    />
                   </div>
                 ))}
               </Slider>
