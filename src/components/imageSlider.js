@@ -4,10 +4,7 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import { useRef } from "react";
 import { Fade } from "react-slideshow-image";
-
-import ButtonContainer from "./buttonContainer";
 import ImageSliderContainer from "./imageSliderContainer";
-import NavigationButton from "./navigationButton";
 
 const ImageSlider = ({ slides }) => {
   const fadeImages = [];
@@ -15,25 +12,6 @@ const ImageSlider = ({ slides }) => {
     fadeImages.push(slide);
   });
   const slideRef = useRef(null);
-
-  function next() {
-    if (
-      slideRef &&
-      slideRef.current &&
-      typeof slideRef.current.goNext === "function"
-    ) {
-      slideRef.current.goNext();
-    }
-  }
-  function prev() {
-    if (
-      slideRef &&
-      slideRef.current &&
-      typeof slideRef.current.goNext === "function"
-    ) {
-      slideRef.current.goBack();
-    }
-  }
   const fadeProperties = {
     duration: 5000,
     transitionDuration: 500,
@@ -77,4 +55,3 @@ export default ImageSlider;
 ImageSlider.propTypes = {
   slides: PropTypes.array.isRequired,
 };
-
