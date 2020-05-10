@@ -7,7 +7,7 @@ import StyledLink from "../components/styledLink";
 const ProductGallery = ({ products }) => {
   return (
     <Fragment>
-      <h2 sx={{ textAlign: "center", color: "highlight" }}>Feature products</h2>
+      <h2 sx={{ textAlign: "center", color: "highlight", mt: [6], mb: "0px" }}>Feature products</h2>
       <div
         sx={{
           display: "flex",
@@ -20,7 +20,7 @@ const ProductGallery = ({ products }) => {
           return (
             <div
               key={product.id}
-              sx={{ minWidth: "250px", textAlign: "center", pb: 5 }}
+              sx={{ minWidth: "250px", textAlign: "center", pb: 4 }}
             >
               <Image
                 image={product.productImage.fluid}
