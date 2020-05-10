@@ -28,13 +28,15 @@ const PageSection = ({ section }) => {
             flexDirection: "column",
             justifyContent: "center",
             textAlign: "center",
-            p: [2, 6],
+            px: [2, null, 6],
+            py: [6],
           }}
         >
           <Styled.h2 sx={{ color: "highlight", mb: 3 }}>
             {section.blockTitle}
           </Styled.h2>
           <p
+            sx={{ m: 0 }}
             dangerouslySetInnerHTML={createMarkup(
               section.blockDescriptionNode.childMarkdownRemark.html
             )}
@@ -47,6 +49,8 @@ const PageSection = ({ section }) => {
           {section.externalBtnLink?.length > 0 && (
             <Styled.a
               href={section.externalBtnLink}
+              rel="noopener noreferrer"
+              target="_blank"
               sx={{
                 fontSize: 1,
                 "::after": {
