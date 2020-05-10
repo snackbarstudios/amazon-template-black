@@ -16,12 +16,14 @@ const SingleProductGallery = ({ products }) => {
           flexDirection: ["column", "row"],
           paddingX: [2, 2, 5],
           paddingY: [4, 4, 5],
+          maxWidth: "1200px",
+          margin: "0 auto",
         }}
       >
         <div
           sx={{
             flex: "1",
-            padding: 2,
+            padding: [2, 4, 5],
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -37,7 +39,7 @@ const SingleProductGallery = ({ products }) => {
           </Styled.p>
           <Styled.a href="/products">View product</Styled.a>
         </div>
-        <div sx={{ flex: "1", padding: 2 }}>
+        <div sx={{ flex: "1", padding: [2, 4, 5] }}>
           <Image
             alt={products[0].productImage.alt}
             image={products[0].productImage.fluid}
