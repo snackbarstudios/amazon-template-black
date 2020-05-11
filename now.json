@@ -1,7 +1,7 @@
 {
     "build": {
       "env": {
-        "DATO_API_TOKEN": "@rebecca2020"
+        "DATO_API_TOKEN": "@secretname2020"
       }
     }
   }
