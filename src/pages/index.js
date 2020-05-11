@@ -34,7 +34,6 @@ const IndexPage = () => {
                 html
               }
             }
-            blockDescription
             buttonLink {
               ... on DatoCmsProductsPage {
                 id

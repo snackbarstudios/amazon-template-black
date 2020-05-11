@@ -35,7 +35,7 @@ const PageSection = ({ section }) => {
           <Styled.h2 sx={{ color: "highlight", mb: 3 }}>
             {section.blockTitle}
           </Styled.h2>
-          <p
+          <div
             sx={{ m: 0 }}
             dangerouslySetInnerHTML={createMarkup(
               section.blockDescriptionNode.childMarkdownRemark.html
