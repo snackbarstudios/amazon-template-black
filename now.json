@@ -1,0 +1,7 @@
+{
+    "build": {
+      "env": {
+        "DATO_API_TOKEN": "@mystory2020"
+      }
+    }
+  }
