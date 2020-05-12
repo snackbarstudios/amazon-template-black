@@ -32,7 +32,7 @@ const PrivacyPage = () => {
           <div sx={{ color: "highlight" }}>
             <Styled.h2>{pageTitle}</Styled.h2>
           </div>
-          <div
+          <p
             sx={{
               py: 5,
               h1: {
