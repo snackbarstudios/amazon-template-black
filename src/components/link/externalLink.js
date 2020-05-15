@@ -5,8 +5,9 @@ import PropTypes from "prop-types";
 const ExternalLink = ({ text, href }) => (
   <Styled.a
     sx={{
+      display: "block",
       backgroundColor: "black",
-      minWidth: "150px",
+      maxWidth: "150px",
       paddingX: 4,
       paddingY: "12px",
       textAlign: "center",

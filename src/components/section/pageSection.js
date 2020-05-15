@@ -21,7 +21,7 @@ const PageSection = ({ section }) => {
       <div
         sx={{
           flex: "1",
-          p: [4, 6],
+          p: [3, 4, 6],
           div: { height: "100%" },
         }}
       >
@@ -31,7 +31,7 @@ const PageSection = ({ section }) => {
       <div
         sx={{
           flex: "1",
-          p: [4, 6],
+          p: [3, 4, 6],
           alignSelf: "center",
         }}
       >

@@ -28,7 +28,7 @@ const ProductGallery = ({ products, title }) => {
                 image={product.productImage.fluid}
                 alt={product.productImage.alt}
               />
-              <p>{product.productTitle}</p>
+              <Styled.h3>{product.productTitle}</Styled.h3>
               <StyledLink href="/products">View products</StyledLink>
             </div>
           );
