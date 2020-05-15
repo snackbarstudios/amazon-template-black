@@ -12,7 +12,7 @@ const NavigationDesktop = ({ facebook, instagram }) => {
   const [shouldHideHeader, setShouldHideHeader] = useState(false);
 
   const MINIMUM_SCROLL = 80;
-  const TIMEOUT_DELAY = 200;
+  const TIMEOUT_DELAY = 100;
 
   useDocumentScrollThrottled((callbackData) => {
     const { previousScrollTop, currentScrollTop } = callbackData;
@@ -38,7 +38,11 @@ const NavigationDesktop = ({ facebook, instagram }) => {
         px: 4,
         py: 2,
         visibility: shouldHideHeader ? "hidden" : "visible",
+        opacity: shouldHideHeader ? 0 : 1,
         background: showBackground ? "black" : "transparent",
+        transition: shouldHideHeader
+          ? "visibility 10s linear 300ms, opacity 300ms"
+          : "visibility 10s linear 300ms, opacity 300ms",
       }}
     >
       <div sx={{ display: "flex" }}>
@@ -63,17 +67,17 @@ const NavigationDesktop = ({ facebook, instagram }) => {
       <div sx={{ display: "flex" }}>
         {instagram && (
           <a href={instagram} target="_blank" rel="noreferrer noopener">
-            <InstagramIcon />
+            <InstagramIcon width={"20px"} />
           </a>
         )}
         {facebook && (
           <a
-            sx={{ ml: 4 }}
+            sx={{ ml: 3 }}
             href={facebook}
             target="_blank"
             rel="noreferrer noopener"
           >
-            <FacebookIcon />
+            <FacebookIcon width={"12px"} />
           </a>
         )}
       </div>

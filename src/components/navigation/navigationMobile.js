@@ -4,10 +4,31 @@ import Hamburger from "./hamburger";
 import { useState } from "react";
 import DropDownMobile from "./dropdownMobile";
 import NavigationLink from "./navigationLink";
+import InstagramIcon from "../Icons/instagramIcon";
+import FacebookIcon from "../Icons/facebookIcon";
 import Logo from "../logo";
+import useDocumentScrollThrottled from "../../hooks/useDocumentScrollThrottled";
 
-const NavigationMobile = () => {
+const NavigationMobile = ({ facebook, instagram }) => {
   const [open, setOpen] = useState(false);
+  const [showBackground, setBackground] = useState(false);
+  const [shouldHideHeader, setShouldHideHeader] = useState(false);
+
+  const MINIMUM_SCROLL = 80;
+  const TIMEOUT_DELAY = 100;
+
+  useDocumentScrollThrottled((callbackData) => {
+    const { previousScrollTop, currentScrollTop } = callbackData;
+    const isScrolledDown = previousScrollTop < currentScrollTop;
+    const isMinimumScrolled = currentScrollTop > MINIMUM_SCROLL;
+
+    // adds a bit of delay effect to the header’s hide/show movement after scrolling
+    setTimeout(() => {
+      setShouldHideHeader(isScrolledDown);
+      setBackground(isMinimumScrolled);
+    }, TIMEOUT_DELAY);
+  });
+
   return (
     <nav
       sx={{
@@ -15,6 +36,12 @@ const NavigationMobile = () => {
         display: ["flex", "none", null],
         justifyContent: "space-between",
         alignItems: "center",
+        visibility: shouldHideHeader ? "hidden" : "visible",
+        opacity: shouldHideHeader ? 0 : 1,
+        background: showBackground ? "black" : "transparent",
+        transition: shouldHideHeader
+          ? "visibility 10s linear 300ms, opacity 300ms"
+          : "visibility 10s linear 300ms, opacity 300ms",
         a: {
           ml: "24px",
         },
@@ -36,6 +63,23 @@ const NavigationMobile = () => {
             Contact
           </NavigationLink>
         </ul>
+        <div sx={{ display: "flex", ml: "40px", mt: 7 }}>
+          {instagram && (
+            <a href={instagram} target="_blank" rel="noreferrer noopener">
+              <InstagramIcon width={"30px"} />
+            </a>
+          )}
+          {facebook && (
+            <a
+              sx={{ ml: 3 }}
+              href={facebook}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <FacebookIcon width={"18px"} />
+            </a>
+          )}
+        </div>
       </DropDownMobile>
     </nav>
   );

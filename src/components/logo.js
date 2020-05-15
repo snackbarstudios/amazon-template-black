@@ -20,7 +20,7 @@ const Logo = () => {
   );
   return (
     <Link to="/">
-      <div sx={{ width: "80px", height: "100%" }}>
+      <div sx={{ width: "60px", height: "100%" }}>
         {datoCmsLogo.brandLogo && (
           <Image
             image={datoCmsLogo.brandLogo.fluid}

@@ -1,23 +1,15 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 
-const FacebookIcon = () => {
+const FacebookIcon = ({ width }) => {
   return (
     <div
       sx={{
-        width: "12px",
+        width: width,
+        cursor: "pointer",
         svg: {
           path: {
             fill: "white",
-            ":hover": {
-              fill: "grey",
-            },
-            ":active": {
-              fill: "grey",
-            },
-            "&.active": {
-              fill: "grey",
-            },
           },
         },
       }}

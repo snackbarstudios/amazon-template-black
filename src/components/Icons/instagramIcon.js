@@ -1,23 +1,14 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 
-const InstagramIcon = () => {
+const InstagramIcon = ({ width }) => {
   return (
     <div
       sx={{
-        width: "20px",
+        width: width,
         svg: {
           path: {
             fill: "white",
-            ":hover": {
-              fill: "grey",
-            },
-            ":active": {
-              fill: "grey",
-            },
-            "&.active": {
-              fill: "grey",
-            },
           },
         },
       }}

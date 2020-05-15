@@ -25,7 +25,7 @@ const NavigationLink = ({ children, href, open }) => {
           textDecoration: "none",
           fontFamily: "body",
           fontSize:[4, 2],
-          color: ["highlight", "white"],
+          color: "white",
           zIndex: 2,
           "::after": {
             content: '" "',
