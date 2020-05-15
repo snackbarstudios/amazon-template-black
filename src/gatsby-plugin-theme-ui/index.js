@@ -97,7 +97,7 @@ export default {
     h3: {
       fontFamily: "heading",
       fontWeight: "light",
-      fontSize: [4, 5],
+      fontSize: [3, 4],
       m: 0,
     },
     h4: {

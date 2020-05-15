@@ -7,51 +7,51 @@ import PageSection from "../components/section/pageSection";
 import Banner from "../components/section/banner";
 
 const About = () => {
-  // const { datoCmsAboutPage } = useStaticQuery(
-  //   graphql`
-  //     query {
-  //       datoCmsAboutPage {
-  //         pageTitle
-  //         ingressText
-  //         ingressTitle
-  //         bannerImage {
-  //           fluid {
-  //             src
-  //           }
-  //           alt
-  //         }
+  const { datoCmsAboutPage } = useStaticQuery(
+    graphql`
+      query {
+        datoCmsAboutPage {
+          pageTitle
+          ingressText
+          ingressTitle
+          bannerImage {
+            fluid {
+              src
+            }
+            alt
+          }
 
-  //         aboutSection {
-  //           blockDescription
-  //           blockDescriptionNode {
-  //             childMarkdownRemark {
-  //               html
-  //             }
-  //           }
-  //           blockTitle
-  //           blockImage {
-  //             alt
-  //             fluid {
-  //               ...GatsbyDatoCmsFluid
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `
-  // );
+          aboutSection {
+            blockDescription
+            blockDescriptionNode {
+              childMarkdownRemark {
+                html
+              }
+            }
+            blockTitle
+            blockImage {
+              alt
+              fluid {
+                ...GatsbyDatoCmsFluid
+              }
+            }
+          }
+        }
+      }
+    `
+  );
 
-  // const {
-  //   pageTitle,
-  //   bannerImage,
-  //   aboutSection,
-  //   ingressText,
-  //   ingressTitle,
-  // } = datoCmsAboutPage;
+  const {
+    pageTitle,
+    bannerImage,
+    aboutSection,
+    ingressText,
+    ingressTitle,
+  } = datoCmsAboutPage;
 
   return (
     <Layout>
-      {/* <SEO title={pageTitle} />
+      <SEO title={pageTitle} />
       <main>
         <Banner image={bannerImage.fluid} />
 
@@ -84,7 +84,7 @@ const About = () => {
             <PageSection key={section.id} section={section} />
           ))}
         </section>
-      </main> */}
+      </main>
     </Layout>
   );
 };

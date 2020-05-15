@@ -1,16 +1,15 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import { Fragment } from "react";
 import Image from "../image";
 import StyledLink from "../link/styledLink";
 
-const ProductGallery = ({ products }) => {
-  console.log(products)
+const ProductGallery = ({ products, title }) => {
   return (
     <Fragment>
-      <h2 sx={{ textAlign: "center", color: "highlight", mt: [6], mb: "0px" }}>
-        Featured products
-      </h2>
+      <Styled.h2 sx={{ mt: [6], mb: "0px", textAlign: "center" }}>
+        {title}
+      </Styled.h2>
       <div
         sx={{
           display: "flex",

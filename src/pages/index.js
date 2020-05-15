@@ -55,6 +55,7 @@ const IndexPage = () => {
               }
             }
           }
+          productSectionTitle
           productGallery {
             id
             productDescrriptionNode {
@@ -75,7 +76,12 @@ const IndexPage = () => {
     `
   );
 
-  const { landinpageSection, ingressNode, productGallery } = datoCmsLandingPage;
+  const {
+    landinpageSection,
+    ingressNode,
+    productGallery,
+    productSectionTitle,
+  } = datoCmsLandingPage;
 
   return (
     <Layout>
@@ -99,9 +105,15 @@ const IndexPage = () => {
           })}
           <section>
             {productGallery.length > 1 ? (
-              <ProductGallery products={productGallery} />
+              <ProductGallery
+                products={productGallery}
+                title={productSectionTitle}
+              />
             ) : (
-              <SingleProductGallery products={productGallery} />
+              <SingleProductGallery
+                products={productGallery}
+                title={productSectionTitle}
+              />
             )}
           </section>
         </section>

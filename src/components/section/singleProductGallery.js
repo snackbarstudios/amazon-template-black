@@ -4,12 +4,12 @@ import Image from "../image";
 import { createMarkup } from "../../utils/functions";
 import { Fragment } from "react";
 
-const SingleProductGallery = ({ products }) => {
+const SingleProductGallery = ({ products, title }) => {
   return (
     <Fragment>
-      <h2 sx={{ textAlign: "center", color: "highlight", mt: [6], mb: "0px" }}>
-        Feature products
-      </h2>
+      <Styled.h2 sx={{ mt: [6], mb: "0px", textAlign: "center" }}>
+        {title}
+      </Styled.h2>
       <div
         sx={{
           display: "flex",

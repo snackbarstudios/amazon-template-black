@@ -125,9 +125,9 @@ const Contact = () => {
             </div>
           </div>
           <div sx={{ flex: 1 }}>
-            <div sx={style.image}>
+            {/* <div sx={style.image}>
               <Image alt={image.alt} image={image.fluid} />
-            </div>
+            </div> */}
           </div>
         </div>
       </MainContainer>
