@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui";
 import PropTypes from "prop-types";
 import BackgroundImage from "gatsby-background-image";
-import ExternalLink from "../link/ExternalLink";
+import ExternalLink from "../link/externalLink";
 
 const Banner = ({
   image,
