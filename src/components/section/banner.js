@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui";
 import PropTypes from "prop-types";
 import BackgroundImage from "gatsby-background-image";
-import Outlinebutton from "../components/outlineButton";
+import ExternalLink from "../link/ExternalLink";
 
 const Banner = ({
   image,
@@ -52,10 +52,10 @@ const Banner = ({
           {text}
         </p>
         {bannerLink && (
-          <Outlinebutton href={bannerLink.slug} text={bannerLink.slug} />
+          <ExternalLink href={bannerLink.slug} text={bannerLink.slug} />
         )}
         {bannerExternalLink?.length > 0 && (
-          <Outlinebutton
+          <ExternalLink
             href={bannerExternalLink}
             text={bannerExternalLinkTitle}
           />

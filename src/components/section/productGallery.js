@@ -1,14 +1,15 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { Fragment } from "react";
-import Image from "../components/image";
-import StyledLink from "../components/styledLink";
+import Image from "../image";
+import StyledLink from "../link/styledLink";
 
 const ProductGallery = ({ products }) => {
+  console.log(products)
   return (
     <Fragment>
       <h2 sx={{ textAlign: "center", color: "highlight", mt: [6], mb: "0px" }}>
-        Feature products
+        Featured products
       </h2>
       <div
         sx={{

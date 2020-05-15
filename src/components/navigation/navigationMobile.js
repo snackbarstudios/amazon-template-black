@@ -4,12 +4,12 @@ import Hamburger from "./hamburger";
 import { useState } from "react";
 import DropDownMobile from "./dropdownMobile";
 import NavigationLink from "./navigationLink";
-import Logo from "./logo";
+import Logo from "../logo";
 
 const NavigationMobile = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div
+    <nav
       sx={{
         height: "60px",
         display: ["flex", "none", null],
@@ -37,7 +37,7 @@ const NavigationMobile = () => {
           </NavigationLink>
         </ul>
       </DropDownMobile>
-    </div>
+    </nav>
   );
 };
 

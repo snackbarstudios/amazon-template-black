@@ -21,7 +21,7 @@ const Hamburger = ({ open, setOpen }) => {
       display: "block",
       padding: 0,
       height: "2px",
-      backgroundColor: "black",
+      backgroundColor: "white",
       marginY: 1,
       borderRadius: "3px",
       ":first-of-type": {

@@ -7,27 +7,27 @@ import MainContainer from "../components/mainContainer";
 import { createMarkup } from "../utils/functions";
 
 const PrivacyPage = () => {
-  const { datoCmsPrivacySection } = useStaticQuery(
-    graphql`
-      query {
-        datoCmsPrivacySection {
-          pageTitle
-          textNode {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    `
-  );
+  // const { datoCmsPrivacySection } = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       datoCmsPrivacySection {
+  //         pageTitle
+  //         textNode {
+  //           childMarkdownRemark {
+  //             html
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `
+  // );
 
-  const { pageTitle, textNode } = datoCmsPrivacySection;
+  // const { pageTitle, textNode } = datoCmsPrivacySection;
 
   return (
     <Layout>
       <SEO title="Page two" />
-      <MainContainer>
+      {/* <MainContainer>
         <div sx={{ maxWidth: "800px", margin: "0px auto" }}>
           <div sx={{ color: "highlight" }}>
             <Styled.h2>{pageTitle}</Styled.h2>
@@ -47,7 +47,7 @@ const PrivacyPage = () => {
             )}
           />
         </div>
-      </MainContainer>
+      </MainContainer> */}
     </Layout>
   );
 };

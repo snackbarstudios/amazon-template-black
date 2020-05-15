@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
-import Image from "./image";
-import { createMarkup } from "../utils/functions";
+import Image from "../image";
+import { createMarkup } from "../../utils/functions";
 import { Fragment } from "react";
 
 const SingleProductGallery = ({ products }) => {

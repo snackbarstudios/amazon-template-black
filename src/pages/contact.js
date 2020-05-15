@@ -7,37 +7,37 @@ import Image from "../components/image";
 import { createMarkup } from "../utils/functions";
 
 const Contact = () => {
-  const { datoCmsContactPage } = useStaticQuery(
-    graphql`
-      query {
-        datoCmsContactPage {
-          pageTitle
-          phoneNumber
-          email
-          companyName
-          adressNode {
-            childMarkdownRemark {
-              html
-            }
-          }
-          image {
-            alt
-            fluid {
-              ...GatsbyDatoCmsFluid
-            }
-          }
-        }
-      }
-    `
-  );
-  const {
-    pageTitle,
-    companyName,
-    adressNode,
-    phoneNumber,
-    email,
-    image,
-  } = datoCmsContactPage;
+  // const { datoCmsContactPage } = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       datoCmsContactPage {
+  //         pageTitle
+  //         phoneNumber
+  //         email
+  //         companyName
+  //         adressNode {
+  //           childMarkdownRemark {
+  //             html
+  //           }
+  //         }
+  //         image {
+  //           alt
+  //           fluid {
+  //             ...GatsbyDatoCmsFluid
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `
+  // );
+  // const {
+  //   pageTitle,
+  //   companyName,
+  //   adressNode,
+  //   phoneNumber,
+  //   email,
+  //   image,
+  // } = datoCmsContactPage;
 
   const style = {
     paragraph: {
@@ -92,7 +92,7 @@ const Contact = () => {
                   textTransform: "uppercase",
                 }}
               >
-                <h1>{pageTitle}</h1>
+                {/* <h1>{pageTitle}</h1>
               </div>
               <div sx={{ my: 3, color: "highlight" }}>
                 <Styled.h2>{companyName}</Styled.h2>
@@ -120,7 +120,7 @@ const Contact = () => {
                 </a>
                 <a href={`mailto:${email}`} sx={style.a}>
                   {email}
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

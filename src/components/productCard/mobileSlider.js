@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
-import Image from "../components/image";
+import Image from "../image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { createMarkup } from "../utils/functions";
-import Outlinebutton from "./outlineButton";
+import { createMarkup } from "../../utils/functions";
+import ExternalLink from "../link/externalLink";
 
 const MobileSlider = ({
   imageGallery,
@@ -83,7 +83,7 @@ const MobileSlider = ({
             specificationListNode.childMarkdownRemark.html
           )}
         />
-        <Outlinebutton text={externalButtonText} href={externalButtonLink} />
+        <ExternalLink text={externalButtonText} href={externalButtonLink} />
       </div>
     </article>
   );

@@ -6,58 +6,58 @@ import Hr from "./hr";
 import { createMarkup } from "../utils/functions";
 
 const Footer = () => {
-  const { datoCmsFooter, datoCmsPrivacySection } = useStaticQuery(
-    graphql`
-      query {
-        datoCmsFooter {
-          contactDetailsHeading
-          companyName
-          adressNode {
-            childMarkdownRemark {
-              html
-            }
-          }
-          email
-          phoneNumber
-          socialMediaHeading
-          socialMediaLinks {
-            title
-            urlLink
-          }
-          privacyHeading
-          privacyLink
-          copyright
-        }
-        datoCmsPrivacySection {
-          slug
-        }
-      }
-    `
-  );
+  // const { datoCmsFooter, datoCmsPrivacySection } = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       datoCmsFooter {
+  //         contactDetailsHeading
+  //         companyName
+  //         adressNode {
+  //           childMarkdownRemark {
+  //             html
+  //           }
+  //         }
+  //         email
+  //         phoneNumber
+  //         socialMediaHeading
+  //         socialMediaLinks {
+  //           title
+  //           urlLink
+  //         }
+  //         privacyHeading
+  //         privacyLink
+  //         copyright
+  //       }
+  //       datoCmsPrivacySection {
+  //         slug
+  //       }
+  //     }
+  //   `
+  // );
 
-  const {
-    contactDetailsHeading,
-    companyName,
-    adressNode,
-    email,
-    phoneNumber,
-    socialMediaHeading,
-    socialMediaLinks,
-    privacyHeading,
-    privacyLink,
-    copyright,
-  } = datoCmsFooter;
+  // const {
+  //   contactDetailsHeading,
+  //   companyName,
+  //   adressNode,
+  //   email,
+  //   phoneNumber,
+  //   socialMediaHeading,
+  //   socialMediaLinks,
+  //   privacyHeading,
+  //   privacyLink,
+  //   copyright,
+  // } = datoCmsFooter;
 
-  const { slug } = datoCmsPrivacySection;
+  // const { slug } = datoCmsPrivacySection;
 
   const style = {
     heading: {
-      color: "background",
+      color: "text",
       mb: 2,
       mt: 3,
     },
     link: {
-      color: "background",
+      color: "text",
       fontSize: 1,
       textDecoration: "none",
       display: "block",
@@ -77,12 +77,12 @@ const Footer = () => {
   return (
     <footer
       sx={{
-        backgroundColor: "text",
+        backgroundColor: "primary",
         pb: 2,
         px: [3, "0px", null],
       }}
     >
-      <div
+      {/* <div
         sx={{
           display: "flex",
           flexDirection: ["column", "row", null],
@@ -186,7 +186,7 @@ const Footer = () => {
             &nbsp;Powered by Snackbar Studios
           </a>
         </p>
-      </div>
+      </div> */}
     </footer>
   );
 };

@@ -1,12 +1,12 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
-import Image from "../components/image";
+import Image from "../image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useState } from "react";
-import { createMarkup } from "../utils/functions";
-import Outlinebutton from "./outlineButton";
+import { createMarkup } from "../../utils/functions";
+import ExternalLink from "../link/externalLink";
 
 const DesktopSlider = ({
   imageGallery,
@@ -104,7 +104,7 @@ const DesktopSlider = ({
             )}
           />
 
-          <Outlinebutton text={externalButtonText} href={externalButtonLink} />
+          <ExternalLink text={externalButtonText} href={externalButtonLink} />
         </div>
       </div>
       <div sx={{ flex: "1" }}>
