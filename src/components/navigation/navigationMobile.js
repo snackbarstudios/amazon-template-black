@@ -24,7 +24,7 @@ const NavigationMobile = () => {
       <Hamburger setOpen={setOpen} open={open} />
 
       <DropDownMobile open={open}>
-        <ul>
+        <ul sx={{ p: 0 }}>
           <NavigationLink open={open} href={`/about/`}>
             About
           </NavigationLink>
