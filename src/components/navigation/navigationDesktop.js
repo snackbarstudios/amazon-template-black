@@ -1,6 +1,7 @@
+/* eslint-disable no-restricted-globals */
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavigationLink from "./navigationLink";
 import Logo from "../logo";
 import InstagramIcon from "../Icons/instagramIcon";
@@ -8,6 +9,15 @@ import FacebookIcon from "../Icons/facebookIcon";
 import useDocumentScrollThrottled from "../../hooks/useDocumentScrollThrottled";
 
 const NavigationDesktop = ({ facebook, instagram }) => {
+  const [landingpage, setLandingPage] = useState(false);
+  console.log(location.pathname);
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setLandingPage(true);
+    }
+  }, []);
+
   const [showBackground, setBackground] = useState(false);
   const [shouldHideHeader, setShouldHideHeader] = useState(false);
 
@@ -39,7 +49,7 @@ const NavigationDesktop = ({ facebook, instagram }) => {
         py: 2,
         visibility: shouldHideHeader ? "hidden" : "visible",
         opacity: shouldHideHeader ? 0 : 1,
-        background: showBackground ? "black" : "transparent",
+        background: showBackground || !landingpage ? "black" : "transparent",
         transition: shouldHideHeader
           ? "visibility 10s linear 300ms, opacity 300ms"
           : "visibility 10s linear 300ms, opacity 300ms",
@@ -58,11 +68,17 @@ const NavigationDesktop = ({ facebook, instagram }) => {
           p: 0,
         }}
       >
-        <NavigationLink href={`/about/`}>About</NavigationLink>
+        <NavigationLink href={`/about/`} state={{ color: true }}>
+          About
+        </NavigationLink>
 
-        <NavigationLink href={`/products/`}>Products</NavigationLink>
+        <NavigationLink href={`/products/`} state={{ color: true }}>
+          Products
+        </NavigationLink>
 
-        <NavigationLink href={`/contact/`}>Contact</NavigationLink>
+        <NavigationLink href={`/contact/`} state={{ color: true }}>
+          Contact
+        </NavigationLink>
       </ul>
       <div sx={{ display: "flex" }}>
         {instagram && (

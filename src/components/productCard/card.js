@@ -31,6 +31,7 @@ const Card = ({ section }) => {
               imageGallery={imageGallery}
             />
             <MobileSlider
+              key={section.id}
               heading={heading}
               price={price}
               description={descriptionNode}

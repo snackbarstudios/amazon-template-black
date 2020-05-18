@@ -92,9 +92,15 @@ const Footer = () => {
         p: [3, 4, 6],
       }}
     >
-      <div sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Styled.h4 sx={{ mb: 2 }}>{companyName}</Styled.h4>
+      <div
+        sx={{
+          display: "flex",
+          flexDirection: ["column", "row"],
+          justifyContent: "space-between",
+        }}
+      >
         <div>
-          <Styled.h4 sx={{ mb: 2 }}>{companyName}</Styled.h4>
           <div
             sx={{
               mb: 2,
@@ -113,30 +119,9 @@ const Footer = () => {
           <a sx={linkStyle} href={`mailto:${companyEmail}`}>
             <p>{companyEmail}</p>
           </a>
-          <p
-            sx={{
-              color: "text",
-              fontSize: 0,
-            }}
-          >
-            © {new Date().getFullYear()} {copyright}.
-            <a
-              href="https://www.snackbarstudios.se/"
-              sx={{
-                color: "text",
-                fontSize: 0,
-                textDecoration: "none",
-                ":hover": {
-                  fontWeight: "heading",
-                },
-              }}
-            >
-              &nbsp;Powered by Snackbar Studios
-            </a>
-          </p>
         </div>
         <div>
-          <div sx={{ display: "flex", flexDirection: "column" }}>
+          <div sx={{ display: "flex", flexDirection: "column", my: [2, 0 ]}}>
             <div sx={{ display: "flex" }}>
               {instagramLink && (
                 <a
@@ -182,6 +167,27 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <p
+        sx={{
+          color: "text",
+          fontSize: 0,
+        }}
+      >
+        © {new Date().getFullYear()} {copyright}.
+        <a
+          href="https://www.snackbarstudios.se/"
+          sx={{
+            color: "text",
+            fontSize: 0,
+            textDecoration: "none",
+            ":hover": {
+              fontWeight: "heading",
+            },
+          }}
+        >
+          &nbsp;Powered by Snackbar Studios
+        </a>
+      </p>
     </footer>
   );
 };

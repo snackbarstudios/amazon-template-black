@@ -15,14 +15,18 @@ const ProductGallery = ({ products, title }) => {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "space-around",
-          p: 4,
+          px: 4,
         }}
       >
         {products.map((product) => {
           return (
             <div
               key={product.id}
-              sx={{ minWidth: "250px", textAlign: "center", pb: 4 }}
+              sx={{
+                minWidth: ["250px", "150px", "250px"],
+                textAlign: "center",
+                pb: 4,
+              }}
             >
               <Image
                 image={product.productImage.fluid}
