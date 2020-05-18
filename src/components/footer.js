@@ -45,29 +45,7 @@ const Footer = () => {
   } = datoCmsCompanyInformation;
 
   const { copyright, privacyPolicyLink } = datoCmsFooter;
-
   const { slug } = privacyPolicyLink;
-
-  const style = {
-    heading: {
-      color: "text",
-      mb: 2,
-      mt: 3,
-    },
-    link: {
-      color: "text",
-      fontSize: 1,
-      textDecoration: "none",
-      display: "block",
-      ":hover": {
-        color: "highlight",
-      },
-    },
-    flex: {
-      flex: "1",
-      mx: [0, 3, 5],
-    },
-  };
 
   const linkStyle = {
     display: "block",
@@ -114,7 +92,7 @@ const Footer = () => {
         p: [3, 4, 6],
       }}
     >
-      <div sx={{ display: "flex" }}>
+      <div sx={{ display: "flex", justifyContent: "space-between" }}>
         <div>
           <Styled.h4 sx={{ mb: 2 }}>{companyName}</Styled.h4>
           <div
@@ -171,7 +149,7 @@ const Footer = () => {
               )}
               {facebookLink && (
                 <a
-                  sx={{ ml: 3 }}
+                  sx={{ ml: 3, pb: 2 }}
                   href={facebookLink}
                   target="_blank"
                   rel="noreferrer noopener"
@@ -180,18 +158,26 @@ const Footer = () => {
                 </a>
               )}
             </div>
+            <Link to={`/about/`} aria-label={`Link to about`} sx={linkStyle}>
+              <p> About </p>
+            </Link>
+            <Link
+              to={`/products/`}
+              aria-label={`Link to products`}
+              sx={linkStyle}
+            >
+              <p>Products</p>
+            </Link>
 
-            <Link to={`/about/`} aria-label={`Link to about`}>
-              About
+            <Link
+              to={`/contact/`}
+              aria-label={`Link to contact`}
+              sx={linkStyle}
+            >
+              <p>Contact</p>
             </Link>
-            <Link to={`/products/`} aria-label={`Link to products`}>
-              Products
-            </Link>
-            <Link to={`/contact/`} aria-label={`Link to contact`}>
-              Contact
-            </Link>
-            <Link to={slug} aria-label={`Link to ${slug}`}>
-              Terms & Conditions
+            <Link to={slug} aria-label={`Link to ${slug}`} sx={linkStyle}>
+              <p>Terms & Conditions</p>
             </Link>
           </div>
         </div>
