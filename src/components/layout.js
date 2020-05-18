@@ -24,13 +24,13 @@ const Layout = ({ children }) => {
           position: "relative",
           minHeight: "100vh",
           main: {
-            pb: ["600px", "330px"],
+            pb: ["600px", "330px", "400px"],
           },
           footer: {
             position: "absolute",
             bottom: 0,
             width: "100%",
-            height: ["600px", "330px"],
+            height: ["600px", "330px", "400px"],
           },
         }}
       >

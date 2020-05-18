@@ -103,7 +103,7 @@ export default {
     h4: {
       fontFamily: "heading",
       fontWeight: "body",
-      fontSize: "20px",
+      fontSize: 3,
       m: 0,
     },
     a: {

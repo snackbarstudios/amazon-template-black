@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 
-const FacebookIcon = ({ width }) => {
+const FacebookIcon = ({ width, fill }) => {
   return (
     <div
       sx={{
@@ -9,7 +9,7 @@ const FacebookIcon = ({ width }) => {
         cursor: "pointer",
         svg: {
           path: {
-            fill: "white",
+            fill: fill,
           },
         },
       }}

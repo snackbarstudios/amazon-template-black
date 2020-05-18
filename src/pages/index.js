@@ -88,7 +88,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <HeroSection />
       <main>
-        <section sx={{ my: [6, null,  8] }}>
+        <section sx={{ my: [6, null, 8] }}>
           <IngressSection
             dangerouslySetInnerHTML={createMarkup(
               ingressNode.childMarkdownRemark.html

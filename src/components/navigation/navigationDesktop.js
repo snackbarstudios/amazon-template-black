@@ -67,7 +67,7 @@ const NavigationDesktop = ({ facebook, instagram }) => {
       <div sx={{ display: "flex" }}>
         {instagram && (
           <a href={instagram} target="_blank" rel="noreferrer noopener">
-            <InstagramIcon width={"20px"} />
+            <InstagramIcon width="20px" fill="white" />
           </a>
         )}
         {facebook && (
@@ -77,7 +77,7 @@ const NavigationDesktop = ({ facebook, instagram }) => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <FacebookIcon width={"12px"} />
+            <FacebookIcon width="12px" fill="white" />
           </a>
         )}
       </div>

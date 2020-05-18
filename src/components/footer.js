@@ -2,8 +2,10 @@
 import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";
-import Hr from "./hr";
 import { createMarkup } from "../utils/functions";
+import InstagramIcon from "./Icons/instagramIcon";
+import FacebookIcon from "./Icons/facebookIcon";
+import NavigationLink from "./navigation/navigationLink";
 
 const Footer = () => {
   const { datoCmsFooter, datoCmsCompanyInformation } = useStaticQuery(
@@ -14,6 +16,7 @@ const Footer = () => {
           privacyPolicyLink {
             title
             pageTitle
+            slug
           }
         }
         datoCmsCompanyInformation {
@@ -41,12 +44,9 @@ const Footer = () => {
     instagramLink,
   } = datoCmsCompanyInformation;
 
-  const {
-    copyright,
-    privacyPolicyLink
-  } = datoCmsFooter;
+  const { copyright, privacyPolicyLink } = datoCmsFooter;
 
-  // const { slug } = datoCmsPrivacySection;
+  const { slug } = privacyPolicyLink;
 
   const style = {
     heading: {
@@ -67,8 +67,43 @@ const Footer = () => {
       flex: "1",
       mx: [0, 3, 5],
     },
-    hr: {
-      mb: 2,
+  };
+
+  const linkStyle = {
+    display: "block",
+    textDecoration: "none",
+    fontFamily: "body",
+    color: "text",
+    p: {
+      display: "inline-block",
+      mx: 0,
+      my: 0,
+
+      "::after": {
+        content: '" "',
+        display: "block",
+        width: "0%",
+        borderBottom: "1px solid",
+        borderColor: "text",
+        transition: "0.2s",
+        borderRadius: "2px",
+        mr: "auto",
+      },
+      ":hover": {
+        "::after": {
+          width: "100%",
+        },
+      },
+      ":active": {
+        "::after": {
+          width: "100%",
+        },
+      },
+      "&.active": {
+        "::after": {
+          width: "100%",
+        },
+      },
     },
   };
 
@@ -76,15 +111,15 @@ const Footer = () => {
     <footer
       sx={{
         backgroundColor: "primary",
-        pb: 2,
-        px: [3, "0px", null],
+        p: [3, 4, 6],
       }}
     >
       <div sx={{ display: "flex" }}>
         <div>
-          <Styled.h3>{companyName}</Styled.h3>
+          <Styled.h4 sx={{ mb: 2 }}>{companyName}</Styled.h4>
           <div
             sx={{
+              mb: 2,
               p: {
                 variant: "markdownText.p",
                 color: "text",
@@ -94,21 +129,23 @@ const Footer = () => {
               companyAddressNode.childMarkdownRemark.html
             )}
           />
-          <p>{companyEmail}</p>
-          <p>{companyPhone}</p>
+          <a sx={linkStyle} href={`tel:${companyPhone}`}>
+            <p>{companyPhone}</p>
+          </a>
+          <a sx={linkStyle} href={`mailto:${companyEmail}`}>
+            <p>{companyEmail}</p>
+          </a>
           <p
             sx={{
-              color: "background",
+              color: "text",
               fontSize: 0,
-              mt: 4,
-              mb: 0,
             }}
           >
             © {new Date().getFullYear()} {copyright}.
             <a
               href="https://www.snackbarstudios.se/"
               sx={{
-                color: "background",
+                color: "text",
                 fontSize: 0,
                 textDecoration: "none",
                 ":hover": {
@@ -119,6 +156,44 @@ const Footer = () => {
               &nbsp;Powered by Snackbar Studios
             </a>
           </p>
+        </div>
+        <div>
+          <div sx={{ display: "flex", flexDirection: "column" }}>
+            <div sx={{ display: "flex" }}>
+              {instagramLink && (
+                <a
+                  href={instagramLink}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <InstagramIcon width="25px" fill="black" />
+                </a>
+              )}
+              {facebookLink && (
+                <a
+                  sx={{ ml: 3 }}
+                  href={facebookLink}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <FacebookIcon width="16px" fill="black" />
+                </a>
+              )}
+            </div>
+
+            <Link to={`/about/`} aria-label={`Link to about`}>
+              About
+            </Link>
+            <Link to={`/products/`} aria-label={`Link to products`}>
+              Products
+            </Link>
+            <Link to={`/contact/`} aria-label={`Link to contact`}>
+              Contact
+            </Link>
+            <Link to={slug} aria-label={`Link to ${slug}`}>
+              Terms & Conditions
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

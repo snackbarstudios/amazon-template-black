@@ -66,7 +66,7 @@ const NavigationMobile = ({ facebook, instagram }) => {
         <div sx={{ display: "flex", ml: "40px", mt: 7 }}>
           {instagram && (
             <a href={instagram} target="_blank" rel="noreferrer noopener">
-              <InstagramIcon width={"30px"} />
+              <InstagramIcon width="30px" fill="white" />
             </a>
           )}
           {facebook && (
@@ -76,7 +76,7 @@ const NavigationMobile = ({ facebook, instagram }) => {
               target="_blank"
               rel="noreferrer noopener"
             >
-              <FacebookIcon width={"18px"} />
+              <FacebookIcon width="18px" fill="white" />
             </a>
           )}
         </div>
