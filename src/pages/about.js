@@ -22,6 +22,7 @@ const About = () => {
           }
 
           aboutSection {
+            id
             blockDescription
             blockDescriptionNode {
               childMarkdownRemark {

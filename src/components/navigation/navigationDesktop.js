@@ -7,13 +7,16 @@ import Logo from "../logo";
 import InstagramIcon from "../Icons/instagramIcon";
 import FacebookIcon from "../Icons/facebookIcon";
 import useDocumentScrollThrottled from "../../hooks/useDocumentScrollThrottled";
+import { useLocation } from "@reach/router";
+
 
 const NavigationDesktop = ({ facebook, instagram }) => {
   const [landingpage, setLandingPage] = useState(false);
-  console.log(location.pathname);
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
-    if (location.pathname === "/") {
+    if (location.pathname === "/" || location.pathname === "/about/") {
       setLandingPage(true);
     }
   }, []);

@@ -47,7 +47,7 @@ const Products = () => {
     <Layout>
       <SEO title={title} />
       <MainContainer>
-        <section sx={{ paddingX: [0, 0, 4] }}>
+        <section sx={{ paddingX: [0, 0, 4], pt: "92px" }}>
           <Card section={productBlock} />
         </section>
       </MainContainer>
