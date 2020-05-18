@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
+import SEO from "../components/seo";
 import Layout from "../components/layout";
 import MainContainer from "../components/mainContainer";
 import Image from "../components/image";
@@ -72,6 +73,7 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO title={title} />
       <MainContainer>
         <div
           sx={{
