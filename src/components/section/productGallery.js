@@ -32,8 +32,10 @@ const ProductGallery = ({ products, title }) => {
                 image={product.productImage.fluid}
                 alt={product.productImage.alt}
               />
-              <Styled.h3>{product.productTitle}</Styled.h3>
-              <StyledLink href="/products">View products</StyledLink>
+              <Styled.h3 sx={{ mb: 4 }}>{product.productTitle}</Styled.h3>
+              <StyledLink href="/products" color="#111111" hovercolor="white">
+                View products
+              </StyledLink>
             </div>
           );
         })}

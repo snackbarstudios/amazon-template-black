@@ -13,7 +13,6 @@ import { useLocation } from "@reach/router";
 const NavigationDesktop = ({ facebook, instagram }) => {
   const [landingpage, setLandingPage] = useState(false);
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     if (location.pathname === "/" || location.pathname === "/about/") {
@@ -52,7 +51,7 @@ const NavigationDesktop = ({ facebook, instagram }) => {
         py: 2,
         visibility: shouldHideHeader ? "hidden" : "visible",
         opacity: shouldHideHeader ? 0 : 1,
-        background: showBackground || !landingpage ? "black" : "transparent",
+        background: showBackground || !landingpage ? "#111111" : "transparent",
         transition: shouldHideHeader
           ? "visibility 10s linear 300ms, opacity 300ms"
           : "visibility 10s linear 300ms, opacity 300ms",

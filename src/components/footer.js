@@ -100,7 +100,7 @@ const Footer = () => {
           justifyContent: "space-between",
         }}
       >
-        <div>
+        <div sx={{ mb: [4, "0px"]}}>
           <div
             sx={{
               mb: 2,

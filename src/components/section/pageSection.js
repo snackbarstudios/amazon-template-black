@@ -45,7 +45,11 @@ const PageSection = ({ section }) => {
           )}
         />
         {section.buttonLink && (
-          <StyledLink href={section.buttonLink.slug}>
+          <StyledLink
+            href={section.buttonLink.slug}
+            color="black"
+            hovercolor="white"
+          >
             {section.buttonLink.slug}
           </StyledLink>
         )}
@@ -55,6 +59,8 @@ const PageSection = ({ section }) => {
             rel="noopener noreferrer"
             target="_blank"
             text={section.externalButtonLinkText}
+            color="#111111"
+            hovercolor="white"
           />
         )}
       </div>

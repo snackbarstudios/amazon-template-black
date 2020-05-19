@@ -1,18 +1,28 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import Hamburger from "./hamburger";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DropDownMobile from "./dropdownMobile";
 import NavigationLink from "./navigationLink";
 import InstagramIcon from "../Icons/instagramIcon";
 import FacebookIcon from "../Icons/facebookIcon";
 import Logo from "../logo";
 import useDocumentScrollThrottled from "../../hooks/useDocumentScrollThrottled";
+import { useLocation } from "@reach/router";
 
 const NavigationMobile = ({ facebook, instagram }) => {
   const [open, setOpen] = useState(false);
   const [showBackground, setBackground] = useState(false);
   const [shouldHideHeader, setShouldHideHeader] = useState(false);
+  const [landingpage, setLandingPage] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/" || location.pathname === "/about/") {
+      setLandingPage(true);
+    }
+  }, []);
 
   const MINIMUM_SCROLL = 80;
   const TIMEOUT_DELAY = 100;
@@ -38,7 +48,7 @@ const NavigationMobile = ({ facebook, instagram }) => {
         alignItems: "center",
         visibility: shouldHideHeader ? "hidden" : "visible",
         opacity: shouldHideHeader ? 0 : 1,
-        background: showBackground ? "black" : "transparent",
+        background: showBackground || !landingpage ? "#111111" : "transparent",
         transition: shouldHideHeader
           ? "visibility 10s linear 300ms, opacity 300ms"
           : "visibility 10s linear 300ms, opacity 300ms",

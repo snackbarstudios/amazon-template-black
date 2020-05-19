@@ -10,7 +10,7 @@ const IngressSection = ({ children }) => {
         mx: "auto",
         mb: [6, null, 8],
         fontFamily: "heading",
-        fontSize: [3, 4],
+        fontSize: 4,
         textAlign: "center",
         lineHeight: "heading",
         px: [3, "0px"],

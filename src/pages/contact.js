@@ -16,6 +16,7 @@ const Contact = () => {
           slug
           pageTitle
           image {
+            alt
             fluid {
               ...GatsbyDatoCmsFluid
             }
@@ -36,7 +37,7 @@ const Contact = () => {
   );
 
   const { pageTitle, title, image } = datoCmsContactPage;
-  console.log(pageTitle);
+
   const {
     companyAddressNode,
     companyEmail,

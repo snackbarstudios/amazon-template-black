@@ -23,7 +23,18 @@ const DesktopSlider = ({
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: imageGallery.length > 2 ? 3 : 2,
+    slidesToShow:
+      imageGallery.length > 5
+        ? 6
+        : imageGallery.length > 4
+        ? 5
+        : imageGallery.length > 3
+        ? 4
+        : imageGallery.length > 2
+        ? 3
+        : imageGallery.length > 1
+        ? 2
+        : 1,
     slidesToScroll: 1,
     slidesPerRow: 1,
     focusOnSelect: true,
@@ -55,34 +66,6 @@ const DesktopSlider = ({
               )}
             />
           </div>
-          {imageGallery.length >= 1 ? (
-            <div
-              sx={{
-                width: imageGallery.length > 2 ? "300px" : "200px",
-                display: ["none", "inline-block", null],
-              }}
-            >
-              <Slider {...settings}>
-                {imageGallery.map(({ fluid, alt }, index) => (
-                  <div
-                    key={index}
-                    sx={{
-                      width: "100px",
-                      height: "100px",
-                      outline: "none",
-                    }}
-                    onClick={() => setFocusImage(fluid)}
-                  >
-                    <Image
-                      sx={{ width: "100px", height: "100px" }}
-                      alt={alt}
-                      image={fluid}
-                    />
-                  </div>
-                ))}
-              </Slider>
-            </div>
-          ) : null}
           <p
             sx={{
               fontWeight: "heading",
@@ -112,6 +95,35 @@ const DesktopSlider = ({
           alt={imageGallery[0].alt}
           image={focusImage ? focusImage : imageGallery[0].fluid}
         />
+        {imageGallery.length >= 1 ? (
+          <div
+            sx={{
+              width: imageGallery.length > 2 ? "300px" : "200px",
+              display: ["none", "inline-block", null],
+            }}
+          >
+            <Slider {...settings}>
+              {imageGallery.map(({ fluid, alt }, index) => (
+                <div
+                  key={index}
+                  sx={{
+                    width: "100px",
+                    height: "100px",
+                    outline: "none",
+                    mt: 4,
+                  }}
+                  onClick={() => setFocusImage(fluid)}
+                >
+                  <Image
+                    sx={{ width: "100px", height: "100px" }}
+                    alt={alt}
+                    image={fluid}
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
+        ) : null}
       </div>
     </article>
   );
