@@ -78,11 +78,11 @@ const Contact = () => {
       <MainContainer>
         <div
           sx={{
+            paddingX: [0, 0, 4],
+            pt: "118px",
+            pb: "48px",
             display: "flex",
             flexDirection: ["column-reverse", "row", null],
-            width: "100%",
-            height: "100%",
-            mt: 7,
           }}
         >
           <div
