@@ -44,22 +44,21 @@ const DesktopSlider = ({
       sx={{
         display: ["none", "flex", "flex"],
         flexDirection: ["column-reverse", "row-reverse"],
-        mb: 6,
+        mb: 8,
       }}
     >
       <div sx={{ flex: "1" }}>
-        <div sx={{ px: 3 }}>
+        <div sx={{ px: 3, ml: [2, null, 6] }}>
           <Styled.h2>{heading}</Styled.h2>
           <p
             sx={{
               fontWeight: "heading",
-              textTransform: "uppercase",
-              my: 2,
+              my: 3,
             }}
           >
-            Price: {price}
+            {price}
           </p>
-          <div sx={{ my: 2 }}>
+          <div sx={{ my: 3 }}>
             <div
               dangerouslySetInnerHTML={createMarkup(
                 descriptionNode.childMarkdownRemark.html
@@ -70,7 +69,7 @@ const DesktopSlider = ({
             sx={{
               fontWeight: "heading",
               textTransform: "uppercase",
-              my: 2,
+              my: 3,
             }}
           >
             {specificationTitle}
@@ -86,8 +85,9 @@ const DesktopSlider = ({
               specificationListNode.childMarkdownRemark.html
             )}
           />
-
-          <ExternalLink text={externalButtonText} href={externalButtonLink} />
+          <div sx={{ py: 3 }}>
+            <ExternalLink text={externalButtonText} href={externalButtonLink} />
+          </div>
         </div>
       </div>
       <div sx={{ flex: "1" }}>
