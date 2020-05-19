@@ -1,11 +1,15 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
+import { useState } from "react";
+
 import Image from "../image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { createMarkup } from "../../utils/functions";
 import ExternalLink from "../link/externalLink";
+import Arrow from "../Icons/arrow";
+import { toggleText } from "../../utils/functions";
 
 const MobileSlider = ({
   imageGallery,
@@ -27,6 +31,10 @@ const MobileSlider = ({
     dots: true,
     focusOnSelect: true,
   };
+
+  const [focusImage, setFocusImage] = useState();
+  const [maxheight, setMaxheight] = useState("90px");
+  const [open, setOpen] = useState(false);
   return (
     <article
       sx={{
@@ -58,11 +66,38 @@ const MobileSlider = ({
         </p>
         <div sx={{ my: 2 }}>
           <div
+            sx={{
+              maxHeight: maxheight,
+              overflow: "hidden",
+              transition: "max-height .5s ease-in-out",
+            }}
             dangerouslySetInnerHTML={createMarkup(
               descriptionNode.childMarkdownRemark.html
             )}
           />
         </div>
+        <button
+          sx={{
+            outline: "none",
+            border: "none",
+            display: "flex",
+            alignItems: "center",
+            background: "transparent",
+            cursor: "poiter",
+            p: {
+              ml: 1,
+            },
+            div: {
+              svg: {
+                transform: open ? "rotate(180deg)" : "rotate(0deg)",
+              },
+            },
+          }}
+          onClick={() => toggleText(open, setOpen, setMaxheight)}
+        >
+          <Arrow fill="#111111" width="12px" />
+          <p> View more</p>
+        </button>
         <p
           sx={{
             fontWeight: "heading",

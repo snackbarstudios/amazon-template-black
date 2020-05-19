@@ -2,75 +2,86 @@
 import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";
-import Hr from "./hr";
 import { createMarkup } from "../utils/functions";
+import InstagramIcon from "./Icons/instagramIcon";
+import FacebookIcon from "./Icons/facebookIcon";
+import NavigationLink from "./navigation/navigationLink";
 
 const Footer = () => {
-  // const { datoCmsFooter, datoCmsPrivacySection } = useStaticQuery(
-  //   graphql`
-  //     query {
-  //       datoCmsFooter {
-  //         contactDetailsHeading
-  //         companyName
-  //         adressNode {
-  //           childMarkdownRemark {
-  //             html
-  //           }
-  //         }
-  //         email
-  //         phoneNumber
-  //         socialMediaHeading
-  //         socialMediaLinks {
-  //           title
-  //           urlLink
-  //         }
-  //         privacyHeading
-  //         privacyLink
-  //         copyright
-  //       }
-  //       datoCmsPrivacySection {
-  //         slug
-  //       }
-  //     }
-  //   `
-  // );
+  const { datoCmsFooter, datoCmsCompanyInformation } = useStaticQuery(
+    graphql`
+      query {
+        datoCmsFooter {
+          copyright
+          privacyPolicyLink {
+            title
+            pageTitle
+            slug
+          }
+        }
+        datoCmsCompanyInformation {
+          companyAddressNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+          companyEmail
+          companyName
+          companyPhone
+          facebookLink
+          instagramLink
+        }
+      }
+    `
+  );
 
-  // const {
-  //   contactDetailsHeading,
-  //   companyName,
-  //   adressNode,
-  //   email,
-  //   phoneNumber,
-  //   socialMediaHeading,
-  //   socialMediaLinks,
-  //   privacyHeading,
-  //   privacyLink,
-  //   copyright,
-  // } = datoCmsFooter;
+  const {
+    companyAddressNode,
+    companyEmail,
+    companyName,
+    companyPhone,
+    facebookLink,
+    instagramLink,
+  } = datoCmsCompanyInformation;
 
-  // const { slug } = datoCmsPrivacySection;
+  const { copyright, privacyPolicyLink } = datoCmsFooter;
+  const { slug } = privacyPolicyLink;
 
-  const style = {
-    heading: {
-      color: "text",
-      mb: 2,
-      mt: 3,
-    },
-    link: {
-      color: "text",
-      fontSize: 1,
-      textDecoration: "none",
-      display: "block",
-      ":hover": {
-        color: "highlight",
+  const linkStyle = {
+    display: "block",
+    textDecoration: "none",
+    fontFamily: "body",
+    color: "text",
+    p: {
+      display: "inline-block",
+      mx: 0,
+      my: 0,
+
+      "::after": {
+        content: '" "',
+        display: "block",
+        width: "0%",
+        borderBottom: "1px solid",
+        borderColor: "text",
+        transition: "0.2s",
+        borderRadius: "2px",
+        mr: "auto",
       },
-    },
-    flex: {
-      flex: "1",
-      mx: [0, 3, 5],
-    },
-    hr: {
-      mb: 2,
+      ":hover": {
+        "::after": {
+          width: "100%",
+        },
+      },
+      ":active": {
+        "::after": {
+          width: "100%",
+        },
+      },
+      "&.active": {
+        "::after": {
+          width: "100%",
+        },
+      },
     },
   };
 
@@ -78,115 +89,105 @@ const Footer = () => {
     <footer
       sx={{
         backgroundColor: "primary",
-        pb: 2,
-        px: [3, "0px", null],
+        p: [3, 4, 6],
       }}
     >
-      {/* <div
+      <Styled.h4 sx={{ mb: 2 }}>{companyName}</Styled.h4>
+      <div
         sx={{
           display: "flex",
-          flexDirection: ["column", "row", null],
+          flexDirection: ["column", "row"],
           justifyContent: "space-between",
         }}
       >
-        <div sx={style.flex}>
-          <Styled.h4 sx={style.heading}>{contactDetailsHeading}</Styled.h4>
-          <div sx={style.hr}>
-            <Hr />
-          </div>
-          <p
-            sx={{
-              color: "background",
-              fontSize: 1,
-              m: 0,
-              mb: 1,
-            }}
-          >
-            {companyName}
-          </p>
+        <div sx={{ mb: [4, "0px"]}}>
           <div
             sx={{
+              mb: 2,
               p: {
                 variant: "markdownText.p",
-                color: "background",
+                color: "text",
               },
             }}
             dangerouslySetInnerHTML={createMarkup(
-              adressNode.childMarkdownRemark.html
+              companyAddressNode.childMarkdownRemark.html
             )}
           />
-          <div sx={{ pt: 2 }}>
-            <a href={`tel:${phoneNumber}`} sx={style.link}>
-              {phoneNumber}
-            </a>
-            <a href={`mailto:${email}`} sx={style.link}>
-              {email}
-            </a>
-          </div>
+          <a sx={linkStyle} href={`tel:${companyPhone}`}>
+            <p>{companyPhone}</p>
+          </a>
+          <a sx={linkStyle} href={`mailto:${companyEmail}`}>
+            <p>{companyEmail}</p>
+          </a>
         </div>
-        <div sx={style.flex}>
-          <Styled.h4 sx={style.heading}>{socialMediaHeading}</Styled.h4>
-          <div sx={style.hr}>
-            <Hr />
-          </div>
-          {socialMediaLinks.map(({ title, urlLink }, index) => (
-            <a
-              key={index}
-              href={urlLink}
-              target="_blank"
-              rel="noreferrer noopener"
-              sx={style.link}
+        <div>
+          <div sx={{ display: "flex", flexDirection: "column", my: [2, 0 ]}}>
+            <div sx={{ display: "flex" }}>
+              {instagramLink && (
+                <a
+                  href={instagramLink}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <InstagramIcon width="25px" fill="black" />
+                </a>
+              )}
+              {facebookLink && (
+                <a
+                  sx={{ ml: 3, pb: 2 }}
+                  href={facebookLink}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <FacebookIcon width="16px" fill="black" />
+                </a>
+              )}
+            </div>
+            <Link to={`/about/`} aria-label={`Link to about`} sx={linkStyle}>
+              <p> About </p>
+            </Link>
+            <Link
+              to={`/products/`}
+              aria-label={`Link to products`}
+              sx={linkStyle}
             >
-              {title}
-            </a>
-          ))}
-        </div>
-        <div sx={style.flex}>
-          <Styled.h4 sx={style.heading}>{privacyHeading}</Styled.h4>
-          <div sx={style.hr}>
-            <Hr />
+              <p>Products</p>
+            </Link>
+
+            <Link
+              to={`/contact/`}
+              aria-label={`Link to contact`}
+              sx={linkStyle}
+            >
+              <p>Contact</p>
+            </Link>
+            <Link to={slug} aria-label={`Link to ${slug}`} sx={linkStyle}>
+              <p>Terms & Conditions</p>
+            </Link>
           </div>
-          <Link
-            to={slug}
-            aria-label={`Link to ${slug}`}
-            sx={{
-              color: "background",
-              fontSize: 1,
-              textDecoration: "none",
-              ":hover": {
-                fontWeight: "heading",
-              },
-            }}
-          >
-            {privacyLink}
-          </Link>
         </div>
       </div>
-      <div sx={{ mx: [0, 3, 5] }}>
-        <p
+      <p
+        sx={{
+          color: "text",
+          fontSize: 0,
+        }}
+      >
+        © {new Date().getFullYear()} {copyright}.
+        <a
+          href="https://www.snackbarstudios.se/"
           sx={{
-            color: "background",
+            color: "text",
             fontSize: 0,
-            mt: 4,
-            mb: 0,
+            textDecoration: "none",
+            ":hover": {
+              fontWeight: "heading",
+            },
           }}
         >
-          © {new Date().getFullYear()} {copyright}.
-          <a
-            href="https://www.snackbarstudios.se/"
-            sx={{
-              color: "background",
-              fontSize: 0,
-              textDecoration: "none",
-              ":hover": {
-                fontWeight: "heading",
-              },
-            }}
-          >
-            &nbsp;Powered by Snackbar Studios
-          </a>
-        </p>
-      </div> */}
+          &nbsp;Powered by Snackbar Studios
+        </a>
+      </p>
     </footer>
   );
 };

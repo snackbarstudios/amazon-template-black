@@ -19,7 +19,7 @@ const Logo = () => {
     `
   );
   return (
-    <Link to="/">
+    <Link to="/" state={{ color: true }}>
       <div sx={{ width: "60px", height: "100%" }}>
         {datoCmsLogo.brandLogo && (
           <Image

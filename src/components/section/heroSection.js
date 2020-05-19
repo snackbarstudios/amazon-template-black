@@ -84,7 +84,14 @@ const HeroSection = () => {
         }}
       >
         <Styled.h1 sx={{ maxWidth: "800px" }}>{heroText}</Styled.h1>
-        {heroLink && <StyledLink href={heroLink.slug} text={heroLink.slug} />}
+        {heroLink && (
+          <StyledLink
+            href={heroLink.slug}
+            text={heroLink.slug}
+            color="white"
+            hovercolor="#111111"
+          />
+        )}
         {externalHeroLink?.length > 0 &&
           externalHeroLink.map((link) => {
             return (
@@ -92,6 +99,8 @@ const HeroSection = () => {
                 key={link.id}
                 href={link.linkUrl}
                 text={link.linkTitle}
+                color="white"
+                hovercolor="#111111"
               />
             );
           })}

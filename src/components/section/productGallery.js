@@ -15,21 +15,27 @@ const ProductGallery = ({ products, title }) => {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "space-around",
-          p: 4,
+          px: 4,
         }}
       >
         {products.map((product) => {
           return (
             <div
               key={product.id}
-              sx={{ minWidth: "250px", textAlign: "center", pb: 4 }}
+              sx={{
+                minWidth: ["250px", "150px", "250px"],
+                textAlign: "center",
+                pb: 4,
+              }}
             >
               <Image
                 image={product.productImage.fluid}
                 alt={product.productImage.alt}
               />
-              <p>{product.productTitle}</p>
-              <StyledLink href="/products">View products</StyledLink>
+              <Styled.h3 sx={{ mb: 4 }}>{product.productTitle}</Styled.h3>
+              <StyledLink href="/products" color="#111111" hovercolor="white">
+                View products
+              </StyledLink>
             </div>
           );
         })}

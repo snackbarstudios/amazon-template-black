@@ -1,43 +1,49 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
+import SEO from "../components/seo";
 import Layout from "../components/layout";
 import MainContainer from "../components/mainContainer";
 import Image from "../components/image";
 import { createMarkup } from "../utils/functions";
 
 const Contact = () => {
-  // const { datoCmsContactPage } = useStaticQuery(
-  //   graphql`
-  //     query {
-  //       datoCmsContactPage {
-  //         pageTitle
-  //         phoneNumber
-  //         email
-  //         companyName
-  //         adressNode {
-  //           childMarkdownRemark {
-  //             html
-  //           }
-  //         }
-  //         image {
-  //           alt
-  //           fluid {
-  //             ...GatsbyDatoCmsFluid
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `
-  // );
-  // const {
-  //   pageTitle,
-  //   companyName,
-  //   adressNode,
-  //   phoneNumber,
-  //   email,
-  //   image,
-  // } = datoCmsContactPage;
+  const { datoCmsContactPage, datoCmsCompanyInformation } = useStaticQuery(
+    graphql`
+      query {
+        datoCmsContactPage {
+          title
+          slug
+          pageTitle
+          image {
+            alt
+            fluid {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+        }
+        datoCmsCompanyInformation {
+          companyAddressNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+          companyEmail
+          companyName
+          companyPhone
+        }
+      }
+    `
+  );
+
+  const { pageTitle, title, image } = datoCmsContactPage;
+
+  const {
+    companyAddressNode,
+    companyEmail,
+    companyName,
+    companyPhone,
+  } = datoCmsCompanyInformation;
 
   const style = {
     paragraph: {
@@ -68,14 +74,15 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO title={title} />
       <MainContainer>
         <div
           sx={{
+            paddingX: [0, 0, 4],
+            pt: "118px",
+            pb: "48px",
             display: "flex",
             flexDirection: ["column-reverse", "row", null],
-            width: "100%",
-            height: "100%",
-            mt: 5,
           }}
         >
           <div
@@ -92,7 +99,7 @@ const Contact = () => {
                   textTransform: "uppercase",
                 }}
               >
-                {/* <h1>{pageTitle}</h1>
+                <h1>{pageTitle}</h1>
               </div>
               <div sx={{ my: 3, color: "highlight" }}>
                 <Styled.h2>{companyName}</Styled.h2>
@@ -110,24 +117,24 @@ const Contact = () => {
                   },
                 }}
                 dangerouslySetInnerHTML={createMarkup(
-                  adressNode.childMarkdownRemark.html
+                  companyAddressNode.childMarkdownRemark.html
                 )}
               />
 
               <div sx={{ mt: 4 }}>
-                <a href={`tel:${phoneNumber}`} sx={style.a}>
-                  {phoneNumber}
+                <a href={`tel:${companyPhone}`} sx={style.a}>
+                  {companyPhone}
                 </a>
-                <a href={`mailto:${email}`} sx={style.a}>
-                  {email}
-                </a> */}
+                <a href={`mailto:${companyEmail}`} sx={style.a}>
+                  {companyEmail}
+                </a>
               </div>
             </div>
           </div>
           <div sx={{ flex: 1 }}>
-            {/* <div sx={style.image}>
+            <div sx={style.image}>
               <Image alt={image.alt} image={image.fluid} />
-            </div> */}
+            </div>
           </div>
         </div>
       </MainContainer>

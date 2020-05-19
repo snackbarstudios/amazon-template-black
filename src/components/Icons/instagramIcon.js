@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 
-const InstagramIcon = ({ width }) => {
+const InstagramIcon = ({ width, fill }) => {
   return (
     <div
       sx={{
         width: width,
         svg: {
           path: {
-            fill: "white",
+            fill: fill,
           },
         },
       }}

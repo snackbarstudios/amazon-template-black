@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -16,12 +16,13 @@ const About = () => {
           ingressTitle
           bannerImage {
             fluid {
-              src
+              ...GatsbyDatoCmsFluid
             }
             alt
           }
 
           aboutSection {
+            id
             blockDescription
             blockDescriptionNode {
               childMarkdownRemark {
@@ -65,21 +66,16 @@ const About = () => {
             mx: "auto",
           }}
         >
-          <h2
+          <Styled.h2
             sx={{
-              fontSize: 3,
-              fontFamily: "heading",
-              fontWeight: "body",
-              color: "text",
               mb: 4,
-              display: "block",
             }}
           >
             {ingressTitle}
-          </h2>
+          </Styled.h2>
           <p>{ingressText}</p>
         </section>
-        <section sx={{ py: 4 }}>
+        <section sx={{ py: 4, mb: 5}}>
           {aboutSection.map((section) => (
             <PageSection key={section.id} section={section} />
           ))}

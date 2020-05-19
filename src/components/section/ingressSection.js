@@ -6,13 +6,14 @@ const IngressSection = ({ children }) => {
   return (
     <article
       sx={{
-        maxWidth: ["400px", "600px"],
+        maxWidth: ["400px", "600px", "800px"],
         mx: "auto",
-        mb: [6, 8],
+        mb: [6, null, 8],
         fontFamily: "heading",
         fontSize: 4,
         textAlign: "center",
         lineHeight: "heading",
+        px: [3, "0px"],
       }}
     >
       {children}
