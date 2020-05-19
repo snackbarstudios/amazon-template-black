@@ -8,16 +8,8 @@ import { useState } from "react";
 import { createMarkup } from "../../utils/functions";
 import ExternalLink from "../link/externalLink";
 import Arrow from "../Icons/arrow";
+import { toggleText } from "../../utils/functions";
 
-function toggleText(open, setOpen, changeHeight) {
-  if (open) {
-    changeHeight("60px");
-    setOpen(!open);
-  } else {
-    changeHeight("1000px");
-    setOpen(!open);
-  }
-}
 
 const DesktopSlider = ({
   imageGallery,
