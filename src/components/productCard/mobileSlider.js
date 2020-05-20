@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import { useState } from "react";
-
+import PropTypes from "prop-types";
 import Image from "../image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -129,3 +129,14 @@ const MobileSlider = ({
 };
 
 export default MobileSlider;
+
+MobileSlider.propTypes = {
+  imageGallery: PropTypes.array.isRequired,
+  price: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
+  descriptionNode: PropTypes.object.isRequired,
+  specificationTitle: PropTypes.string.isRequired,
+  specificationListNode: PropTypes.object.isRequired,
+  externalButtonText: PropTypes.string.isRequired,
+  externalButtonLink: PropTypes.string.isRequired,
+};

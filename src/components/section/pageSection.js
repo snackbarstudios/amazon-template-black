@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
+import PropTypes from "prop-types";
 import ExternalLink from "../link/externalLink";
 import StyledLink from "../link/styledLink";
 import Image from "../image";
@@ -69,3 +70,7 @@ const PageSection = ({ section }) => {
 };
 
 export default PageSection;
+
+PageSection.propTypes = {
+  section: PropTypes.object.isRequired,
+};

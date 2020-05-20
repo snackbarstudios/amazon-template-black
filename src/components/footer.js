@@ -5,7 +5,6 @@ import { Link } from "gatsby";
 import { createMarkup } from "../utils/functions";
 import InstagramIcon from "./Icons/instagramIcon";
 import FacebookIcon from "./Icons/facebookIcon";
-import NavigationLink from "./navigation/navigationLink";
 
 const Footer = () => {
   const { datoCmsFooter, datoCmsCompanyInformation } = useStaticQuery(

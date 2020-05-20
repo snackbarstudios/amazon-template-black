@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import PropTypes from "prop-types";
 import { Fragment } from "react";
 import DesktopSlider from "./desktopSlider";
 import MobileSlider from "./mobileSlider";
@@ -53,3 +54,7 @@ const Card = ({ section }) => {
 };
 
 export default Card;
+
+Card.propTypes = {
+  section: PropTypes.array.isRequired,
+};
