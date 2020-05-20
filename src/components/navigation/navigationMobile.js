@@ -22,7 +22,7 @@ const NavigationMobile = ({ facebook, instagram }) => {
     if (location.pathname === "/" || location.pathname === "/about/") {
       setLandingPage(true);
     }
-  }, []);
+  }, [location.pathname]);
 
   const MINIMUM_SCROLL = 80;
   const TIMEOUT_DELAY = 100;
@@ -50,8 +50,8 @@ const NavigationMobile = ({ facebook, instagram }) => {
         opacity: shouldHideHeader ? 0 : 1,
         background: showBackground || !landingpage ? "#111111" : "transparent",
         transition: shouldHideHeader
-          ? "visibility 10s linear 300ms, opacity 300ms"
-          : "visibility 10s linear 300ms, opacity 300ms",
+          ? ".6s cubic-bezier(.5,0,.5,1)"
+          : ".6s cubic-bezier(.5,0,.5,1)",
         a: {
           ml: "24px",
         },

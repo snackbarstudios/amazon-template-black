@@ -32,7 +32,6 @@ const MobileSlider = ({
     focusOnSelect: true,
   };
 
-  const [focusImage, setFocusImage] = useState();
   const [maxheight, setMaxheight] = useState("90px");
   const [open, setOpen] = useState(false);
   return (

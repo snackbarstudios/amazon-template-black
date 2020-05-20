@@ -53,8 +53,8 @@ const NavigationDesktop = ({ facebook, instagram }) => {
         opacity: shouldHideHeader ? 0 : 1,
         background: showBackground || !landingpage ? "#111111" : "transparent",
         transition: shouldHideHeader
-          ? "visibility 10s linear 300ms, opacity 300ms"
-          : "visibility 10s linear 300ms, opacity 300ms",
+          ? ".6s cubic-bezier(.5,0,.5,1)"
+          : ".6s cubic-bezier(.5,0,.5,1)",
       }}
     >
       <div sx={{ display: "flex" }}>
