@@ -23,16 +23,19 @@ const ProductGallery = ({ products, title }) => {
             <div
               key={product.id}
               sx={{
-                minWidth: ["250px", "150px", "250px"],
+                minWidth: ["250px", "150px", "300px"],
                 textAlign: "center",
                 pb: 4,
+                div: {
+                  my: 4,
+                },
               }}
             >
               <Image
                 image={product.productImage.fluid}
                 alt={product.productImage.alt}
               />
-              <Styled.h3 sx={{ mb: 4 }}>{product.productTitle}</Styled.h3>
+              <Styled.h3 sx={{ mb: 3 }}>{product.productTitle}</Styled.h3>
               <StyledLink href="/products" color="#111111" hovercolor="white">
                 View products
               </StyledLink>

@@ -14,7 +14,6 @@ const Contact = () => {
         datoCmsContactPage {
           title
           slug
-          pageTitle
           image {
             alt
             fluid {
@@ -36,7 +35,7 @@ const Contact = () => {
     `
   );
 
-  const { pageTitle, title, image } = datoCmsContactPage;
+  const { title, image } = datoCmsContactPage;
 
   const {
     companyAddressNode,
@@ -63,11 +62,10 @@ const Contact = () => {
       },
     },
     image: {
-      width: "100%",
-      height: "100%",
       div: {
         width: "100%",
         height: "100%",
+        maxHeight: "400px",
       },
     },
   };
@@ -79,7 +77,7 @@ const Contact = () => {
         <div
           sx={{
             paddingX: [0, 0, 4],
-            pt: "118px",
+            pt: ["70px", "98px"],
             pb: "48px",
             display: "flex",
             flexDirection: ["column-reverse", "row", null],
@@ -98,9 +96,7 @@ const Contact = () => {
                   fontFamily: "body",
                   textTransform: "uppercase",
                 }}
-              >
-                <h1>{pageTitle}</h1>
-              </div>
+              ></div>
               <div sx={{ my: 3, color: "highlight" }}>
                 <Styled.h2>{companyName}</Styled.h2>
               </div>

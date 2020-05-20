@@ -10,6 +10,12 @@ const ExternalLink = ({ text, href, color, hovercolor }) => (
       ":hover": {
         color: hovercolor,
       },
+      ":active": {
+        color: hovercolor,
+      },
+      ":focus": {
+        color: hovercolor,
+      },
       "::after": {
         backgroundColor: color,
       },

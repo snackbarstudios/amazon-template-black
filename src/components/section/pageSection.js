@@ -22,7 +22,7 @@ const PageSection = ({ section }) => {
         sx={{
           flex: "1",
           p: [3, 4, 6],
-          div: { height: "100%" },
+          div: { height: "100%", maxHeight: "600px" },
         }}
       >
         <Image image={section.blockImage.fluid} alt={section.blockImage.alt} />

@@ -117,7 +117,12 @@ const MobileSlider = ({
             specificationListNode.childMarkdownRemark.html
           )}
         />
-        <ExternalLink text={externalButtonText} href={externalButtonLink} />
+        <ExternalLink
+          text={externalButtonText}
+          href={externalButtonLink}
+          hovercolor="white"
+          color="#111111"
+        />
       </div>
     </article>
   );

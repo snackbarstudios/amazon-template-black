@@ -10,7 +10,6 @@ import ExternalLink from "../link/externalLink";
 import Arrow from "../Icons/arrow";
 import { toggleText } from "../../utils/functions";
 
-
 const DesktopSlider = ({
   imageGallery,
   price,
@@ -137,14 +136,14 @@ const DesktopSlider = ({
             sx={{
               width:
                 imageGallery.length > 5
-                  ? "calc(75px * 6)"
+                  ? "calc(85px * 6)"
                   : imageGallery.length > 4
-                  ? "calc(75px * 5)"
+                  ? "calc(85px * 5)"
                   : imageGallery.length > 3
-                  ? "calc(75px * 4)"
+                  ? "calc(85px * 4)"
                   : imageGallery.length > 2
-                  ? "calc(75px * 3)"
-                  : "calc(75px * 2)",
+                  ? "calc(85px * 3)"
+                  : "calc(85px * 2)",
               display: ["none", "block"],
               mx: "auto",
             }}
@@ -154,18 +153,15 @@ const DesktopSlider = ({
                 <div
                   key={index}
                   sx={{
-                    width: "100px",
-                    height: "100px",
+                    width: "100%",
+                    height: "100%",
                     outline: "none",
                     mt: 4,
+                    padding: 1,
                   }}
                   onClick={() => setFocusImage(fluid)}
                 >
-                  <Image
-                    sx={{ width: "100px", height: "100px" }}
-                    alt={alt}
-                    image={fluid}
-                  />
+                  <Image alt={alt} image={fluid} />
                 </div>
               ))}
             </Slider>

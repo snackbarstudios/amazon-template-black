@@ -48,7 +48,7 @@ const NavigationMobile = ({ facebook, instagram }) => {
         alignItems: "center",
         visibility: shouldHideHeader ? "hidden" : "visible",
         opacity: shouldHideHeader ? 0 : 1,
-        background: showBackground || !landingpage ? "#111111" : "transparent",
+        background: showBackground || !landingpage ? "white" : "transparent",
         transition: shouldHideHeader
           ? ".6s cubic-bezier(.5,0,.5,1)"
           : ".6s cubic-bezier(.5,0,.5,1)",
@@ -58,10 +58,23 @@ const NavigationMobile = ({ facebook, instagram }) => {
       }}
     >
       <Logo />
-      <Hamburger setOpen={setOpen} open={open} />
+      <Hamburger
+        setOpen={setOpen}
+        open={open}
+        color={showBackground || !landingpage ? "#111111" : "white"}
+      />
 
       <DropDownMobile open={open}>
-        <ul sx={{ p: 0 }}>
+        <ul
+          sx={{
+            p: 0,
+            li: {
+              a: {
+                color: "white",
+              },
+            },
+          }}
+        >
           <NavigationLink open={open} href={`/about/`}>
             About
           </NavigationLink>

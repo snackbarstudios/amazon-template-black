@@ -12,56 +12,63 @@ const Banner = ({
   bannerLink,
 }) => {
   return (
-    <BackgroundImage
-      fluid={image}
-      backgroundColor={`#F2EDEE`}
-      style={{
-        height: "450px",
+    <div
+      sx={{
+        height: ["450px", "600px"],
       }}
     >
-      <div
-        sx={{
+      <BackgroundImage
+        fluid={image}
+        backgroundColor={`#F2EDEE`}
+        style={{
           height: "100%",
-          width: "100%",
-          backgroundColor: "green",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          background: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          color: "white",
-          m: "auto",
-          p: 2,
         }}
       >
-        <p
+        <div
           sx={{
-            fontFamily: "body",
-            lineHeight: "heading",
-            fontWeight: "body",
-            fontSize: [2, 3],
+            height: "100%",
+            width: "100%",
+            backgroundColor: "primary",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            background:
+              "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            color: "white",
+            m: "auto",
+            p: 2,
           }}
         >
-          {text}
-        </p>
-        {bannerLink && (
-          <ExternalLink href={bannerLink.slug} text={bannerLink.slug} />
-        )}
-        {bannerExternalLink?.length > 0 && (
-          <ExternalLink
-            href={bannerExternalLink}
-            text={bannerExternalLinkTitle}
-          />
-        )}
-      </div>
-    </BackgroundImage>
+          <p
+            sx={{
+              fontFamily: "body",
+              lineHeight: "heading",
+              fontWeight: "body",
+              fontSize: [2, 3],
+            }}
+          >
+            {text}
+          </p>
+          {bannerLink && (
+            <ExternalLink href={bannerLink.slug} text={bannerLink.slug} />
+          )}
+          {bannerExternalLink?.length > 0 && (
+            <ExternalLink
+              href={bannerExternalLink}
+              text={bannerExternalLinkTitle}
+            />
+          )}
+        </div>
+      </BackgroundImage>
+    </div>
   );
 };
 
