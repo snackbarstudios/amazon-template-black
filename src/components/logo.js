@@ -1,38 +1,30 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { Fragment } from "react";
+import PropTypes from "prop-types";
+import { Link } from "gatsby";
 import Img from "gatsby-image";
 
-const Logo = () => {
-  const { datoCmsLogo } = useStaticQuery(
-    graphql`
-      query {
-        datoCmsLogo {
-          brandLogo {
-            alt
-            fluid {
-              ...GatsbyDatoCmsFluid
-            }
-          }
-        }
-      }
-    `
-  );
+const Logo = ({ logo }) => {
   return (
-    <Link
-      to="/"
-      sx={{ width: "30px", maxHeight: `70px`, height: "70px", py: 2}}
-    >
-      {datoCmsLogo.brandLogo && (
-        <Img
-          fluid={datoCmsLogo.brandLogo.fluid}
-          alt={datoCmsLogo.brandLogo.alt}
-          style={{ maxHeight: "100%" }}
-          imgStyle={{ objectFit: "contain" }}
-        />
+    <Fragment>
+      {logo && (
+        <Link
+          to="/"
+          sx={{
+            width: ["30px", "30px", "150px"],
+            py: 2,
+          }}
+        >
+          <Img fluid={logo.fluid} alt={logo.alt} />
+        </Link>
       )}
-    </Link>
+    </Fragment>
   );
 };
 
 export default Logo;
+
+Logo.propTypes = {
+  logo: PropTypes.object.isRequired,
+};

@@ -10,9 +10,11 @@ const Hamburger = ({ open, setOpen, color }) => {
       switch (action) {
         case "rotateCW":
           animation.transform = "rotate(-135deg) translate(-4px, -3px)";
+          animation.backgroundColor = "white";
           break;
         case "rotateCCW":
           animation.transform = "rotate(135deg) translate(-4px, 3px)";
+          animation.backgroundColor = "white";
           break;
         default:
       }
