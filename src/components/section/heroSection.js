@@ -63,7 +63,7 @@ const HeroSection = () => {
           position: "absolute",
           top: 0,
           left: 0,
-          background: "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))",
+          background: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1))",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",

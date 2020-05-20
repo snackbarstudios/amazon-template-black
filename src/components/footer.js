@@ -5,6 +5,8 @@ import { Link } from "gatsby";
 import { createMarkup } from "../utils/functions";
 import InstagramIcon from "./Icons/instagramIcon";
 import FacebookIcon from "./Icons/facebookIcon";
+import PintrestIcon from "./Icons/pintrestIcon";
+import TwitterIcon from "./Icons/twitterIcon";
 
 const Footer = () => {
   const { datoCmsFooter, datoCmsCompanyInformation } = useStaticQuery(
@@ -29,6 +31,8 @@ const Footer = () => {
           companyPhone
           facebookLink
           instagramLink
+          twitterLink
+          pintrestLink
         }
       }
     `
@@ -41,6 +45,8 @@ const Footer = () => {
     companyPhone,
     facebookLink,
     instagramLink,
+    pintrestLink,
+    twitterLink,
   } = datoCmsCompanyInformation;
 
   const { copyright, privacyPolicyLink } = datoCmsFooter;
@@ -131,6 +137,16 @@ const Footer = () => {
                   <InstagramIcon width="25px" fill="black" />
                 </a>
               )}
+               {pintrestLink && (
+                <a
+                  href={pintrestLink}
+                  sx={{ ml: 3, pb: 2 }}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <PintrestIcon width="18px" fill="black" />
+                </a>
+              )}
               {facebookLink && (
                 <a
                   sx={{ ml: 3, pb: 2 }}
@@ -139,6 +155,16 @@ const Footer = () => {
                   rel="noreferrer noopener"
                 >
                   <FacebookIcon width="16px" fill="black" />
+                </a>
+              )}
+              {twitterLink && (
+                <a
+                  sx={{ ml: 3, pb: 2 }}
+                  href={twitterLink}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <TwitterIcon width="25px" fill="black" />
                 </a>
               )}
             </div>

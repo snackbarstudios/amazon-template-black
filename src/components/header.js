@@ -5,18 +5,41 @@ import NavigationMobile from "./navigation/navigationMobile";
 import { useStaticQuery, graphql } from "gatsby";
 
 const Header = () => {
-  const { datoCmsCompanyInformation } = useStaticQuery(
+  const { datoCmsCompanyInformation, datoCmsLogo } = useStaticQuery(
     graphql`
       query {
         datoCmsCompanyInformation {
-          instagramLink
           facebookLink
+          instagramLink
+          twitterLink
+          pintrestLink
+        }
+        datoCmsLogo {
+          brandLogo {
+            alt
+            fluid {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          mobileLogo {
+            alt
+            fluid {
+              ...GatsbyDatoCmsFluid
+            }
+          }
         }
       }
     `
   );
 
-  const { instagramLink, facebookLink } = datoCmsCompanyInformation;
+  const {
+    instagramLink,
+    facebookLink,
+    pintrestLink,
+    twitterLink,
+  } = datoCmsCompanyInformation;
+
+  const { mobileLogo, brandLogo } = datoCmsLogo;
 
   return (
     <header
@@ -27,8 +50,21 @@ const Header = () => {
         width: "100%",
       }}
     >
-      <NavigationDesktop facebook={facebookLink} instagram={instagramLink} />
-      <NavigationMobile facebook={facebookLink} instagram={instagramLink} />
+      <NavigationDesktop
+        facebook={facebookLink}
+        instagram={instagramLink}
+        twitter={twitterLink}
+        pintrest={pintrestLink}
+        brandLogo={brandLogo}
+      />
+      <NavigationMobile
+        facebook={facebookLink}
+        instagram={instagramLink}
+        twitter={twitterLink}
+        pintrest={pintrestLink}
+        brandLogo={brandLogo}
+        mobileLogo={mobileLogo}
+      />
     </header>
   );
 };

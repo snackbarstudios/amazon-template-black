@@ -6,11 +6,19 @@ import NavigationLink from "./navigationLink";
 import Logo from "../logo";
 import InstagramIcon from "../Icons/instagramIcon";
 import FacebookIcon from "../Icons/facebookIcon";
+import PintrestIcon from "../Icons/pintrestIcon";
+import TwitterIcon from "../Icons/twitterIcon";
 import useDocumentScrollThrottled from "../../hooks/useDocumentScrollThrottled";
 import { useLocation } from "@reach/router";
 import PropTypes from "prop-types";
 
-const NavigationDesktop = ({ facebook, instagram }) => {
+const NavigationDesktop = ({
+  facebook,
+  instagram,
+  twitter,
+  pintrest,
+  brandLogo,
+}) => {
   const [landingpage, setLandingPage] = useState(false);
   const location = useLocation();
 
@@ -41,7 +49,7 @@ const NavigationDesktop = ({ facebook, instagram }) => {
   return (
     <nav
       sx={{
-        display: ["none", "flex"],
+        display: ["none", null, "flex"],
         alignItems: "center",
         position: "fixed",
         zIndex: 2,
@@ -57,7 +65,7 @@ const NavigationDesktop = ({ facebook, instagram }) => {
           : ".6s cubic-bezier(.5,0,.5,1)",
       }}
     >
-      <Logo />
+      <Logo logo={brandLogo} />
       <ul
         sx={{
           m: "auto",
@@ -87,6 +95,19 @@ const NavigationDesktop = ({ facebook, instagram }) => {
             />
           </a>
         )}
+        {pintrest && (
+          <a
+            sx={{ ml: 3 }}
+            href={pintrest}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <PintrestIcon
+              width="14px"
+              fill={showBackground || !landingpage ? "#111111" : "white"}
+            />
+          </a>
+        )}
         {facebook && (
           <a
             sx={{ ml: 3 }}
@@ -96,6 +117,19 @@ const NavigationDesktop = ({ facebook, instagram }) => {
           >
             <FacebookIcon
               width="12px"
+              fill={showBackground || !landingpage ? "#111111" : "white"}
+            />
+          </a>
+        )}
+        {twitter && (
+          <a
+            sx={{ ml: 3 }}
+            href={twitter}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <TwitterIcon
+              width="20px"
               fill={showBackground || !landingpage ? "#111111" : "white"}
             />
           </a>

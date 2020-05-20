@@ -7,17 +7,25 @@ import DropDownMobile from "./dropdownMobile";
 import NavigationLink from "./navigationLink";
 import InstagramIcon from "../Icons/instagramIcon";
 import FacebookIcon from "../Icons/facebookIcon";
+import TwitterIcon from "../Icons/twitterIcon";
+import PintrestIcon from "../Icons/pintrestIcon";
 import Logo from "../logo";
 import useDocumentScrollThrottled from "../../hooks/useDocumentScrollThrottled";
 import { useLocation } from "@reach/router";
 
-const NavigationMobile = ({ facebook, instagram }) => {
+const NavigationMobile = ({
+  facebook,
+  instagram,
+  twitter,
+  pintrest,
+  mobileLogo,
+  brandLogo,
+}) => {
+  const location = useLocation();
   const [open, setOpen] = useState(false);
   const [showBackground, setBackground] = useState(false);
   const [shouldHideHeader, setShouldHideHeader] = useState(false);
   const [landingpage, setLandingPage] = useState(false);
-
-  const location = useLocation();
 
   useEffect(() => {
     if (location.pathname === "/" || location.pathname === "/about/") {
@@ -44,11 +52,9 @@ const NavigationMobile = ({ facebook, instagram }) => {
     <nav
       sx={{
         height: "60px",
-        display: ["flex", "none", null],
+        display: ["flex", null, "none"],
         justifyContent: "space-between",
         alignItems: "center",
-        visibility: shouldHideHeader ? "hidden" : "visible",
-        opacity: shouldHideHeader ? 0 : 1,
         background: showBackground || !landingpage ? "white" : "transparent",
         transition: shouldHideHeader
           ? ".6s cubic-bezier(.5,0,.5,1)"
@@ -58,7 +64,7 @@ const NavigationMobile = ({ facebook, instagram }) => {
         },
       }}
     >
-      <Logo />
+      <Logo logo={mobileLogo ? mobileLogo : brandLogo} />
       <Hamburger
         setOpen={setOpen}
         open={open}
@@ -103,6 +109,26 @@ const NavigationMobile = ({ facebook, instagram }) => {
               <FacebookIcon width="18px" fill="white" />
             </a>
           )}
+          {twitter && (
+            <a
+              sx={{ ml: 3 }}
+              href={twitter}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <TwitterIcon width="30px" fill="white" />
+            </a>
+          )}
+          {pintrest && (
+            <a
+              sx={{ ml: 3 }}
+              href={pintrest}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <PintrestIcon width="22px" fill="white" />
+            </a>
+          )}
         </div>
       </DropDownMobile>
     </nav>
@@ -114,4 +140,6 @@ export default NavigationMobile;
 NavigationMobile.propTypes = {
   facebook: PropTypes.string.isRequired,
   instagram: PropTypes.string.isRequired,
+  mobileLogo: PropTypes.object,
+  brandLogo: PropTypes.object.isRequired,
 };
