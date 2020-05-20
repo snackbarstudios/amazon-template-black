@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import PropTypes from "prop-types";
 
 const InstagramIcon = ({ width, fill }) => {
   return (
@@ -27,3 +28,8 @@ const InstagramIcon = ({ width, fill }) => {
 };
 
 export default InstagramIcon;
+
+InstagramIcon.propTypes = {
+  width: PropTypes.string.isRequired,
+  fill: PropTypes.string.isRequired,
+};

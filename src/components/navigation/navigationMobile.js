@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import PropTypes from "prop-types";
 import Hamburger from "./hamburger";
 import { useState, useEffect } from "react";
 import DropDownMobile from "./dropdownMobile";
@@ -109,3 +110,8 @@ const NavigationMobile = ({ facebook, instagram }) => {
 };
 
 export default NavigationMobile;
+
+NavigationMobile.propTypes = {
+  facebook: PropTypes.string.isRequired,
+  instagram: PropTypes.string.isRequired,
+};

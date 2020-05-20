@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import PropTypes from "prop-types";
 
 const Arrow = ({ width, fill }) => {
   return (
@@ -28,3 +29,8 @@ const Arrow = ({ width, fill }) => {
 };
 
 export default Arrow;
+
+Arrow.propTypes = {
+  width: PropTypes.string.isRequired,
+  fill: PropTypes.string.isRequired,
+};

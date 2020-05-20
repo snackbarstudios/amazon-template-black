@@ -66,7 +66,6 @@ NavigationLink.defaultProps = {
 NavigationLink.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
-  open: PropTypes.bool,
 };
 
 export default NavigationLink;

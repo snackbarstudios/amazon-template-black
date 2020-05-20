@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import PropTypes from "prop-types";
 
 const Hamburger = ({ open, setOpen, color }) => {
   console.log(color);
@@ -75,3 +76,9 @@ const Hamburger = ({ open, setOpen, color }) => {
 };
 
 export default Hamburger;
+
+Hamburger.propTypes = {
+  color: PropTypes.string.isRequired,
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+};

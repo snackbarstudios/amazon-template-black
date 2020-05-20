@@ -8,6 +8,7 @@ import InstagramIcon from "../Icons/instagramIcon";
 import FacebookIcon from "../Icons/facebookIcon";
 import useDocumentScrollThrottled from "../../hooks/useDocumentScrollThrottled";
 import { useLocation } from "@reach/router";
+import PropTypes from "prop-types";
 
 const NavigationDesktop = ({ facebook, instagram }) => {
   const [landingpage, setLandingPage] = useState(false);
@@ -105,3 +106,8 @@ const NavigationDesktop = ({ facebook, instagram }) => {
 };
 
 export default NavigationDesktop;
+
+NavigationDesktop.propTypes = {
+  facebook: PropTypes.string.isRequired,
+  instagram: PropTypes.string.isRequired,
+};
