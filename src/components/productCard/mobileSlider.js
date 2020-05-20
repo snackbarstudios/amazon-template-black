@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import { useState } from "react";
-
+import PropTypes from "prop-types";
 import Image from "../image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -32,7 +32,6 @@ const MobileSlider = ({
     focusOnSelect: true,
   };
 
-  const [focusImage, setFocusImage] = useState();
   const [maxheight, setMaxheight] = useState("90px");
   const [open, setOpen] = useState(false);
   return (
@@ -118,10 +117,26 @@ const MobileSlider = ({
             specificationListNode.childMarkdownRemark.html
           )}
         />
-        <ExternalLink text={externalButtonText} href={externalButtonLink} />
+        <ExternalLink
+          text={externalButtonText}
+          href={externalButtonLink}
+          hovercolor="white"
+          color="#111111"
+        />
       </div>
     </article>
   );
 };
 
 export default MobileSlider;
+
+MobileSlider.propTypes = {
+  imageGallery: PropTypes.array.isRequired,
+  price: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
+  descriptionNode: PropTypes.object.isRequired,
+  specificationTitle: PropTypes.string.isRequired,
+  specificationListNode: PropTypes.object.isRequired,
+  externalButtonText: PropTypes.string.isRequired,
+  externalButtonLink: PropTypes.string.isRequired,
+};

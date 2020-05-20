@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
+import PropTypes from "prop-types";
 import ExternalLink from "../link/externalLink";
 import StyledLink from "../link/styledLink";
 import Image from "../image";
@@ -22,7 +23,7 @@ const PageSection = ({ section }) => {
         sx={{
           flex: "1",
           p: [3, 4, 6],
-          div: { height: "100%" },
+          div: { height: "100%", maxHeight: "600px" },
         }}
       >
         <Image image={section.blockImage.fluid} alt={section.blockImage.alt} />
@@ -69,3 +70,7 @@ const PageSection = ({ section }) => {
 };
 
 export default PageSection;
+
+PageSection.propTypes = {
+  section: PropTypes.object.isRequired,
+};

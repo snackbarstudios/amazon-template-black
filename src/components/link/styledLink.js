@@ -55,7 +55,8 @@ StyledLink.defaultProps = {
 StyledLink.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
-  open: PropTypes.bool,
+  color: PropTypes.string.isRequired,
+  hovercolor: PropTypes.string.isRequired,
 };
 
 export default StyledLink;

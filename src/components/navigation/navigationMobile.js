@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import PropTypes from "prop-types";
 import Hamburger from "./hamburger";
 import { useState, useEffect } from "react";
 import DropDownMobile from "./dropdownMobile";
@@ -22,7 +23,7 @@ const NavigationMobile = ({ facebook, instagram }) => {
     if (location.pathname === "/" || location.pathname === "/about/") {
       setLandingPage(true);
     }
-  }, []);
+  }, [location.pathname]);
 
   const MINIMUM_SCROLL = 80;
   const TIMEOUT_DELAY = 100;
@@ -48,20 +49,33 @@ const NavigationMobile = ({ facebook, instagram }) => {
         alignItems: "center",
         visibility: shouldHideHeader ? "hidden" : "visible",
         opacity: shouldHideHeader ? 0 : 1,
-        background: showBackground || !landingpage ? "#111111" : "transparent",
+        background: showBackground || !landingpage ? "white" : "transparent",
         transition: shouldHideHeader
-          ? "visibility 10s linear 300ms, opacity 300ms"
-          : "visibility 10s linear 300ms, opacity 300ms",
+          ? ".6s cubic-bezier(.5,0,.5,1)"
+          : ".6s cubic-bezier(.5,0,.5,1)",
         a: {
           ml: "24px",
         },
       }}
     >
       <Logo />
-      <Hamburger setOpen={setOpen} open={open} />
+      <Hamburger
+        setOpen={setOpen}
+        open={open}
+        color={showBackground || !landingpage ? "#111111" : "white"}
+      />
 
       <DropDownMobile open={open}>
-        <ul sx={{ p: 0 }}>
+        <ul
+          sx={{
+            p: 0,
+            li: {
+              a: {
+                color: "white",
+              },
+            },
+          }}
+        >
           <NavigationLink open={open} href={`/about/`}>
             About
           </NavigationLink>
@@ -96,3 +110,8 @@ const NavigationMobile = ({ facebook, instagram }) => {
 };
 
 export default NavigationMobile;
+
+NavigationMobile.propTypes = {
+  facebook: PropTypes.string.isRequired,
+  instagram: PropTypes.string.isRequired,
+};

@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import PropTypes from "prop-types";
 
 const FacebookIcon = ({ width, fill }) => {
   return (
@@ -28,3 +29,8 @@ const FacebookIcon = ({ width, fill }) => {
 };
 
 export default FacebookIcon;
+
+FacebookIcon.propTypes = {
+  width: PropTypes.string.isRequired,
+  fill: PropTypes.string.isRequired,
+};

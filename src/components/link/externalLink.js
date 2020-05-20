@@ -10,6 +10,12 @@ const ExternalLink = ({ text, href, color, hovercolor }) => (
       ":hover": {
         color: hovercolor,
       },
+      ":active": {
+        color: hovercolor,
+      },
+      ":focus": {
+        color: hovercolor,
+      },
       "::after": {
         backgroundColor: color,
       },
@@ -23,6 +29,8 @@ const ExternalLink = ({ text, href, color, hovercolor }) => (
 ExternalLink.propTypes = {
   href: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  hovercolor: PropTypes.string.isRequired,
 };
 
 export default ExternalLink;

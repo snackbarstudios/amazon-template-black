@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import Image from "../components/image";
+import Img from "gatsby-image";
 
 const Logo = () => {
   const { datoCmsLogo } = useStaticQuery(
@@ -19,15 +19,18 @@ const Logo = () => {
     `
   );
   return (
-    <Link to="/" state={{ color: true }}>
-      <div sx={{ width: "60px", height: "100%" }}>
-        {datoCmsLogo.brandLogo && (
-          <Image
-            image={datoCmsLogo.brandLogo.fluid}
-            alt={datoCmsLogo.brandLogo.alt}
-          />
-        )}
-      </div>
+    <Link
+      to="/"
+      sx={{ width: "30px", maxHeight: `70px`, height: "70px", py: 2}}
+    >
+      {datoCmsLogo.brandLogo && (
+        <Img
+          fluid={datoCmsLogo.brandLogo.fluid}
+          alt={datoCmsLogo.brandLogo.alt}
+          style={{ maxHeight: "100%" }}
+          imgStyle={{ objectFit: "contain" }}
+        />
+      )}
     </Link>
   );
 };

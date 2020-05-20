@@ -1,7 +1,9 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import PropTypes from "prop-types";
 
-const Hamburger = ({ open, setOpen }) => {
+const Hamburger = ({ open, setOpen, color }) => {
+  console.log(color);
   const burgerLine = (action) => {
     let animation = {};
     if (open) {
@@ -19,7 +21,7 @@ const Hamburger = ({ open, setOpen }) => {
       display: "block",
       padding: 0,
       height: "2px",
-      backgroundColor: "white",
+      backgroundColor: color,
       marginY: 1,
       borderRadius: "3px",
       ":first-of-type": {
@@ -74,3 +76,9 @@ const Hamburger = ({ open, setOpen }) => {
 };
 
 export default Hamburger;
+
+Hamburger.propTypes = {
+  color: PropTypes.string.isRequired,
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+};

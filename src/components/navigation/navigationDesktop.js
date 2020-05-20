@@ -8,7 +8,7 @@ import InstagramIcon from "../Icons/instagramIcon";
 import FacebookIcon from "../Icons/facebookIcon";
 import useDocumentScrollThrottled from "../../hooks/useDocumentScrollThrottled";
 import { useLocation } from "@reach/router";
-
+import PropTypes from "prop-types";
 
 const NavigationDesktop = ({ facebook, instagram }) => {
   const [landingpage, setLandingPage] = useState(false);
@@ -18,7 +18,7 @@ const NavigationDesktop = ({ facebook, instagram }) => {
     if (location.pathname === "/" || location.pathname === "/about/") {
       setLandingPage(true);
     }
-  }, []);
+  }, [location.pathname]);
 
   const [showBackground, setBackground] = useState(false);
   const [shouldHideHeader, setShouldHideHeader] = useState(false);
@@ -51,16 +51,13 @@ const NavigationDesktop = ({ facebook, instagram }) => {
         py: 2,
         visibility: shouldHideHeader ? "hidden" : "visible",
         opacity: shouldHideHeader ? 0 : 1,
-        background: showBackground || !landingpage ? "#111111" : "transparent",
+        background: showBackground || !landingpage ? "white" : "transparent",
         transition: shouldHideHeader
-          ? "visibility 10s linear 300ms, opacity 300ms"
-          : "visibility 10s linear 300ms, opacity 300ms",
+          ? ".6s cubic-bezier(.5,0,.5,1)"
+          : ".6s cubic-bezier(.5,0,.5,1)",
       }}
     >
-      <div sx={{ display: "flex" }}>
-        <Logo />
-      </div>
-
+      <Logo />
       <ul
         sx={{
           m: "auto",
@@ -68,24 +65,26 @@ const NavigationDesktop = ({ facebook, instagram }) => {
           justifyContent: "flex-end",
           alignItems: "center",
           p: 0,
+          li: {
+            a: {
+              color: showBackground || !landingpage ? "#111111" : "white",
+            },
+          },
         }}
       >
-        <NavigationLink href={`/about/`} state={{ color: true }}>
-          About
-        </NavigationLink>
+        <NavigationLink href={`/about/`}>About</NavigationLink>
 
-        <NavigationLink href={`/products/`} state={{ color: true }}>
-          Products
-        </NavigationLink>
+        <NavigationLink href={`/products/`}>Products</NavigationLink>
 
-        <NavigationLink href={`/contact/`} state={{ color: true }}>
-          Contact
-        </NavigationLink>
+        <NavigationLink href={`/contact/`}>Contact</NavigationLink>
       </ul>
       <div sx={{ display: "flex" }}>
         {instagram && (
           <a href={instagram} target="_blank" rel="noreferrer noopener">
-            <InstagramIcon width="20px" fill="white" />
+            <InstagramIcon
+              width="20px"
+              fill={showBackground || !landingpage ? "#111111" : "white"}
+            />
           </a>
         )}
         {facebook && (
@@ -95,7 +94,10 @@ const NavigationDesktop = ({ facebook, instagram }) => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <FacebookIcon width="12px" fill="white" />
+            <FacebookIcon
+              width="12px"
+              fill={showBackground || !landingpage ? "#111111" : "white"}
+            />
           </a>
         )}
       </div>
@@ -104,3 +106,8 @@ const NavigationDesktop = ({ facebook, instagram }) => {
 };
 
 export default NavigationDesktop;
+
+NavigationDesktop.propTypes = {
+  facebook: PropTypes.string.isRequired,
+  instagram: PropTypes.string.isRequired,
+};

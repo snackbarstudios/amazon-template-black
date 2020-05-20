@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
+import PropTypes from "prop-types";
 import Image from "../image";
 import { createMarkup } from "../../utils/functions";
 import { Fragment } from "react";
@@ -48,3 +49,8 @@ const SingleProductGallery = ({ products, title }) => {
 };
 
 export default SingleProductGallery;
+
+SingleProductGallery.propTypes = {
+  products: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+};
